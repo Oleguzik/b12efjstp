@@ -1,0 +1,28 @@
+:root {
+  /* TYPO */
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  /* COLORS */
+  color: #1b1b1b;
+  background-color: #f6f6f6;
+
+  /* VARIABLES */
+  /* --white-color: #fcf9f9;
+  --black-color: #1c2225;
+  --yellow-color: #ecd979;
+  --gray-color: rgba(252, 249, 249, 0.1);
+  --light-gray-color: rgba(252, 249, 249, 0.4);
+  --form-placeholder-color: rgba(252, 249, 249, 0.5); */
+
+  /* ANIMATION */
+  --duration: 250ms;
+  --time-function: ease-in-out;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
