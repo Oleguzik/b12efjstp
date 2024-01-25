@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 .hero-container {
+=======
+.hero-container{
+>>>>>>> Stashed changes
     font-family: "DM Sans";
     font-weight: 400;
     display: flex;
@@ -6,8 +10,12 @@
     align-items: center;
     gap: 20px;
 }
+<<<<<<< Updated upstream
 
 .hero-bg {
+=======
+.hero-bg{
+>>>>>>> Stashed changes
     width: 315px;
     height: 347px;
     background-image: url(../img/hero/1-hero-mob.webp);
@@ -17,15 +25,23 @@
     display: flex;
     align-items: end;
 }
+<<<<<<< Updated upstream
 
 .tag-container {
+=======
+.tag-container{
+>>>>>>> Stashed changes
     width: 142px;
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
+<<<<<<< Updated upstream
 
 .tag-item {
+=======
+.tag-item{
+>>>>>>> Stashed changes
     border-radius: 30px;
     border: 1px solid rgba(246, 246, 246, 0.30);
     color: #F6F6F6;
@@ -34,16 +50,24 @@
     line-height: 14px;
     padding: 4px 10px;
 }
+<<<<<<< Updated upstream
 
 .hero-content {
+=======
+.hero-content{
+>>>>>>> Stashed changes
     padding: 60px 20px;
     width: 295px;
     height: 245px;
     border-radius: 30px;
     background: #FFF;
 }
+<<<<<<< Updated upstream
 
 .hero-title {
+=======
+.hero-title{
+>>>>>>> Stashed changes
     color: #1B1B1B;
     font-size: 56px;
     font-style: normal;
@@ -51,22 +75,31 @@
     letter-spacing: -1.12px;
     margin-bottom: 20px;
 }
+<<<<<<< Updated upstream
 
 .hero-title-item {
+=======
+.hero-title-item{
+>>>>>>> Stashed changes
     color: #7E847F;
     font-size: 56px;
     font-style: italic;
     line-height: 50px;
     letter-spacing: -1.12px;
 }
+<<<<<<< Updated upstream
 
 .hero-text {
+=======
+.hero-text{
+>>>>>>> Stashed changes
     color: #1B1B1B;
     font-size: 14px;
     font-style: normal;
     line-height: 18px;
     letter-spacing: -0.14px;
 }
+<<<<<<< Updated upstream
 
 @media (min-width: 768px) {
     .hero-container {
@@ -75,27 +108,46 @@
         justify-content: center;
     }
 
+=======
+@media (min-width: 768px) {
+    .hero-container{
+        flex-direction: row;
+        gap: 0;
+    }
+>>>>>>> Stashed changes
     .hero-bg {
         width: 208px;
         height: 772px;
         background-image: url(../img/hero/1-hero-tab.webp);
         padding: 64px 20px;
+<<<<<<< Updated upstream
     }
 
+=======
+        display: flex;
+        align-items: end;
+    }
+>>>>>>> Stashed changes
     .tag-container {
         width: 196px;
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     .tag-item {
         font-size: 16px;
         font-style: normal;
         line-height: 24px;
         padding: 4px 16px;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     .hero-content {
         padding: 192px 32px;
         width: 384px;
@@ -106,26 +158,36 @@
         flex-direction: column;
         justify-content: end;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     .hero-title {
         font-size: 98px;
         line-height: 95px;
         letter-spacing: -1.96px;
         margin-bottom: 25px;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     .hero-title-item {
         font-size: 98px;
         line-height: 95px;
         letter-spacing: -1.96px;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     .hero-text {
         font-size: 18px;
         line-height: 24px;
         letter-spacing: -0.18px;
     }
 }
+<<<<<<< Updated upstream
 
 @media (min-width: 1440px) {
     .hero-bg {
@@ -178,4 +240,19 @@ screen and (min-device-pixel-ratio: 2) and (min-width: 1440px) {
     .hero-bg {
         background-image: url(../img/hero/1-hero@2x-desk.webp);
     }
+=======
+@media screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx),
+screen and (min-device-pixel-ratio: 2){
+    .hero-bg{
+        background-image: url(../img/hero/1-hero@2x-mob.webp);
+    }
+}
+@media screen and (min-resolution: 192dpi) and (min-width: 768px),
+screen and (min-resolution: 2dppx) and (min-width: 768px),
+screen and (min-device-pixel-ratio: 2) and (min-width: 768px){
+    .hero-bg {
+        background-image: url(../img/hero/1-hero@2x-tab.webp);
+    }
+>>>>>>> Stashed changes
 }
