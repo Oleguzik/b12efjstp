@@ -36,9 +36,32 @@ const localStorageAPI = {
     return favoritesData ? favoritesData : getTestArrayData();
   },
 
-  addItemToFavorites(exercise = {}) {},
+  addItemToFavorites(exercise = {}) {
+    let dataToSave = getDataFromLocalStorage(LOCAL_STORAGE_KEYS.favorites);
 
-  deleteItemFromFavorites(id = '') {},
+    if (!dataToSave) {
+      dataToSave = [];
+    }
+
+    dataToSave.push(exercise);
+
+    localStorage.setItem(
+      LOCAL_STORAGE_KEYS.favorites,
+      JSON.stringify(dataToSave)
+    );
+  },
+
+  deleteItemFromFavorites(id = '') {
+    const favoritesData = getDataFromLocalStorage(LOCAL_STORAGE_KEYS.favorites);
+
+    if (favoritesData && id !== '') {
+      const dataToSave = favoritesData.filter(item => item._id !== id);
+      localStorage.setItem(
+        LOCAL_STORAGE_KEYS.favorites,
+        JSON.stringify(dataToSave)
+      );
+    }
+  },
 };
 
 export default localStorageAPI;
