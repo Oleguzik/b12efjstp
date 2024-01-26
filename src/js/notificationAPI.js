@@ -7,7 +7,11 @@ export const messageObj = {
   },
   showError: textMessage => {
     showMessage(textMessage, "error");
+  },
+  showSuccess: textMessage => {
+    showMessage(textMessage, "success")
   }
+
 }
 
 
