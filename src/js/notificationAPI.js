@@ -5,13 +5,12 @@ export const messageObj = {
   showMessage: textMessage => {
     showMessage(textMessage, "info");
   },
+  showSuccess: textMessage => {
+    showMessage(textMessage, "success");
+  },
   showError: textMessage => {
     showMessage(textMessage, "error");
-  },
-  showSuccess: textMessage => {
-    showMessage(textMessage, "success")
   }
-
 }
 
 
