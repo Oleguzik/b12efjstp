@@ -1,404 +1,104 @@
-<div class="container">
-  <section class="section favorites-container">
-    <h2 class="favorites-section-name">Favorites</h2>
-    <div class="favorites-content">
-      <ul class="favorites-exercises-list">
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
+<section class="section">
+  <div class="container">
+    <div class="favorites-container">
+      <h2 class="favorites-section-name">Favorites</h2>
+      <div class="favorites-content">
+        <ul class="favorites-exercises-list">
+          <li class="favorites-exersise-item">
+            <div class="facorites-card-header">
+              <div class="workout-container">
+                <p class="workout-button">Workout</p>
+                <button type="button" class="remove-exersise" href="">
+                  <svg class="remove-exersise-icon">
+                    <use href="/img/sprite.svg#icon-trash-black"></use>
+                  </svg>
+                </button>
+              </div>
+              <button type="button" class="start-container">
+                <span class="start-action">Start</span>
+                <svg class="start-arrow-icon">
+                  <use href="/img/sprite.svg#icon-arrow-right"></use>
                 </svg>
-              </a>
+              </button>
             </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
+            <h3 class="exercise-name-container">
+              <svg class="exercise-name-icon">
+                <use href="/img/sprite.svg#icon-icon-run"></use>
               </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
+              <span class="exercise-name-text"
+                >Barbell side split squat v. 2</span
+              >
+            </h3>
+            <ul class="exercises-info-container">
+              <li class="exercise-parameter-container">
+                <p class="exercise-parameter">Burned calories:</p>
+                <span class="exercise-parameter-value">60 / 3 min</span>
+              </li>
+              <li class="exercise-parameter-container">
+                <p class="exercise-parameter">Body part:</p>
+                <span class="exercise-parameter-value">Waist</span>
+              </li>
+              <li class="exercise-parameter-container">
+                <p class="exercise-parameter">Target:</p>
+                <span class="exercise-parameter-value">Quads</span>
+              </li>
+            </ul>
+          </li>
 
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
+          <li class="favorites-exersise-item">
+            <div class="facorites-card-header">
+              <div class="workout-container-star">
+                <p class="workout-button">Workout</p>
+                <div class="exercise-rating">
+                  <p class="exercise-rating-value">4.0</p>
+                  <svg class="exercise-rating-star">
+                    <use href="/img/sprite.svg#icon-Star-gold"></use>
+                  </svg>
+                </div>
+              </div>
+              <button type="button" class="start-container">
+                <p class="start-action">Start</p>
+                <svg class="start-arrow-icon">
+                  <use href="/img/sprite.svg#icon-arrow-right"></use>
                 </svg>
-              </a>
+              </button>
             </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
+            <h3 class="exercise-name-container">
+              <svg class="exercise-name-icon">
+                <use href="img/sprite.svg#icon-icon-run"></use>
               </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
+              <span class="exercise-name-text">Barbell side split squat v. 2</span>
+            </h3>
+            <ul class="exercises-info-container">
+              <li class="exercise-parameter-container">
+                <p class="exercise-parameter">Burned calories:</p>
+                <span class="exercise-parameter-value">60 / 3 min</span>
+              </li>
+              <li class="exercise-parameter-container">
+                <p class="exercise-parameter">Body part:</p>
+                <span class="exercise-parameter-value">Waist</span>
+              </li>
+              <li class="exercise-parameter-container">
+                <p class="exercise-parameter">Target:</p>
+                <span class="exercise-parameter-value">Quads</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="favorites-exersise-item">
-          <div class="facorites-card-header">
-            <div class="workout-container">
-              <p class="workout-button">Workout</p>
-              <a class="remove-exersise" href="">
-                <svg class="remove-exersise-icon">
-                  <use href="./sprite.svg#icon-trash-black"></use>
-                </svg>
-              </a>
-            </div>
-            <button type="button" class="start-container">
-              <p class="start-action">Start</p>
-              <svg class="start-arrow-icon">
-                <use href="./sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="exercise-name-container">
-            <svg class="exercise-name-icon">
-              <use href="./sprite.svg#icon-icon-run"></use>
-            </svg>
-            <p class="exercise-name-text">Barbell side split squat v. 2</p>
-          </div>
-          <div class="exercises-info-container">
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Burned calories:</p>
-              <p class="exercise-parameter-value">60 / 3 min</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Body part:</p>
-              <p class="exercise-parameter-value">Waist</p>
-            </div>
-            <div class="exercise-parameter-container">
-              <p class="exercise-parameter">Target:</p>
-              <p class="exercise-parameter-value">Quads</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-
-      <ul class="pagination-list">
-        <li class="pagination-item pagination-item-active">1</li>
-        <li class="pagination-item">2</li>
-        <li class="pagination-item">3</li>
-      </ul>
+        <ul class="pagination-list">
+          <li class="pagination-item pagination-item-active">
+            <a href="">1</a>
+          </li>
+          <li class="pagination-item"><a href="">2</a></li>
+          <li class="pagination-item"><a href="">3</a></li>
+        </ul>
+        <p class="favorites-not-found-exercises">
+          It appears that you haven't added any exercises to your favorites yet.
+          To get started, you can add exercises that you like to your favorites
+          for easier access in the future.
+        </p>
+      </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
