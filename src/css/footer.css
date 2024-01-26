@@ -1,0 +1,314 @@
+.footer-container {
+    background-color: #1c2225;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.footer-main-content-wrapper {
+    display: flex;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: #F6F6F6;
+    font-family: "DM Sans";
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.footer-social-media-list {
+    display: flex;
+    column-gap: 12px;
+}
+
+.footer-social-media-item {
+    display: block;
+}
+
+.footer-social-media-link {
+    border-radius: 10px;
+    border: 1px solid rgba(246, 246, 246, 0.20);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social-media-icon {
+    fill: #F6F6F6;
+    opacity: 0.8;
+
+}
+
+.footer-title {
+    color: #F6F6F6;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.footer-title i {
+    color: rgba(246, 246, 246, 0.30);
+}
+
+.footer-form-text {
+    color: #F6F6F6;
+    font-weight: 400;
+}
+
+.footer-form-label {
+    display: block;
+}
+
+.footer-form-input {
+    display: block;
+    height: 42px;
+    border-radius: 30px;
+    border: 1px solid #F6F6F6;
+    background: transparent;
+    padding-left: 14px;
+    color: #F6F6F6;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    width: 100%;
+}
+
+.footer-form-input::placeholder {
+    color: rgba(246, 246, 246, 0.60);
+}
+
+.footer-form-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    background: #7E847F;
+    color: #F6F6F6;
+    font-weight: 400;
+    width: 100%;
+}
+
+.footer-rights-documents-wrapper {
+    color: #F6F6F6;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    opacity: 0.8;
+}
+
+.footer-rights-document {
+    display: flex;
+    gap: 8px;
+}
+
+
+
+@media (max-width: 767px) {
+    .footer-container {
+        background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer-mob.webp);
+        border-radius: 30px;
+        min-height: 470px;
+        padding: 40px 20px 20px 20px;
+    }
+
+    .footer-main-content-wrapper {
+        flex-direction: column;
+    }
+
+    .footer-link-container {
+        margin-bottom: 40px;
+    }
+
+    .footer-logo {
+        margin-bottom: 8px;
+        font-size: 16px;
+        line-height: 1.12;
+    }
+
+    .footer-social-media-item {
+        width: 36px;
+        height: 36px;
+    }
+
+    .footer-social-media-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-title {
+        font-size: 32px;
+        line-height: 1em;
+        margin-bottom: 20px;
+    }
+
+    .footer-form-text {
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.29;
+    }
+
+    .footer-form-input::placeholder {
+        font-size: 14px;
+    }
+
+    .footer-form-label {
+        margin-bottom: 12px;
+    }
+
+    .footer-form-submit {
+        font-size: 14px;
+        line-height: 1.29;
+        height: 42px;
+    }
+
+    .footer-rights-documents-wrapper {
+        font-size: 12px;
+        line-height: 0.8;
+    }
+
+    .footer-rights-documents-text {
+        margin-bottom: 10px;
+    }
+
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+        .footer-container {
+            background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer@2x-mob.webp);
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-main-content-wrapper {
+        justify-content: space-between;
+    }
+
+    .footer-logo {
+        font-size: 28px;
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+
+    .footer-social-media-item {
+        width: 44px;
+        height: 44px;
+    }
+
+    .footer-social-media-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer-subscription-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 352px;
+    }
+
+    .footer-form-text {
+        max-width: 352px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+    .footer-form-input {
+        font-size: 16px;
+        line-height: 1.5;
+        height: 48px;
+    }
+
+    .footer-form-input::placeholder {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .footer-form-submit {
+        font-size: 16px;
+        line-height: 1.5;
+        height: 48px;
+    }
+
+    .footer-rights-documents-wrapper {
+        font-size: 14px;
+        line-height: 1.29;
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+    }
+
+    .footer-rights-documents-text {
+        display: inline-block;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+    .footer-container {
+        background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer-tab.webp);
+        border-radius: 50px;
+        padding: 64px 48px 32px 48px;
+        min-height: 576px;
+    }
+
+    .footer-main-content-wrapper {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        align-content: flex-end;
+        row-gap: 32px;
+    }
+
+    .footer-link-container {
+        order: 2;
+    }
+
+    .footer-title {
+        max-width: 340px;
+        font-size: 54px;
+        line-height: 0.93;
+        order: 1;
+    }
+
+    .footer-subscription-form {
+        order: 3;
+    }
+
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+        .footer-container {
+            background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer@2x-tab.png);
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    .footer-container {
+        background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer-desk.webp);
+        border-radius: 50px;
+        padding: 64px 48px 26px 48px;
+        min-height: 454px;
+    }
+
+    .footer-title {
+        font-size: 64px;
+        line-height: 0.97;
+        max-width: 488px;
+    }
+
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+        .footer-container {
+            background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer@2x-desk.webp);
+        }
+    }
+}
