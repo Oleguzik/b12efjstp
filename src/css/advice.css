@@ -63,6 +63,7 @@
 }
 
 .advice-title {
+  font-family: DM Sans;
   font-size: 20px;
   font-weight: 500;
   line-height: 140%;
@@ -71,6 +72,7 @@
 }
 .advice-subtitle,
 .advice-text-subtitle {
+  font-family: DM Sans;
   font-size: 14px;
   font-weight: 400;
   line-height: 128.57%;
@@ -83,9 +85,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 100%;
-  }
   .advice-content {
     padding: 64px 96px 64px 64px;
     display: flex;
@@ -99,6 +98,7 @@
   }
 
   .advice-title {
+    font-family: DM Sans;
     font-size: 24px;
     font-weight: 500;
     line-height: 133.33%;
@@ -106,12 +106,14 @@
   }
 
   .advice-subtitle {
+    font-family: DM Sans;
     font-size: 14px;
     font-weight: 400;
     line-height: 128.57%;
     text-align: left;
   }
   .advice-text-subtitle {
+    font-family: DM Sans;
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
@@ -119,13 +121,13 @@
   }
 }
 
-@media screen and (min-width: 1157px) {
-  .container {
+@media screen and (min-width: 1440px) {
+  .advice-container {
     display: flex;
   }
 
   .advice-image {
-    height: auto;
+    height: 302px;
   }
 
   .advice-image,
