@@ -2,14 +2,19 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css"
 
 export const messageObj = {
-  
+  showMessage: textMessage => {
+    showMessage(textMessage, "info");
+  },
+  showError: textMessage => {
+    showMessage(textMessage, "error");
+  }
 }
 
 
-const showMessage = (message, type = "info") => {
+const showMessage = (message, type = "") => {
   iziToast[type]({
     title: "message",
-    position: "topCenter",
+    position: "bottomRight",
     closeOnEscape: true,
     closeOnClick: true,
     timeout: 5000,
