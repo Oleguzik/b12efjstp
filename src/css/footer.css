@@ -124,7 +124,6 @@
 
     .footer-link-container {
         margin-bottom: 40px;
-
     }
 
     .footer-logo {
@@ -178,15 +177,14 @@
         margin-bottom: 10px;
     }
 
-    @media (min-resolution: 192dpi) {
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
         .footer-container {
             background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer@2x-mob.webp);
         }
     }
 }
-
-
-
 
 @media (min-width: 768px) {
     .footer-main-content-wrapper {
@@ -283,7 +281,9 @@
         order: 3;
     }
 
-    @media (min-resolution: 192dpi) {
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
         .footer-container {
             background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer@2x-tab.png);
         }
@@ -304,7 +304,9 @@
         max-width: 488px;
     }
 
-    @media (min-resolution: 192dpi) {
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
         .footer-container {
             background-image: linear-gradient(0deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.70) 100%), url(/img/footer/4-footer@2x-desk.webp);
         }
