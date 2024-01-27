@@ -1,158 +1,16 @@
-/* mobile first */
+@import url('./quote-container.css');
+
+* {
+    box-sizing: border-box;
+}
 
 .fquote-container {
     display: flex;
     flex-direction: column;
 }
 
-/* контейнер с цитатой дня */
-
-.fquote-day {
-    width: 335px;
-    height: 272px;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    background-color: #7E847F;
-}
-
-.fquote-title-icon {
-    display: flex;
-    align-items: center;
-    padding-top: 42px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.icon-run {
-    margin-right: 12px;
-}
-
-.icon-commas {
-    position: absolute;
-    top: 40px;
-    left: 291px;
-    width: 28px;
-    height: 28px;
-}
-
-.fquote-title {
-    color: #F6F6F6;
-    /* font-feature-settings: 'clig' off, 'liga' off;
-    font-family: "DM Sans"; */
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
-    /* 140% */
-    position: relative;
-}
-
-.fquote-text {
-    width: 249px;
-    height: 110px;
-    color: rgba(246, 246, 246, 0.60);
-    /* font-family: "DM Sans"; */
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    /* 128.571% */
-    padding-top: 14px;
-    padding-left: 66px;
-}
-
-.fquote-author {
-    color: #F6F6F6;
-    /* font-family: "DM Sans"; */
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px;
-    /* 150% */
-    padding-top: 14px;
-    padding-left: 66px;
-}
-
-
-/* tablet */
-
-@media screen and (min-width: 768px) {
-    .fquote-day {
-        width: 736px;
-        height: 302px;
-        flex-shrink: 0;
-        border-radius: 50px;
-    }
-
-    .fquote-title-icon {
-        padding-top: 64px;
-        padding-left: 80px;
-    }
-
-    .icon-run {
-        margin-right: 16px;
-    }
-
-    .icon-commas {
-        width: 48px;
-        height: 48px;
-        top: 30px;
-        left: 603px;
-    }
-
-    .fquote-title {
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 32px;
-        /* 133.333% */
-        position: relative;
-    }
-
-    .fquote-text {
-        width: 526px;
-        height: 77px;
-        font-size: 16px;
-        line-height: 24px;
-        /* 150% */
-        padding-top: 16px;
-        padding-left: 130px;
-    }
-
-    .fquote-author {
-        color: #F6F6F6;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px;
-        /* 150% */
-        padding-top: 25px;
-        padding-left: 130px;
-    }
-
-}
-
-@media screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
     .fquote-container {
         flex-direction: row;
     }
-
-    .fquote-day {
-        width: 704px;
-    }
-
-    .fquote-title-icon {
-        padding-left: 64px;
-    }
-
-    .fquote-text {
-        padding-top: 16px;
-        padding-left: 114px;
-    }
-
-    .fquote-author {
-        padding-top: 25px;
-        padding-left: 114px;
-    }
-
 }
