@@ -1,16 +1,14 @@
-.advice-image {
-  background-image: url(../img/advice/3-110-mob.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 269px;
+.advice-content-wrapper {
+  background-color: #1b1b1b;
   border-radius: 30px;
-  background-size: cover;
+  height: 269px;
+  padding: 40px 20px;
+  display: flex;
+  gap: 18px;
 }
 
 .advice-icon-wrapper {
   background-color: rgba(246, 246, 246, 0.1);
-  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,119 +18,100 @@
   border-radius: 16px;
 }
 
-@media screen and (max-resolution: 192gpi) and (min-width: 1158px),
-  screen and (max-resolution: 2dppx) and (min-width: 1158px),
-  screen and (max-devise-pixel-ratio: 2) and (min-width: 1158px) {
-  .advice-image {
-    background-image: url(../../img/advice/3-110@2x-desk.png);
-  }
+.advice-title {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 140%;
+  color: rgba(246, 246, 246, 1);
+  margin-bottom: 2px;
+}
+.advice-subtitle,
+.advice-text-subtitle {
+  font-size: 14px;
+  line-height: 128.57%;
+  color: rgba(246, 246, 246, 0.6);
+  margin-bottom: 14px;
 }
 
-@media screen and (max-resolution: 192gpi) and (min-width: 768px),
-  screen and (max-resolution: 2dppx) and (min-width: 768px),
-  screen and (max-devise-pixel-ratio: 2) and (min-width: 768px) {
-  .advice-image {
-    background-image: url(../img/advice/3-110@2x-tab.png);
-    height: 302px;
-  }
+.advice-image {
+  background-image: url(../img/advice/3-110-mob.webp);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 269px;
+  border-radius: 30px;
+  background-size: cover;
 }
 
-@media screen and (max-resolution: 192gpi) and (max-width: 767px),
-  screen and (max-resolution: 2dppx) and (max-width: 767px),
-  screen and (max-devise-pixel-ratio: 2) and (max-width: 767px) {
+@media (max-resolution: 192gpi),
+  (max-resolution: 2dppx),
+  (max-devise-pixel-ratio: 2) {
   .advice-image {
     background-image: url(../img/advice/3-110@2x-mob.webp);
   }
 }
 
-@media screen and (max-width: 767px) {
-  .container {
-    display: block;
-  }
-}
-
-.advice-content-wrapper {
-  background-color: #1b1b1b;
-  border-radius: 30px;
-}
-
-.advice-content {
-  padding: 40px 20px;
-  display: flex;
-  gap: 18px;
-}
-
-.advice-title {
-  font-family: DM Sans;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 140%;
-  text-align: left;
-  color: rgba(246, 246, 246, 1);
-}
-.advice-subtitle,
-.advice-text-subtitle {
-  font-family: DM Sans;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 128.57%;
-  text-align: left;
-  color: rgba(246, 246, 246, 0.6);
-}
-
-.advice-title-plus {
-  margin-bottom: 14px;
-}
-
-@media screen and (min-width: 768px) {
-  .advice-content {
+@media (min-width: 768px) {
+  .advice-content-wrapper {
     padding: 64px 96px 64px 64px;
     display: flex;
     gap: 18px;
-  }
-
-  .advice-image,
-  .advice-text {
-    width: 100%;
     border-radius: 50px;
+    height: 302px;
   }
 
   .advice-title {
-    font-family: DM Sans;
     font-size: 24px;
-    font-weight: 500;
     line-height: 133.33%;
-    text-align: left;
   }
 
   .advice-subtitle {
-    font-family: DM Sans;
     font-size: 14px;
-    font-weight: 400;
     line-height: 128.57%;
-    text-align: left;
+    margin-bottom: 25px;
   }
+
   .advice-text-subtitle {
-    font-family: DM Sans;
     font-size: 16px;
-    font-weight: 400;
-    line-height: 120%;
-    text-align: left;
+    line-height: 150%;
+    margin-bottom: 0;
+  }
+
+  .advice-image {
+    width: 100%;
+    height: 302px;
+    border-radius: 50px;
+    background-image: url(../img/advice/3-110-tab.webp);
+  }
+
+  @media (max-resolution: 192gpi),
+    (max-resolution: 2dppx),
+    (max-devise-pixel-ratio: 2) {
+    .advice-image {
+      background-image: url(../img/advice/3-110@2x-tab.webp);
+    }
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
+  .advice-image {
+    background-image: url(../img/advice/3-110-desk.webp);
+    min-width: 50%;
+  }
+
+  @media (max-resolution: 192gpi),
+    (max-resolution: 2dppx),
+    (max-devise-pixel-ratio: 2) {
+    .advice-image {
+      background-image: url(../img/advice/3-110@2x-desk.webp);
+    }
+  }
+
   .advice-container {
     display: flex;
   }
 
-  .advice-image {
-    height: 302px;
-  }
-
-  .advice-image,
-  .advice-text {
-    min-width: 50%;
-    border-radius: 50px;
+  .advice-content-wrapper {
+    padding-right: 64px;
   }
 }
