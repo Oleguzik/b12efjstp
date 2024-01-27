@@ -44,14 +44,13 @@
   .header {
     left: 20px;
     right: 20px;
-    /* width: calc(100% - 80px); */
+
     z-index: 999;
   }
   .header-container {
     padding-left: 60px;
     padding-right: 60px;
     padding-top: 28px;
-    /* padding-left: 32px; */
   }
   .mobile-menu {
     display: none;

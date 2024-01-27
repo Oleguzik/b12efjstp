@@ -24,3 +24,12 @@ favoritesEl.addEventListener("click", () => {
     favoritesEl.classList.add("active");
     homeEl.classList.remove("active");
 });
+
+
+const homeMobEl = document.querySelector(".home");
+const favoritesMobEl = document.querySelector(".favorites");
+favoritesMobEl.addEventListener("click", () => {
+   
+    favoritesMobEl.classList.add("active");
+    homeMobEl.classList.remove("active");
+});

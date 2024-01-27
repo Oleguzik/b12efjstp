@@ -19,6 +19,7 @@ mobileMenuEl.addEventListener("click", () =>
 const homeEl = document.querySelector(".home");
 const favoritesEl = document.querySelector(".favorites");
 
+
 if (window.location.pathname === "/favorites.html") {
     favoritesEl.classList.add("active");
     homeEl.classList.remove("active");
@@ -26,3 +27,13 @@ if (window.location.pathname === "/favorites.html") {
     homeEl.classList.add("active"); 
 }
 
+const homeMobEl = document.querySelector(".home-mob");
+const favoritesMobEl = document.querySelector(".favorites-mob");
+
+
+if (window.location.pathname === "/favorites.html") {
+    favoritesMobEl.classList.add("active");
+    homeMobEl.classList.remove("active");
+} else {
+    homeMobEl.classList.add("active");
+}
