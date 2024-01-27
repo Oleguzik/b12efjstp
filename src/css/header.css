@@ -1,14 +1,13 @@
 .header {
   position: absolute;
-  top: 0;
-  left: 60px;
+  /* top: 20px; */
+  left: 20px;
   right: 20px;
-  width: calc(100% - 80px);
   z-index: 999;
 }
 .header-container {
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,9 +41,17 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .header {
+    left: 20px;
+    right: 20px;
+    /* width: calc(100% - 80px); */
+    z-index: 999;
+  }
   .header-container {
+    padding-left: 60px;
+    padding-right: 60px;
     padding-top: 28px;
-    padding-left: 32px;
+    /* padding-left: 32px; */
   }
   .mobile-menu {
     display: none;
