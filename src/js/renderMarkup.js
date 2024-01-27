@@ -1,8 +1,22 @@
-function exerciseCardMarkup(params = {}, isFavorites = false) {
+export function exerciseCardMarkup(params = {}, isFavorites = false) {
+  // {
+  //     "_id": "64f389465ae26083f39b17a4",
+  //     "bodyPart": "waist",
+  //     "equipment": "body weight",
+  //     "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif",
+  //     "name": "air bike",
+  //     "target": "abs",
+  //     "description": "This refers to your core muscles, which include the rectus abdominis, obliques, and transverse abdominis. They're essential for maintaining posture, stability, and generating force in many movements. Exercises that target the abs include crunches, leg raises, and planks.",
+  //     "rating": 3,
+  //     "burnedCalories": 312,
+  //     "time": 3,
+  //     "popularity": 1
+  //   }
+
   const { name, burnedCalories, time, bodyPart, target, rating, id } = params;
   let markupDifference = '';
   if (isFavorites) {
-    markupDifference = `<button type="button" class="exercise-card-remove-btn" id="${id}">
+    markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${id}">
        <svg class="exercise-card-remove-icon">
            <use href="./img/sprite.svg#icon-trash-black"></use>
        </svg>
@@ -15,13 +29,13 @@ function exerciseCardMarkup(params = {}, isFavorites = false) {
          </svg>
       </p>`;
   }
-  return `<li class="exercise-card-item" id="${id}">
+  return `<li class="exercise-card-item" data-card-id="${id}">
   <div class="exercise-card-actions">
     <div class="exercise-card-workout-container">
       <p class="exercise-card-workout-text">Workout</p>
       ${markupDifference}
     </div>
-    <button type="button" class="exercise-card-start-btn" id="${id}">
+    <button type="button" class="exercise-card-start-btn" data-open-id="${id}">
       <span class="exercise-card-start-btn-text">Start</span>
       <svg class="exercise-card-start-btn-icon">
         <use href="./img/sprite.svg#icon-arrow-right"></use>
@@ -52,39 +66,3 @@ function exerciseCardMarkup(params = {}, isFavorites = false) {
   </ul>
   </li>`;
 }
-
-// {
-//     "_id": "64f389465ae26083f39b17a4",
-//     "bodyPart": "waist",
-//     "equipment": "body weight",
-//     "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif",
-//     "name": "air bike",
-//     "target": "abs",
-//     "description": "This refers to your core muscles, which include the rectus abdominis, obliques, and transverse abdominis. They're essential for maintaining posture, stability, and generating force in many movements. Exercises that target the abs include crunches, leg raises, and planks.",
-//     "rating": 3,
-//     "burnedCalories": 312,
-//     "time": 3,
-//     "popularity": 1
-//   }
-
-// <div class="exercise-card-workout-container">
-//   <p class="exercise-card-workout-text">Workout</p>
-//   <button type="button" class="exercise-card-remove-btn">
-//     <svg class="exercise-card-remove-icon">
-//       <use href="./img/sprite.svg#icon-trash-black"></use>
-//     </svg>
-//   </button>
-// </div>
-
-// <div class="exercise-card-workout-container">
-//   <p class="exercise-card-workout-text">Workout</p>
-//   <p class="exercise-card-rating">
-//     <span class="exercise-card-rating-value">4.0</span>
-//     <svg class="exercise-card-rating-star">
-//       <use href="./img/sprite.svg#icon-Star-gold"></use>
-//     </svg>
-//   </p>
-// </div>
-
-// const markup = start + isFavorites ? opt1 : opt2 + end;
-// const markup = all.replace(searchword, isFavorites ? opt1 : opt2);
