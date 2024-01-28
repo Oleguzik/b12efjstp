@@ -1,3 +1,8 @@
+import localStorageAPI from './js/localStorageAPI';
+
+import './js/initialization';
+
+
 const closeBtnEl = document.querySelector('.close-nav-button-mob');
 const navBtnEl = document.querySelector('.header-button-nav');
 const mobileMenuEl = document.querySelector('.mobile-menu');
@@ -29,3 +34,4 @@ if (window.location.pathname === '/favorites.html') {
 } else {
   homeMobEl.classList.add('active');
 }
+
