@@ -1,0 +1,72 @@
+@import url('./quote-container.css');
+
+* {
+  box-sizing: border-box;
+}
+
+/* mobile first */
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* container img */
+
+.quote-img {
+  width: 335px;
+  height: 272px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  background-image: url(../img/quote/2-quest-mob.webp);
+}
+
+@media (min-resolution: 192dpi),
+  (min-resolution: 2dppx),
+  (min-device-pixel-ratio: 2) {
+  .quote-img {
+    background-image: url(../img/quote/2-quest@2x-mob.webp);
+  }
+}
+
+/* TABLET */
+
+@media (min-width: 768px) {
+  .quote-img {
+    width: 736px;
+    height: 302px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background-image: url(../img/quote/2-quest-tab.webp);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+    .quote-img {
+      background-image: url(../img/quote/2-quest@2x-tab.webp);
+    }
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1440px) {
+  .quote-container {
+    flex-direction: row;
+  }
+
+  .quote-img {
+    width: 704px;
+    background-image: url(../img/quote/2-quest-desk.webp);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+    .quote-img {
+      background-image: url(../img/quote/2-quest@2x-desk.webp);
+    }
+  }
+}

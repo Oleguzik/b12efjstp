@@ -1,4 +1,39 @@
+import messages from './js/notificationAPI';
 import backendAPI from './js/backendAPI';
+import localStorageAPI from './js/localStorageAPI';
+import { exerciseCardMarkup } from './js/renderMarkup';
+// import { exerciseCardMarkup } from './js/renderMarkup'; // Для пагінації
+
+import './js/initialization';
+
+const exercisesType = document.querySelector('.exercises-type-item-btn');
+const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
+// const typeBtn = []
+
+document.addEventListener("DOMContentLoaded", () => {
+  // alert("Page is loaded!");
+  exercisesType.classList.add('exercises-type-item-btn-focus');
+
+  console.log(exercisesType.);
+});
+
+exercisesType.addEventListener('click', () => {
+  exercisesType.classList.remove('exercises-type-item-btn-focus');
+  // alert("Page is loaded!");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
 // async function GetAllData() {
@@ -34,3 +69,33 @@ import backendAPI from './js/backendAPI';
 // console.log(ExerciseRating);
 // }
 // GetAllData();
+
+
+
+
+
+// const quote = localStorageAPI.getQuoteOfTheDay();
+// console.log(quote);
+
+// const favorites = localStorageAPI.getFavorites();
+// console.log(favorites);
+
+// const testItem = {
+//   _id: '64f389465ae26083f39b1af3',
+//   bodyPart: 'lower legs',
+//   equipment: 'sled machine',
+//   gifUrl: 'https://ftp.goit.study/img/power-pulse/gifs/1384.gif',
+//   name: 'hack one leg calf raise',
+//   target: 'calves',
+//   description:
+//     "Located on the back of the lower leg, the calves include the gastrocnemius and soleus muscles. They're responsible for plantar flexion (raising the heel). Calves are targeted in exercises like calf raises and during running and jumping.",
+//   rating: 3,
+//   burnedCalories: 286,
+//   time: 3,
+//   popularity: 105,
+// };
+
+// localStorageAPI.addItemToFavorites(testItem);
+// console.log(localStorageAPI.getFavorites());
+
+// localStorageAPI.deleteItemFromFavorites('64f389465ae26083f39b1af3');
