@@ -1,16 +1,128 @@
 @import url('./quote-container.css');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .fquote-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.fadvice-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fadvice-image {
+  width: 335px;
+  height: 272px;
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/fquote/5-favorite-110-mob.webp);
+}
+
+@media (min-resolution: 192dpi),
+  (min-resolution: 2dppx),
+  (min-device-pixel-ratio: 2) {
+  .fadvice-image {
+    background-image: url(../img/fquote/5-favorite-110@2x-mob.webp);
+  }
+}
+
+.fadvice-content {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  width: 335px;
+  height: 272px;
+  border-radius: 30px;
+  padding: 96px 102px 97px 101px;
+}
+
+.fadvice-icon-fluent {
+  margin-bottom: 15px;
+}
+
+.fadvice-title {
+  color: #1b1b1b;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.fadvice-subtitle {
+  color: rgba(27, 27, 27, 0.6);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+}
+
+@media (min-width: 768px) {
+  .fadvice-container {
+    flex-direction: row;
+  }
+
+  .fadvice-image {
+    width: 368px;
+    height: 302px;
+    border-radius: 50px;
+    background-image: url(../img/fquote/5-favorite-110-tab.webp);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+    .fadvice-image {
+      background-image: url(../img/fquote/5-favorite-110@2x-tab.webp);
+    }
+  }
+
+  .fadvice-content {
+    width: 368px;
+    height: 302px;
+    border-radius: 50px;
+    padding: 106px 118px 105px;
+  }
+
+  .fadvice-title {
+    font-size: 24px;
+    line-height: 1.33;
+  }
 }
 
 @media (min-width: 1440px) {
-    .fquote-container {
-        flex-direction: row;
+  .fquote-container {
+    flex-direction: row;
+  }
+
+  .fadvice-container {
+    flex-direction: row;
+  }
+
+  .fadvice-image {
+    width: 352px;
+    height: 302px;
+    border-radius: 50px;
+    background-image: url(../img/fquote/5-favorite-110-desk.webp);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+    .fadvice-image {
+      background-image: url(../img/fquote/5-favorite-110@2x-desk.webp);
     }
+  }
+
+  .fadvice-content {
+    width: 352px;
+    height: 302px;
+    border-radius: 50px;
+    padding: 106px 110px 105px;
+  }
 }
