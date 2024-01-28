@@ -1,0 +1,118 @@
+/* container quote day */
+
+.quote-day {
+  display: flex;
+  flex-direction: row;
+  width: 335px;
+  height: 272px;
+  border-radius: 30px;
+  background-color: #7e847f;
+  padding: 42px 20px 40px;
+}
+
+.quote-text-wrapper {
+  position: relative;
+}
+
+.quote-icon-run {
+  margin-right: 12px;
+  margin-top: -2px;
+}
+
+.quote-icon-commas {
+  position: absolute;
+  top: -2px;
+  /* left: 219px; */
+  right: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.quote-title {
+  color: #f6f6f6;
+  /* font-feature-settings: 'clig' off, 'liga' off; */
+  /* font-family: "DM Sans"; */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.quote-text {
+  width: 249px;
+  color: rgba(246, 246, 246, 0.6);
+  /* font-family: "DM Sans"; */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+  margin-bottom: 14px;
+}
+
+.quote-author {
+  color: #f6f6f6;
+  /* font-family: "DM Sans"; */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* TABLET */
+
+@media (min-width: 768px) {
+  .quote-day {
+    width: 736px;
+    height: 302px;
+    border-radius: 50px;
+    padding: 64px 80px;
+  }
+
+  .quote-icon-run {
+    margin-right: 16px;
+  }
+
+  .quote-icon-commas {
+    width: 48px;
+    height: 48px;
+    top: -32px;
+    /* left: 480px; */
+  }
+
+  .quote-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+    position: relative;
+  }
+
+  .quote-text {
+    width: 526px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+
+  .quote-author {
+    color: #f6f6f6;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1440px) {
+  .quote-day {
+    width: 704px;
+    padding: 64px;
+  }
+
+  .quote-title {
+    margin-bottom: 16px;
+  }
+}
