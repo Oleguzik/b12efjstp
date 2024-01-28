@@ -1,14 +1,17 @@
 import backendAPI from './js/backendAPI';
+// Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
+// async function GetAllData() {
+//     const filterWithFront = 'Equipment';
+//     backendAPI.filter = filterWithFront;
+//   const filterData = await backendAPI.getFilterData(1, 8);
+//   console.log(filterData);
 
-async function GetAllData() {
-  // const filterData = await getFilterData(1, 8);
-  const filter = 'Equipment';
-  backendAPI.filter = filter;
-  const filterData = await backendAPI.getFilterData(1, 8);
-  console.log(filterData);
-
-  const OnExercises = await backendAPI.getOnExercises(1, 5, `air`);
-  console.log(OnExercises);
+//     filterWithFront = 'Body part';
+//     backendAPI.filter = filterWithFront;
+//     const exercisesWithFront = `Waist`;
+//     backendAPI.choiceExercises = exercisesWithFront;
+//   const OnExercises = await backendAPI.getOnExercises(1, 5, `air`);
+//   console.log(OnExercises);
 
   // const QuoteOfTheDay = await backendAPI.getQuoteOfTheDay();
   // console.log(QuoteOfTheDay);
@@ -28,8 +31,5 @@ async function GetAllData() {
   //   review: `text`,
   // });
   // console.log(ExerciseRating);
-}
-
-GetAllData();
-
-// backendAPI.testData(123);
+// }
+// GetAllData();

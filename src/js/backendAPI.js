@@ -1,18 +1,10 @@
 import axios from 'axios';
 axios.defaults.baseURL = `https://energyflow.b.goit.study/api`;
-// 1. Додати BASE URL
-// 2. додати до всіх await конструкцію Try-Cath
-// 3. інструкції в коментах
 
 const backendAPI = {
-  // pagination: {
-  //   pageForFilter: 1,
-  //   pageForExercises: 1,
-  //   limit: 12
-  // },
   widthScreen: document.querySelector(`body`).getBoundingClientRect().width,
-  filter: `Body part`, // Body part, Muscles, Equipment
-  choiceExercises: `waist`,
+  filter: `Muscles`, // Body part, Muscles, Equipment
+  choiceExercises: undefined, // Приймає значення назви картки при кліку на ній (Exercises/Waist)
 
   getFilterData: async function (
     page = 1,
@@ -41,7 +33,6 @@ const backendAPI = {
     keyword
   ) {
     const validFilter = this.filter.replace(/\s/g, '').toLowerCase();
-
     try {
       const response = await axios.get(`/exercises`, {
         params: {
@@ -112,12 +103,5 @@ const backendAPI = {
     }
   },
 };
-
-// backendAPI.getFilterData = getFilterData;
-// backendAPI.getOnExercises = getOnExercises;
-// backendAPI.getQuoteOfTheDay = getQuoteOfTheDay;
-// backendAPI.getExerciseInfo = getExerciseInfo;
-// backendAPI.updateExerciseRating = updateExerciseRating;
-// backendAPI.subscription = subscription;
 
 export default backendAPI;
