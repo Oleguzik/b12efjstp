@@ -5,37 +5,7 @@ import { exerciseCardMarkup } from './js/renderMarkup';
 import './js/initialization';
 
 const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
-
-function renderFavoritesList() {
-  const favoritesList = document.querySelector('.favorites-exercises-list');
-  const items = localStorageAPI.getFavorites();
-  const favoritesMarkup = items
-    .map(item => {
-      return exerciseCardMarkup(
-        {
-          name: item.name,
-          burnedCalories: item.burnedCalories,
-          time: item.time,
-          bodyPart: item.bodyPart,
-          target: item.target,
-          rating: item.rating,
-          id: item._id,
-        },
-        true
-      );
-    })
-    .join('');
-
-  favoritesList.innerHTML = favoritesMarkup;
-
-  if (items.length > 0) {
-    if (!emptyListBlock.classList.contains('visually-hidden')) {
-      emptyListBlock.classList.all('visually-hidden');
-    }
-  } else {
-    emptyListBlock.classList.remove('visually-hidden');
-  }
-}
+const favoritesList = document.querySelector('.favorites-exercises-list');
 
 renderFavoritesList();
 
@@ -43,6 +13,7 @@ document
   .querySelector('.favorites-exercises-list')
   .addEventListener('click', event => {
     if (event.target.closest('.exercise-card-start-btn')) {
+      // open modal-exercise
       console.log(
         event.target
           .closest('.exercise-card-start-btn')
@@ -56,7 +27,23 @@ document
           .closest('.exercise-card-remove-btn')
           .getAttribute('data-delete-id')
       );
-
       renderFavoritesList();
     }
   });
+
+function renderFavoritesList() {
+  const items = localStorageAPI.getFavorites();
+  const favoritesMarkup = items
+    .map(item => exerciseCardMarkup(item, true))
+    .join('');
+
+  favoritesList.innerHTML = favoritesMarkup;
+
+  if (items.length > 0) {
+    if (!emptyListBlock.classList.contains('visually-hidden')) {
+      emptyListBlock.classList.add('visually-hidden');
+    }
+  } else {
+    emptyListBlock.classList.remove('visually-hidden');
+  }
+}

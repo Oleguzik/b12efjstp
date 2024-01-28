@@ -13,10 +13,10 @@ export function exerciseCardMarkup(params = {}, isFavorites = false) {
   //     "popularity": 1
   //   }
 
-  const { name, burnedCalories, time, bodyPart, target, rating, id } = params;
+  const { name, burnedCalories, time, bodyPart, target, rating, _id } = params;
   let markupDifference = '';
   if (isFavorites) {
-    markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${id}">
+    markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${_id}">
        <svg class="exercise-card-remove-icon">
            <use href="./img/sprite.svg#icon-trash-black"></use>
        </svg>
@@ -29,13 +29,13 @@ export function exerciseCardMarkup(params = {}, isFavorites = false) {
          </svg>
       </p>`;
   }
-  return `<li class="exercise-card-item" data-card-id="${id}">
+  return `<li class="exercise-card-item" data-card-id="${_id}">
   <div class="exercise-card-actions">
     <div class="exercise-card-workout-container">
       <p class="exercise-card-workout-text">Workout</p>
       ${markupDifference}
     </div>
-    <button type="button" class="exercise-card-start-btn" data-open-id="${id}">
+    <button type="button" class="exercise-card-start-btn" data-open-id="${_id}">
       <span class="exercise-card-start-btn-text">Start</span>
       <svg class="exercise-card-start-btn-icon">
         <use href="./img/sprite.svg#icon-arrow-right"></use>
