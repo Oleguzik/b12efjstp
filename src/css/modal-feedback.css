@@ -52,15 +52,15 @@
   gap: 2px;
   margin-bottom: 20px;
 }
-.feedback-form-rating {
+.feedback-form-rating-value {
   display: flex;
   align-items: center;
 }
+
 .feedback-rating-stars-svg {
   fill: rgba(27, 27, 27, 0.2);
 }
-.feedback-rating-stars-svg:hover,
-.feedback-rating-stars-svg:focus {
+.feedback-rating-stars-svg-highlight {
   fill: #eea10c;
 }
 
