@@ -1,7 +1,34 @@
 import messages from './js/notificationAPI';
+import backendAPI from './js/backendAPI';
 import localStorageAPI from './js/localStorageAPI';
+import { exerciseCardMarkup } from './js/renderMarkup';
+// import { exerciseCardMarkup } from './js/renderMarkup'; // Для пагінації
 
 import './js/initialization';
+
+const exercisesType = document.querySelector('.exercises-type-item-btn');
+const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
+// const typeBtn = []
+
+document.addEventListener("DOMContentLoaded", () => {
+  // alert("Page is loaded!");
+  exercisesType.classList.add('exercises-type-item-btn-focus');
+
+  console.log(exercisesType.);
+});
+
+exercisesType.addEventListener('click', () => {
+  exercisesType.classList.remove('exercises-type-item-btn-focus');
+  // alert("Page is loaded!");
+});
+
+
+
+
+
+
+
+
 
 // const quote = localStorageAPI.getQuoteOfTheDay();
 // console.log(quote);
