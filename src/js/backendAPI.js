@@ -10,20 +10,13 @@ const backendAPI = {
   //   pageForExercises: 1,
   //   limit: 12
   // },
-  // BASE_URL: `https://energyflow.b.goit.study/api`,
   widthScreen: document.querySelector(`body`).getBoundingClientRect().width,
-  filter: `Muscles`, // Body parts, Muscles, Equipment
-  choiceExercises: undefined,
+  filter: `Body part`, // Body part, Muscles, Equipment
+  choiceExercises: `waist`,
 
-  getFilterData: async function (
-    page = 1,
-    limit = this.widthScreen > 375 ? 12 : 7
-  ) {
-    const END_POINT = `filters`;
-    // перевірка корректності пагінації
-    // try {
+  getFilterData: async function ( page = 1, limit = this.widthScreen > 375 ? 12 : 7) {
     try {
-      const response = await axios.get(`/${END_POINT}`, {
+      const response = await axios.get(`/filters`, {
         params: {
           filter: `Muscles`,
           page,
@@ -38,17 +31,16 @@ const backendAPI = {
       };
     }
   },
-  // async getFilterData(filter = 'Muscles') {
 
-  // async getOnExercises(filter = 'muscles') {
-  async getOnExercises(page = 1, limit = this.widthScreen > 768 ? 9 : 8) {
-    const END_POINT = `exercises`;
+  getOnExercises: async function (page = 1, limit = this.widthScreen > 768 ? 9 : 8, keyword)
+  {
     const validFilter = this.filter.replace(/\s/g, '').toLowerCase();
 
     try {
-      const response = await axios.get(`/${END_POINT}`, {
+      const response = await axios.get(`/exercises`, {
         params: {
           [validFilter]: this.choiceExercises,
+          keyword,
           page,
           limit,
         },
@@ -62,11 +54,9 @@ const backendAPI = {
     }
   },
 
-  // getQuoteOfTheDay()
-  async getQuoteOfTheDay() {
-    const END_POINT = `quote`;
+  getQuoteOfTheDay: async function () {
     try {
-      const response = await axios.get(`/${END_POINT}`);
+      const response = await axios.get(`/quote`);
       return response.data;
     } catch {
       return {
@@ -76,11 +66,9 @@ const backendAPI = {
     }
   },
 
-  // getExerciseInfo(id='')
-  async getExerciseInfo(id = ``) {
-    const END_POINT = `exercises`;
+  getExerciseInfo: async function (id = ``) {
     try {
-      const response = await axios.get(`${END_POINT}/${id}`);
+      const response = await axios.get(`exercises/${id}`);
       return response.data;
     } catch {
       return {
@@ -89,12 +77,9 @@ const backendAPI = {
     }
   },
 
-  // updateExerciseRating({id, rate, email, review})
-  async updateExerciseRating({ id, rate, email, review }) {
-    const END_POINT = `exercises`;
-
+  updateExerciseRating: async function ({ id, rate, email, review }) {
     try {
-      const response = await axios.patch(`${END_POINT}/${id}/rating`, {
+      const response = await axios.patch(`exercises/${id}/rating`, {
         rate,
         email,
         review,
@@ -106,14 +91,14 @@ const backendAPI = {
     }
   },
 
-  // subscription(email)
-  async subscription(email) {
-    const END_POINT = `subscription`;
+  subscription: async function(email) {
+    axios.post(`/subscription`,
     try {
-      const response = await axios.post(`/${END_POINT}`, {
-        email,
+      const response = await axios.post(`/subscription`, 
+      {
+        email: email,
       });
-
+console.log(response.data)
       return {
         result: true,
         message:
@@ -125,6 +110,11 @@ const backendAPI = {
   },
 };
 
-backendAPI.getFilterData = getFilterData;
+// backendAPI.getFilterData = getFilterData;
+// backendAPI.getOnExercises = getOnExercises;
+// backendAPI.getQuoteOfTheDay = getQuoteOfTheDay;
+// backendAPI.getExerciseInfo = getExerciseInfo;
+// backendAPI.updateExerciseRating = updateExerciseRating;
+// backendAPI.subscription = subscription;
 
 export default backendAPI;
