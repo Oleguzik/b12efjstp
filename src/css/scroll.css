@@ -1,28 +1,31 @@
 .scroll-button {
-    position: fixed;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: #7E847F;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    right: 5%;
-    bottom: 5%;
-    transition: 200ms;
-    scale: 0.5;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #7e847f;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  right: 5%;
+  bottom: 10%;
 }
+
+.scroll-button:hover {
+  scale: 1.2;
+  background-color: #5f6560;
+}
+
 .scroll-arrow {
-    fill: #FFF;
+  transform: rotate(-45deg);
+  fill: #f6f6f6;
 }
-@media (min-width: 768px){
-    .scroll-button{
-        scale: 1;
-    }
-    .scroll-button:hover {
-        scale: 1.2;
-        background-color: #6e736f;
-    }
+
+@media (min-width: 1440px) {
+  .scroll-button {
+    width: 100px;
+    height: 100px;
+  }
 }
