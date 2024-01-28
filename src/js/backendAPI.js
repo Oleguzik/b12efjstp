@@ -14,11 +14,14 @@ const backendAPI = {
   filter: `Body part`, // Body part, Muscles, Equipment
   choiceExercises: `waist`,
 
-  getFilterData: async function ( page = 1, limit = this.widthScreen > 375 ? 12 : 7) {
+  getFilterData: async function (
+    page = 1,
+    limit = this.widthScreen > 375 ? 12 : 7
+  ) {
     try {
       const response = await axios.get(`/filters`, {
         params: {
-          filter: `Muscles`,
+          filter: this.filter,
           page,
           limit,
         },
@@ -32,8 +35,11 @@ const backendAPI = {
     }
   },
 
-  getOnExercises: async function (page = 1, limit = this.widthScreen > 768 ? 9 : 8, keyword)
-  {
+  getOnExercises: async function (
+    page = 1,
+    limit = this.widthScreen > 768 ? 9 : 8,
+    keyword
+  ) {
     const validFilter = this.filter.replace(/\s/g, '').toLowerCase();
 
     try {
@@ -84,28 +90,25 @@ const backendAPI = {
         email,
         review,
       });
-
       return { result: true };
-    } catch {
-      return { result: false, message: '' };
+    } catch (error) {
+      return { result: false, message: error.response.data.message };
     }
   },
 
-  subscription: async function(email) {
-    axios.post(`/subscription`,
+  subscription: async function (email) {
     try {
-      const response = await axios.post(`/subscription`, 
-      {
+      const response = await axios.post(`/subscription`, {
         email: email,
       });
-console.log(response.data)
       return {
         result: true,
         message:
           "We're excited to have you on board! 🎉 Thank you for subscribing to new exercises on Energy Flow.You've just taken a significant step towards improving your fitness and well-being.",
       };
-    } catch {
-      return { result: false, message: '' };
+    } catch (error) {
+      console.log(error);
+      return { result: false, message: error.response.data.message };
     }
   },
 };
