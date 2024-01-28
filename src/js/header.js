@@ -1,4 +1,4 @@
-const closeBtnEl = document.querySelector('.close-nav-button-mob');
+const closeBtnEl = document.querySelector('.mob-menu-close-nav-button');
 const navBtnEl = document.querySelector('.header-button-nav');
 const mobileMenuEl = document.querySelector('.mobile-menu');
 
@@ -10,41 +10,22 @@ mobileMenuEl.addEventListener('click', () =>
   mobileMenuEl.classList.remove('is-open')
 );
 
-const homeEl = document.querySelector('.home');
-const favoritesEl = document.querySelector('.favorites');
+const homeMobEl = document.querySelector('.mob-menu-home');
+const favoritesMobEl = document.querySelector('.mob-menu-favorites');
 
-// --------------- main.js  start -------------
-// favoritesEl.addEventListener('click', () => {
-//   favoritesEl.classList.add('active');
-//   homeEl.classList.remove('active');
-// });
+if (window.location.pathname === '/favorites.html') {
+  favoritesMobEl.classList.add('active');
+  homeMobEl.classList.remove('active');
+} else {
+  homeMobEl.classList.add('active');
+}
 
-// const homeMobEl = document.querySelector('.home');
-// const favoritesMobEl = document.querySelector('.favorites');
-// favoritesMobEl.addEventListener('click', () => {
-//   favoritesMobEl.classList.add('active');
-//   homeMobEl.classList.remove('active');
-// });
 
-// --------------- main.js  finish -------------
-
-// --------------- favorites.js  start -------------
-
-// if (window.location.pathname === '/favorites.html') {
-//   favoritesEl.classList.add('active');
-//   homeEl.classList.remove('active');
-// } else {
-//   homeEl.classList.add('active');
-// }
-
-// const homeMobEl = document.querySelector('.home-mob');
-// const favoritesMobEl = document.querySelector('.favorites-mob');
-
-// if (window.location.pathname === '/favorites.html') {
-//   favoritesMobEl.classList.add('active');
-//   homeMobEl.classList.remove('active');
-// } else {
-//   homeMobEl.classList.add('active');
-// }
-
-// --------------- favorites.js  finish -------------
+const homeEl = document.querySelector('.header-home');
+const favoritesEl = document.querySelector('.header-favorites');
+if (window.location.pathname === '/favorites.html') {
+  favoritesEl.classList.add('active');
+  homeEl.classList.remove('active');
+} else {
+  homeEl.classList.add('active');
+}

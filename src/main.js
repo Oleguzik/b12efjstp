@@ -3,6 +3,7 @@ import localStorageAPI from './js/localStorageAPI';
 
 import './js/initialization';
 
+
 // const quote = localStorageAPI.getQuoteOfTheDay();
 // console.log(quote);
 
