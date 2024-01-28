@@ -66,3 +66,17 @@ export function exerciseCardMarkup(params = {}, isFavorites = false) {
   </ul>
   </li>`;
 }
+
+function paginationMarkup(numberOfPages, activePage) {
+  let markup = '';
+  for (let i = 1; i <= numberOfPages; i++) {
+    if (!(i === activePage)) {
+      markup += `<li class="pagination-item"><a href="">${i}</a></li>`;
+    } else {
+      markup += `<li class="pagination-item pagination-item-active">
+    <a href="">${i}</a>
+  </li>`;
+    }
+  }
+  return markup;
+}
