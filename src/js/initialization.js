@@ -7,3 +7,5 @@ import localStorageAPI from './localStorageAPI';
   // document.querySelector('').textContent = quoteData.author;
   // document.querySelector('').textContent = quoteData.quote;
 })();
+
+import './header';
