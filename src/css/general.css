@@ -2,6 +2,31 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 400;
+  src: url('../fonts/dmsans-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  src: url('../fonts/dmsans-medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 700;
+  src: url('../fonts/dmsans-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/dmsans-italic.ttf') format('truetype');
+}
+
 .section {
   padding-top: 10px;
   padding-bottom: 10px;
