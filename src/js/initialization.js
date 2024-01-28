@@ -9,3 +9,4 @@ import localStorageAPI from './localStorageAPI';
 })();
 
 import './header';
+import './scroll';
