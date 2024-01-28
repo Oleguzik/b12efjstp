@@ -1,3 +1,9 @@
-import backendAPI from "./js/backendAPI";
+import backendAPI from './js/backendAPI';
+import { getFilterData } from './js/backendAPI';
 
-console.log(backendAPI.getRequestOnFilters())
+async function GetAllData() {
+  const filterData = await getFilterData(1, 8);
+  console.log(filterData);
+}
+
+GetAllData();
