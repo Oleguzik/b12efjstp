@@ -97,7 +97,7 @@ function getTestQuoteData() {
 }
 
 function getTestArrayData() {
-  return [
+  const testData = [
     {
       _id: '64f389465ae26083f39b1af6',
       bodyPart: 'lower legs',
@@ -239,4 +239,7 @@ function getTestArrayData() {
       popularity: 105,
     },
   ];
+
+  localStorage.setItem(LOCAL_STORAGE_KEYS.favorites, JSON.stringify(testData));
+  return testData;
 }
