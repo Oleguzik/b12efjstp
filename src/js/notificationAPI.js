@@ -1,25 +1,26 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css"
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-export const messageObj = {
-  showMessage: textMessage => {
-    showMessage(textMessage, "info");
+const messages = {
+  showInfo: textMessage => {
+    showMessage(textMessage, 'info');
   },
   showSuccess: textMessage => {
-    showMessage(textMessage, "success");
+    showMessage(textMessage, 'success');
   },
   showError: textMessage => {
-    showMessage(textMessage, "error");
-  }
-}
+    showMessage(textMessage, 'error');
+  },
+};
 
+export default messages;
 
-const showMessage = (message, type = "") => {
+const showMessage = (message, type = '') => {
   iziToast[type]({
-    title: "message",
-    position: "bottomRight",
+    title: message,
+    position: 'bottomCenter',
     closeOnEscape: true,
     closeOnClick: true,
     timeout: 5000,
-  })
+  });
 };
