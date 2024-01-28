@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+axios.defaults.baseURL = BASE_URL;
 // 1. Додати BASE URL
 // 2. додати до всіх await конструкцію Try-Cath
 // 3. інструкції в коментах
@@ -7,97 +7,102 @@ import axios from 'axios';
 
 const backendAPI = {
   // pagination: {
-  //     page: 1,
-  //     limit: 12
-  // }
-
+  //   pageForFilter: 1,
+  //   pageForExercises: 1,
+  //   limit: 12
+  // },
+  BASE_URL:  `https://energyflow.b.goit.study/api`,
   widthScreen: document.querySelector(`body`).getBoundingClientRect().width,
-  filter: `Body parts`, // Body parts, Muscles, Equipment
+  filter: `Muscles`, // Body parts, Muscles, Equipment
   choiceExercises: undefined,
-  pageForFilter: 1,
-  pageForExercises: 1,
+
 
   // async getFilterData(filter = 'Muscles') {
-  async getRequestOnFilters() {
+  async getFilterData(page = 1, limit = this.widthScreen > 375 ? 12 : 7) {
     const END_POINT = `filters`;
-    const limit = this.widthScreen > 375 ? 12 : 7;
-
     // перевірка корректності пагінації
     // try {
-
-    const response = await axios.get(
-      `https://energyflow.b.goit.study/api/${END_POINT}?filter=${this.filter}&page=${this.pageForFilter}&limit=${limit}`
+    try {
+      const response = await axios.get(`/${END_POINT}`, {
+      params: {
+          filter: this.filter,
+          page,
+          limit,
+        }
+      }
     );
+      return response.data;
+    }
 
-    // catch {
-    //     return {
-    //         "totalPages": 0,
-    //         "results": []
-    //     }
-    //   }
-
-    return response.data;
+    catch {
+        return {
+            totalPages: 0,
+            results: []
+        }
+      }
   },
 
   // async getOnExercises(filter = 'muscles') {
-  async getRequestOnExercises() {
+  async getOnExercises(page = 1, limit = this.widthScreen > 768 ? 9 : 8) {
     const END_POINT = `exercises`;
     const validFilter = this.filter.replace(/\s/g, '').toLowerCase();
 
-    const limit = this.widthScreen > 768 ? 9 : 8;
-
-    const response = await axios.get(
-      `https://energyflow.b.goit.study/api/${END_POINT}?${validFilter}=${this.choiceExercises}&page=${this.pageForExercises}&limit=${limit}`
+    try {
+      const response = await axios.get(`/${END_POINT}`, {
+      params: {
+        [validFilter]: this.choiceExercises,
+        page,
+        limit,
+      }
+    }
     );
-
-    // catch {
-    //     return {
-    //         "totalPages": 0,
-    //         "results": []
-    //     }
-    //   }
-    return response.data;
+      return response.data;
+    }
+    catch {
+        return {
+            totalPages: 0,
+            results: []
+        }
+      }
   },
 
   // getQuoteOfTheDay()
-  async getRequestQuote() {
-    const response = await axios.get(
-      `https://energyflow.b.goit.study/api/quote`
-    );
+  async getQuoteOfTheDay() {
+    const END_POINT = `quote`;
+    try {
+      const response = await axios.get(`/${END_POINT}`);
+      return response.data;
+    }
+    catch {
+        return {
+            author: '',
+            quote: ''
+        }
+      }
 
-    // catch {
-    //     return {
-    //         "author": '',
-    //         "quote": ''
-    //     }
-    //   }
-
-    return response.data;
   },
 
   // getExerciseInfo(id='')
-  async getRequestInfoAboutExercise(id) {
+  async getExerciseInfo(id=``) {
     const END_POINT = `exercises`;
+    try {
+      const response = await axios.get(`${END_POINT}/${id}`);
+      return response.data;
+    }
+    catch {
+        return {
+            _id: ''
+        }
+      }
 
-    const response = await axios.get(
-      `https://energyflow.b.goit.study/api/${END_POINT}/${id}`
-    );
-
-    // catch {
-    //     return {
-    //         "_id": ''
-    //     }
-    //   }
-
-    return response.data;
   },
 
   // updateExerciseRating({id, rate, email, review})
-  async getRequestInfoAboutExercise(id, rate, email, review) {
+  async updateExerciseRating({id, rate, email, review}) {
     const END_POINT = `exercises`;
 
-    const response = await axios.patch(
-      `https://energyflow.b.goit.study/api/${END_POINT}/${id}/rating`,
+    try {
+      const response = await axios.patch(`${END_POINT}/${id}/rating`,
       {
         rate,
         email,
@@ -105,29 +110,33 @@ const backendAPI = {
       }
     );
 
-    //   return {result: true }
-    // catch {
-    //     return {result: false, message: }
-    //   }
+      return { result: true }
+    }
+    catch {
+        return {result: false, message: }
+      }
 
-    return response.data;
   },
 
   // subscription(email)
-  async registration(email) {
-    const response = await axios.post(
-      'https://energyflow.b.goit.study/api/subscription',
+  async subscription(email) {
+    const END_POINT = `subscription`;
+    try {
+      const response = await axios.post(`/${END_POINT}`,
       {
-        email: email,
+        email,
       }
     );
 
-    //   return {result: true, message: '...' }
-    // catch {
-    //     return {result: false, message: ''}
-    //   }
+      return {
+        result: true,
+        message: "We're excited to have you on board! 🎉 Thank you for subscribing to new exercises on Energy Flow.You've just taken a significant step towards improving your fitness and well-being."
+      }
+    }
+    catch {
+        return {result: false, message: ''}
+      }
 
-    return response.data;
   },
 };
 
