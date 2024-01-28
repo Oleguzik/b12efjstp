@@ -1,4 +1,5 @@
 import backendAPI from './js/backendAPI';
+
 // Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
 // async function GetAllData() {
 //     const filterWithFront = 'Equipment';
@@ -13,23 +14,23 @@ import backendAPI from './js/backendAPI';
 //   const OnExercises = await backendAPI.getOnExercises(1, 5, `air`);
 //   console.log(OnExercises);
 
-  // const QuoteOfTheDay = await backendAPI.getQuoteOfTheDay();
-  // console.log(QuoteOfTheDay);
+// const QuoteOfTheDay = await backendAPI.getQuoteOfTheDay();
+// console.log(QuoteOfTheDay);
 
-  // const ExerciseInfo = await backendAPI.getExerciseInfo(
-  //   `64f389465ae26083f39b17a4`
-  // );
-  // console.log(ExerciseInfo);
+// const ExerciseInfo = await backendAPI.getExerciseInfo(
+//   `64f389465ae26083f39b17a4`
+// );
+// console.log(ExerciseInfo);
 
-  // const sub = await backendAPI.subscription(`qazwsxedcrfv2@gmail.com`);
-  // console.log(sub);
+// const sub = await backendAPI.subscription(`qazwsxedcrfv2@gmail.com`);
+// console.log(sub);
 
-  // const ExerciseRating = await backendAPI.updateExerciseRating({
-  //   id: `64f389465ae26083f39b17a4`,
-  //   rate: 5,
-  //   email: `qazwsxedcrfv2@gmail.com`,
-  //   review: `text`,
-  // });
-  // console.log(ExerciseRating);
+// const ExerciseRating = await backendAPI.updateExerciseRating({
+//   id: `64f389465ae26083f39b17a4`,
+//   rate: 5,
+//   email: `qazwsxedcrfv2@gmail.com`,
+//   review: `text`,
+// });
+// console.log(ExerciseRating);
 // }
 // GetAllData();
