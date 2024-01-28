@@ -16,16 +16,11 @@ const favoritesMobEl = document.querySelector('.mob-menu-favorites');
 if (window.location.pathname === '/favorites.html') {
   favoritesMobEl.classList.add('active');
   homeMobEl.classList.remove('active');
-} else {
-  homeMobEl.classList.add('active');
 }
-
 
 const homeEl = document.querySelector('.header-home');
 const favoritesEl = document.querySelector('.header-favorites');
 if (window.location.pathname === '/favorites.html') {
   favoritesEl.classList.add('active');
   homeEl.classList.remove('active');
-} else {
-  homeEl.classList.add('active');
 }
