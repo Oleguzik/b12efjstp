@@ -28,11 +28,11 @@ function renderFavoritesList() {
   favoritesList.innerHTML = favoritesMarkup;
 
   if (items.length > 0) {
-    if (emptyListBlock.classList.contains('is-active')) {
-      emptyListBlock.classList.remove('is-active');
+    if (!emptyListBlock.classList.contains('visually-hidden')) {
+      emptyListBlock.classList.all('visually-hidden');
     }
   } else {
-    emptyListBlock.classList.add('is-active');
+    emptyListBlock.classList.remove('visually-hidden');
   }
 }
 

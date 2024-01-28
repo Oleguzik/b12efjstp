@@ -26,7 +26,6 @@
 /*---------------------------*/
 
 .favorites-not-found-exercises {
-  display: none;
   margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
@@ -40,10 +39,6 @@
   background-image: url('../img/fexercises/6-dumbbell-mob.webp');
   background-repeat: no-repeat;
   background-position: top center;
-}
-
-.favorites-not-found-exercises.is-active {
-  display: unset;
 }
 
 @media (max-width: 767px) and (min-device-pixel-ratio: 2),
