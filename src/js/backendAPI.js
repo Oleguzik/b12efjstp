@@ -4,30 +4,6 @@ axios.defaults.baseURL = `https://energyflow.b.goit.study/api`;
 // 2. додати до всіх await конструкцію Try-Cath
 // 3. інструкції в коментах
 
-export async function getFilterData(
-  page = 1,
-  limit = this.widthScreen > 375 ? 12 : 7
-) {
-  const END_POINT = `filters`;
-  // перевірка корректності пагінації
-  // try {
-  try {
-    const response = await axios.get(`/${END_POINT}`, {
-      params: {
-        filter: `Muscles`,
-        page,
-        limit,
-      },
-    });
-    return response.data;
-  } catch {
-    return {
-      totalPages: 0,
-      results: [],
-    };
-  }
-}
-
 const backendAPI = {
   // pagination: {
   //   pageForFilter: 1,
@@ -39,6 +15,29 @@ const backendAPI = {
   filter: `Muscles`, // Body parts, Muscles, Equipment
   choiceExercises: undefined,
 
+  getFilterData: async function (
+    page = 1,
+    limit = this.widthScreen > 375 ? 12 : 7
+  ) {
+    const END_POINT = `filters`;
+    // перевірка корректності пагінації
+    // try {
+    try {
+      const response = await axios.get(`/${END_POINT}`, {
+        params: {
+          filter: `Muscles`,
+          page,
+          limit,
+        },
+      });
+      return response.data;
+    } catch {
+      return {
+        totalPages: 0,
+        results: [],
+      };
+    }
+  },
   // async getFilterData(filter = 'Muscles') {
 
   // async getOnExercises(filter = 'muscles') {
