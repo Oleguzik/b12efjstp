@@ -1,4 +1,4 @@
-// import backendAPI from './backendAPI';
+import backendAPI from './backendAPI';
 
 const LOCAL_STORAGE_KEYS = {
   quote: 'quoteOfTheDay',
@@ -13,10 +13,7 @@ const localStorageAPI = {
     if (savedData && savedData.date === date) {
       return savedData;
     } else {
-      //   const quoteData = await backendAPI.getQuoteOfTheDay();
-
-      // testData
-      const quoteData = getTestQuoteData();
+      const quoteData = await backendAPI.getQuoteOfTheDay();
 
       if (quoteData?.quote) {
         const dataToSave = { ...quoteData, date };
@@ -97,7 +94,7 @@ function getTestQuoteData() {
 }
 
 function getTestArrayData() {
-  return [
+  const testData = [
     {
       _id: '64f389465ae26083f39b1af6',
       bodyPart: 'lower legs',
@@ -239,4 +236,7 @@ function getTestArrayData() {
       popularity: 105,
     },
   ];
+
+  localStorage.setItem(LOCAL_STORAGE_KEYS.favorites, JSON.stringify(testData));
+  return testData;
 }

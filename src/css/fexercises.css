@@ -37,13 +37,14 @@
   font-size: 14px;
   line-height: 1.3;
   background-image: url('../img/fexercises/6-dumbbell-mob.webp');
+  background-size: 85px 52px;
   background-repeat: no-repeat;
   background-position: top center;
 }
 
 @media (max-width: 767px) and (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
   .favorites-not-found-exercises {
     background-image: url('../img/fexercises/6-dumbbell@2x-mob.webp');
   }
@@ -75,12 +76,13 @@
     padding-bottom: 373px;
     width: 554px;
     background-image: url('../img/fexercises/6-dumbbell-tab.webp');
+    background-size: 115px 71px;
     font-size: 18px;
   }
 
   @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     .favorites-not-found-exercises {
       background-image: url('../img/fexercises/6-dumbbell@2x-tab.webp');
     }
@@ -100,8 +102,8 @@
   }
 
   @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     .favorites-not-found-exercises {
       background-image: url('../img/fexercises/6-dumbbell@2x-desk.webp');
     }

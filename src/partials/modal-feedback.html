@@ -1,0 +1,116 @@
+<div class="feedback-container">
+  <button class="feedback-close-button">
+    <svg
+      class="feedback-close-svg"
+      width="28"
+      height="28"
+      aria-label="сlose button"
+    >
+      <use href="../img/sprite.svg#icon-x-black"></use>
+    </svg>
+  </button>
+
+  <form class="feedback-form">
+    <p class="feedback-rating-p">Rating</p>
+
+    <div class="feedback-form-rating-container">
+      <div class="feedback-form-rating-value">0.0</div>
+
+      <div class="feedback-rating-stars-container">
+        <div class="feedback-rating-active"></div>
+
+        <label class="feedback-rating-stars-label">
+          <input class="visually-hidden" type="radio" name="rating" value="1" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="../img/sprite.svg#icon-Star"></use>
+          </svg>
+        </label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="2" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="../img/sprite.svg#icon-Star"></use></svg
+        ></label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="3" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="../img/sprite.svg#icon-Star"></use></svg
+        ></label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="4" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="../img/sprite.svg#icon-Star-grey"></use></svg
+        ></label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="5" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="../img/sprite.svg#icon-Star-grey"></use></svg
+        ></label>
+      </div>
+    </div>
+
+    <label class="feedback-form-label-email">
+      <input
+        class="feedback-form-input"
+        type="email"
+        name="email"
+        placeholder="Email"
+        pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/"
+        required
+      />
+    </label>
+
+    <label class="feedback-form-label-textarea">
+      <textarea
+        class="feedback-form-textarea"
+        name="comment"
+        placeholder="Your comment"
+        rows="4"
+        cols="50"
+        required
+      ></textarea>
+    </label>
+
+    <button class="feedback-form-button" type="submit">Send</button>
+  </form>
+</div>
