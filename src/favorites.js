@@ -1,11 +1,27 @@
 import messages from './js/notificationAPI';
 import localStorageAPI from './js/localStorageAPI';
-import { exerciseCardMarkup } from './js/renderMarkup';
+import { exerciseCardMarkup, paginationMarkup } from './js/renderMarkup';
 
 import './js/initialization';
 
 const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
 const favoritesList = document.querySelector('.favorites-exercises-list');
+const paginationList = document.querySelector('.pagination-list');
+const numberOfFavorites = localStorageAPI.getFavorites().length;
+const numberOfFavoritesInMobile = 8;
+
+if (!paginationList.classList.contains('visually-hidden')) {
+  paginationList.classList.add('visually-hidden');
+}
+
+if (window.screen.width < 768) {
+  if (numberOfFavorites > numberOfFavoritesInMobile) {
+    paginationList.classList.remove('visually-hidden');
+    paginationList.innerHTML = paginationMarkup(
+      Math.ceil(numberOfFavorites / numberOfFavoritesInMobile)
+    );
+  }
+}
 
 renderFavoritesList();
 

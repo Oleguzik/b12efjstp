@@ -133,12 +133,14 @@
   background: transparent;
 }
 
-/* иконка настроена, что бы ее увидить, нужно починить все иконки */
-.exercises-search-icon {
+.exercises-form-search-icon {
   position: absolute;
   right: 0px;
   top: 0px;
+  stroke: #1b1b1b;
+  fill: none;
 }
+
 /* ---------------form end----------------- */
 
 /* gallery */

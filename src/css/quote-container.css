@@ -20,6 +20,7 @@
 }
 
 .quote-icon-commas {
+  fill: #f6f6f6;
   position: absolute;
   top: -2px;
   /* left: 219px; */
@@ -114,5 +115,23 @@
 
   .quote-title {
     margin-bottom: 16px;
+  }
+}
+
+/* animation */
+.quote-animation {
+  animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) alternate
+    forwards;
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
   }
 }
