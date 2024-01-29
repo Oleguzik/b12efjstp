@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // }
 // GetAllData();
 
+
 // const quote = localStorageAPI.getQuoteOfTheDay();
 // console.log(quote);
 
