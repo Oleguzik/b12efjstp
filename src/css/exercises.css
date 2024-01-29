@@ -102,6 +102,7 @@
 }
 
 .exercises-form-btn-clear {
+  stroke: #1b1b1b;
   width: 18px;
   height: 18px;
   position: absolute;
