@@ -1,4 +1,3 @@
-
 import messages from './js/notificationAPI';
 import backendAPI from './js/backendAPI';
 import localStorageAPI from './js/localStorageAPI';
@@ -11,25 +10,17 @@ const exercisesType = document.querySelector('.exercises-type-item-btn');
 const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
 // const typeBtn = []
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // alert("Page is loaded!");
   exercisesType.classList.add('exercises-type-item-btn-focus');
 
-  console.log(exercisesType.);
+  // console.log(exercisesType.);
 });
 
 exercisesType.addEventListener('click', () => {
   exercisesType.classList.remove('exercises-type-item-btn-focus');
   // alert("Page is loaded!");
 });
-
-
-
-
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////
 ////// modal-rating
@@ -88,14 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
 ////// modal-rating
 /////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
 // Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
 // async function GetAllData() {
 //     const filterWithFront = 'Equipment';
@@ -131,10 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // }
 // GetAllData();
 
-
-
-
-
 // const quote = localStorageAPI.getQuoteOfTheDay();
 // console.log(quote);
 
@@ -160,4 +139,3 @@ document.addEventListener('DOMContentLoaded', function () {
 // console.log(localStorageAPI.getFavorites());
 
 // localStorageAPI.deleteItemFromFavorites('64f389465ae26083f39b1af3');
-

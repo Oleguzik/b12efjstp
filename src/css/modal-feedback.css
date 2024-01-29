@@ -1,10 +1,10 @@
 /* 0 - 768 */
 
 .feedback-container {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   width: 335px;
   height: 357px;
   padding: 40px 20px;
@@ -58,6 +58,7 @@
 }
 
 .feedback-rating-stars-svg {
+  cursor: pointer;
   fill: rgba(27, 27, 27, 0.2);
 }
 .feedback-rating-stars-svg-highlight {
