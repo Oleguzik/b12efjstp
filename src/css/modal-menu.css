@@ -34,6 +34,7 @@
   padding-right: 20px;
 }
 .mob-menu-close-nav-button {
+  stroke: #f6f6f6;
   border: none;
   background-color: transparent;
   padding: 0;

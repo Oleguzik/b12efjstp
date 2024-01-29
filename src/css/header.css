@@ -22,6 +22,8 @@
     display: none;
   }
   .header-button-nav {
+    width: 32px;
+    height: 16px;
     display: block;
     border: none;
     background-color: transparent;
@@ -29,8 +31,9 @@
     margin-left: auto;
   }
   .header-nav-menu-svg {
-    width: 32px;
-    height: 16px;
+    stroke: #7e847f;
+    /* width: 32px;
+    height: 16px; */
   }
 }
 @media screen and (min-width: 768px) {
