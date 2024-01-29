@@ -6,23 +6,43 @@ import { exerciseCardMarkup } from './js/renderMarkup';
 
 import './js/initialization';
 
-const exercisesType = document.querySelector('.exercises-type-item-btn');
-const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
-// const typeBtn = []
+// const exercisesType = document.querySelector('.exercises-type-item-btn');
+// const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
+// // const typeBtn = []
 
-document.addEventListener("DOMContentLoaded", () => {
-  // alert("Page is loaded!");
-  exercisesType.classList.add('exercises-type-item-btn-focus');
+// document.addEventListener("DOMContentLoaded", () => {
+//   // alert("Page is loaded!");
+//   exercisesType.classList.add('exercises-type-item-btn-focus');
 
-  console.log(exercisesType.);
-});
+//   console.log(exercisesType.);
+// });
 
-exercisesType.addEventListener('click', () => {
-  exercisesType.classList.remove('exercises-type-item-btn-focus');
-  // alert("Page is loaded!");
-});
+// exercisesType.addEventListener('click', () => {
+//   exercisesType.classList.remove('exercises-type-item-btn-focus');
+//   // alert("Page is loaded!");
+// });
 
 
+
+
+// пришлось закоментить код выше, не работал мой код
+// код для скрытия кнопки очищения формы и показа ее, когда происходит ввод в поле импута
+  const inputElement = document.querySelector('.exercises-form-input');
+  const clearButton = document.querySelector('.exercises-form-btn-clear');
+
+  inputElement.addEventListener('input', function () {
+    const inputValue = inputElement.value;
+    if (inputValue.length > 0) {
+      clearButton.style.display = 'block';
+    } else {
+      clearButton.style.display = 'none';
+    }
+  });
+
+  clearButton.addEventListener('click', function () {
+    inputElement.value = '';
+    clearButton.style.display = 'none';
+  });
 
 
 
