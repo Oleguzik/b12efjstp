@@ -1,5 +1,5 @@
 export function openModalExercise(_id) {
-  const elementModalExercise = results.find(element => element._id == _id);
+  const elementModalExercise = results.find(element => element._id === _id);
   renderModalExercise(elementModalExercise);
 }
 
