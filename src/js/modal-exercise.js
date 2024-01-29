@@ -1,11 +1,24 @@
 import backendAPI from './backendAPI';
 import messages from './notificationAPI';
+import localStorageAPI from './localStorageAPI';
 
-export function openModalExercise(_id) {
-  const elementModalExercise = results.find(element => element._id === _id);
-  renderModalExercise(elementModalExercise);
+// GET ELEMENT
+export async function openModalExercise(id = '') {
+  const elementModalExercise = await backendAPI.getExerciseInfo(id);
+  try {
+    if (elementModalExercise) {
+      renderModalExercise(elementModalExercise);
+      btnSetFavoriteExercise(elementModalExercise);
+      btnGiveRating(id);
+    }
+  } catch {
+    error => {
+      messages.showError(error);
+    };
+  }
 }
 
+// RENDER MODAL
 function renderModalExercise({
   name,
   gifUrl,
@@ -24,10 +37,10 @@ function renderModalExercise({
   const instructionText = document.querySelector(
     '.modal-exercise-instruction-text'
   );
-  const spanFavorites = document.querySelector('.mod-exercise-span-add');
+
   getImage(gifUrl);
   titleName.textContent = name;
-  valueRating.textContent = rating;
+  valueRating.textContent = rating.toString().padEnd(3, '.0');
   instructionText.textContent = description;
   const modalExerciseItem = `<li class="modal-exercise-item">
           <p class="modal-exercise-subcategory">Target</p>
@@ -50,11 +63,36 @@ function renderModalExercise({
           <p class="modal-exercise-selected">${burnedCalories}/${time} min</p>
         </li>`;
   modalExerciseList.innerHTML = modalExerciseItem;
-  spanFavorites.textContent = spanFavorites.dataset.add;
+}
+
+// ADD / REMOVE BTN
+function btnSetFavoriteExercise(elementModalExercise) {
+  const btn = document.querySelector('.modal-exercise-btn');
+  const span = document.querySelector('.mod-exercise-span');
+  const favExercises = localStorageAPI.getFavorites();
+  const favoriteExercise = favExercises.some(el => el === elementModalExercise);
+  favoriteExercise === false
+    ? (span.textContent = span.dataset.add)
+    : (span.textContent = span.dataset.remove);
+
+  btn.addEventListener('click', () => {
+    if (span.textContent === span.dataset.add) {
+      return addToFavorite();
+    } else {
+      return removeFromFavorite();
+    }
+  });
+  function addToFavorite() {
+    span.textContent = span.dataset.remove;
+    localStorageAPI.addItemToFavorites(elementModalExercise);
+  }
+  function removeFromFavorite() {
+    span.textContent = span.dataset.add;
+    localStorageAPI.deleteItemFromFavorites(elementModalExercise._id);
+  }
 }
 
 // GET IMAGE
-
 function getImage(gifUrl) {
   const imageContainer = document.getElementById('img');
 
@@ -67,7 +105,6 @@ function getImage(gifUrl) {
 }
 
 // GET RATING
-
 const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
 if (ratingsRef.length > 0) {
   initRatings();
@@ -92,6 +129,19 @@ export function initRatings() {
   function setRatingActiveWidth() {
     const ratingActiveWidth = ratingValue.textContent / 0.05;
     ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+}
+
+// GET MODAL FEEDBACK
+function btnGiveRating(id) {
+  const btnGetRating = document.getElementById('get-rating');
+  const modalExersise = document.querySelector('.modal-exercise');
+  btnGetRating.addEventListener('click', getModalRating);
+  function getModalRating() {
+    modalExersise.classList.add('is-hidden');
+    console.log(id);
+    // openGiveRatingWindow(id);
+    btnGetRating.removeEventListener('click', getModalRating);
   }
 }
 
