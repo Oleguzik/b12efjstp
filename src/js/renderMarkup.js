@@ -67,7 +67,7 @@ export function exerciseCardMarkup(params = {}, isFavorites = false) {
   </li>`;
 }
 
-export function paginationMarkup(numberOfPages, activePage) {
+export function paginationMarkup(numberOfPages = 1, activePage = 1) {
   let markup = '';
   for (let i = 1; i <= numberOfPages; i++) {
     if (!(i === activePage)) {
