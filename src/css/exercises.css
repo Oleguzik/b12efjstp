@@ -2,208 +2,206 @@
 .exercises-form-input::-webkit-search-clear-button,
 .exercises-form-input::-webkit-search-cancel-button,
 .exercises-form-input {
-    -webkit-appearance: none;
-    appearance: none;
-    display: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
 }
 
 /* Скрыть кнопку очищения для элемента с классом .exercises-form-input в Firefox */
 .exercises-form-input::-moz-search-clear-button,
 .exercises-form-input::-moz-search-cancel-button,
 .exercises-form-input {
-    -moz-appearance: none;
-    appearance: none;
-    display: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: none;
 }
 
 /* Скрыть кнопку очищения для элемента с классом .exercises-form-input в Edge */
 .exercises-form-input::-ms-clear,
 .exercises-form-input::-ms-reveal,
 .exercises-form-input {
-    display: none;
+  display: none;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /* ---MOBILE FIRST--- */
 
 .exercises-content {
-    background-color: #e8e8e8;
-    border-radius: 50px;
-    padding: 40px 20px;
+  background-color: #e8e8e8;
+  border-radius: 50px;
+  padding: 40px 20px;
 }
 
 .exercises-section-title {
-    margin-bottom: 20px;
-    font-size: 32px;
-    font-weight: 400;
-    color: #1b1b1b;
-    line-height: 1;
-    letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 400;
+  color: #1b1b1b;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .exercises-type-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
 }
 
 .exercises-type-list {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .exercises-type-item {
-    margin-right: 6px;
-    white-space: nowrap;
+  margin-right: 6px;
+  white-space: nowrap;
 }
 
 .exercises-type-item-btn {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.28;
-    color: #1b1b1b;
-    padding: 7px 14px;
-    cursor: pointer;
-    background-color: #f6f6f6;
-    border-radius: 30px;
-    border: transparent;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28;
+  color: #1b1b1b;
+  padding: 7px 14px;
+  cursor: pointer;
+  background-color: #f6f6f6;
+  border-radius: 30px;
+  border: transparent;
 }
 
 .exercises-type-item-btn:hover,
 .exercises-type-item-btn:focus {
-    background-color: #7e847f;
-    color: #fff;
+  background-color: #7e847f;
+  color: #fff;
 }
 
 /* ---------------form----------------- */
 
 .exercises-type-form {
-    position: relative;
+  position: relative;
 }
 
 .exercises-form-input {
-    display: block;
-    border-radius: 30px;
-    border: 1px solid #f6f6f6;
-    background: #f6f6f6;
-    padding-left: 14px;
-    outline: none;
-    color: #1b1b1b;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.28;
-    height: 42px;
-    width: 295px;
+  display: block;
+  border-radius: 30px;
+  border: 1px solid #f6f6f6;
+  background: #f6f6f6;
+  padding-left: 14px;
+  outline: none;
+  color: #1b1b1b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  height: 42px;
+  width: 295px;
 }
 
 .exercises-form-btn-clear {
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    top: 12px;
-    right: 39px;
-    /* бордер убран на время, что бы видеть кнопку закрытия*/
-    /* border: none; */
-    cursor: pointer;
-    outline: none;
-    background: transparent;
-    display: none; /* скрытие кнопки по умолчанию */
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 12px;
+  right: 39px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  display: none; /* скрытие кнопки по умолчанию */
 }
 
-
 .exercises-close-icon {
-    position: absolute;
-    right: 0px;
-    top: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 
 .exercises-form-btn {
-    /* размер для кнопки сделал таким же как иконка поиска */
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    cursor: pointer;
-    /* бордер убран на время, что бы видеть кнопку поиска*/
-    /* border: none; */
-    outline: none;
-    background: transparent;
+  /* размер для кнопки сделал таким же как иконка поиска */
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 /* иконка настроена, что бы ее увидить, нужно починить все иконки */
 .exercises-search-icon {
-    position: absolute;
-    right: 0px;
-    top: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 /* ---------------form end----------------- */
 
 /* gallery */
 
 .exercises-gallery-list {
-    margin-left: -20px;
+  margin-left: -20px;
 }
 
 .exercises-gallery-item {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    width: 295px;
-    height: 232px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 295px;
+  height: 232px;
 }
 
 .exercises-gallery-link {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    align-items: center;
-    justify-content: center;
-    padding: 45px 105px;
-    width: 295px;
-    height: 232px;
-    border-radius: 12px;
-    border: 1px solid rgba(246, 246, 246, 0.3);
-    background-image: linear-gradient(0deg,
-            rgba(16, 16, 16, 0.7) 0%,
-            rgba(16, 16, 16, 0.7) 100%),
-            url(../img/advice/3-110-mob.webp);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 105px;
+  width: 295px;
+  height: 232px;
+  border-radius: 12px;
+  border: 1px solid rgba(246, 246, 246, 0.3);
+  background-image: linear-gradient(
+      0deg,
+      rgba(16, 16, 16, 0.7) 0%,
+      rgba(16, 16, 16, 0.7) 100%
+    ),
+    url(../img/advice/3-110-mob.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 @media (min-resolution: 192dpi),
-(min-resolution: 2dppx),
-(min-device-pixel-ratio: 2) {
-.exercises-gallery-link {
-        background-image: linear-gradient(0deg,
-            rgba(16, 16, 16, 0.7) 0%,
-            rgba(16, 16, 16, 0.7) 100%),
-            url(../img/advice/3-110@2x-mob.webp);
-        }
+  (min-resolution: 2dppx),
+  (min-device-pixel-ratio: 2) {
+  .exercises-gallery-link {
+    background-image: linear-gradient(
+        0deg,
+        rgba(16, 16, 16, 0.7) 0%,
+        rgba(16, 16, 16, 0.7) 100%
+      ),
+      url(../img/advice/3-110@2x-mob.webp);
+  }
 }
 
 .exercises-gallery-item-title {
-    color: #f6f6f6;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 1;
+  color: #f6f6f6;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .exercises-gallery-item-description {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.5;
-    color: rgba(246, 246, 246, 0.4);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(246, 246, 246, 0.4);
 }
-
-
 
 /* TABLET */
 
@@ -235,7 +233,7 @@
     line-height: 1.5;
   }
 
-/* ---------form----------- */
+  /* ---------form----------- */
 
   .exercises-form-input {
     font-size: 16px;
@@ -253,7 +251,7 @@
     right: 20px;
   }
 
-/* ---------form end----------- */
+  /* ---------form end----------- */
 
   .exercises-gallery-list {
     display: flex;
@@ -271,61 +269,63 @@
   .exercises-gallery-link {
     width: 313px;
     height: 250px;
-    background-image: linear-gradient(0deg,
-            rgba(16, 16, 16, 0.7) 0%,
-            rgba(16, 16, 16, 0.7) 100%),
-            url(../img/advice/3-110-tab.webp);
+    background-image: linear-gradient(
+        0deg,
+        rgba(16, 16, 16, 0.7) 0%,
+        rgba(16, 16, 16, 0.7) 100%
+      ),
+      url(../img/advice/3-110-tab.webp);
   }
-
-    @media (min-resolution: 192dpi),
-    (min-resolution: 2dppx),
-    (min-device-pixel-ratio: 2) {
-    .exercises-gallery-link {
-            background-image: linear-gradient(0deg,
-                rgba(16, 16, 16, 0.7) 0%,
-                rgba(16, 16, 16, 0.7) 100%),
-                url(../img/advice/3-110@2x-tab.webp);
-            }
-    }
-  
-}
-
-/* DEKSTOP */
-
-@media (min-width: 1440px) {
-
-  .exercises-form-input {
-      width: 273px;
-  }
-
-  .exercises-gallery-list {
-      margin-left: -20px;
-  }
-
-  .exercises-gallery-item {
-      margin-left: 20px;
-      margin-bottom: 40px;
-  }
-
-  .exercises-gallery-link {
-    background-image: linear-gradient(0deg,
-            rgba(16, 16, 16, 0.7) 0%,
-            rgba(16, 16, 16, 0.7) 100%),
-            url(../img/advice/3-110-desk.webp);
-    }
 
   @media (min-resolution: 192dpi),
     (min-resolution: 2dppx),
     (min-device-pixel-ratio: 2) {
     .exercises-gallery-link {
-        background-image:linear-gradient(0deg,
-            rgba(16, 16, 16, 0.7) 0%,
-            rgba(16, 16, 16, 0.7) 100%),
-            url(../img/advice/3-110@2x-desk.webp);
-        }
+      background-image: linear-gradient(
+          0deg,
+          rgba(16, 16, 16, 0.7) 0%,
+          rgba(16, 16, 16, 0.7) 100%
+        ),
+        url(../img/advice/3-110@2x-tab.webp);
     }
+  }
 }
 
+/* DEKSTOP */
 
+@media (min-width: 1440px) {
+  .exercises-form-input {
+    width: 273px;
+  }
 
+  .exercises-gallery-list {
+    margin-left: -20px;
+  }
 
+  .exercises-gallery-item {
+    margin-left: 20px;
+    margin-bottom: 40px;
+  }
+
+  .exercises-gallery-link {
+    background-image: linear-gradient(
+        0deg,
+        rgba(16, 16, 16, 0.7) 0%,
+        rgba(16, 16, 16, 0.7) 100%
+      ),
+      url(../img/advice/3-110-desk.webp);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx),
+    (min-device-pixel-ratio: 2) {
+    .exercises-gallery-link {
+      background-image: linear-gradient(
+          0deg,
+          rgba(16, 16, 16, 0.7) 0%,
+          rgba(16, 16, 16, 0.7) 100%
+        ),
+        url(../img/advice/3-110@2x-desk.webp);
+    }
+  }
+}
