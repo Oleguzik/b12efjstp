@@ -17,3 +17,7 @@
   visibility: hidden;
   pointer-events: none;
 }
+
+.is-undisplayed {
+  display: none;
+}
