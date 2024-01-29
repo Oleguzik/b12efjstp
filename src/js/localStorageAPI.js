@@ -1,4 +1,4 @@
-// import backendAPI from './backendAPI';
+import backendAPI from './backendAPI';
 
 const LOCAL_STORAGE_KEYS = {
   quote: 'quoteOfTheDay',
@@ -13,10 +13,7 @@ const localStorageAPI = {
     if (savedData && savedData.date === date) {
       return savedData;
     } else {
-      //   const quoteData = await backendAPI.getQuoteOfTheDay();
-
-      // testData
-      const quoteData = getTestQuoteData();
+      const quoteData = await backendAPI.getQuoteOfTheDay();
 
       if (quoteData?.quote) {
         const dataToSave = { ...quoteData, date };

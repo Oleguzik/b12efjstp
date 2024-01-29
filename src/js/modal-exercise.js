@@ -1,3 +1,6 @@
+import backendAPI from './backendAPI';
+import messages from './notificationAPI';
+
 export function openModalExercise(_id) {
   const elementModalExercise = results.find(element => element._id === _id);
   renderModalExercise(elementModalExercise);
@@ -89,5 +92,36 @@ export function initRatings() {
   function setRatingActiveWidth() {
     const ratingActiveWidth = ratingValue.textContent / 0.05;
     ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+}
+
+//////////////////////////////////////////////////
+/// Таня
+
+function openGiveRatingWindow(id) {
+  // модалка Валерії схована
+  // модалка рейтингу відкрита
+  // ( твій код (івент лістенери + ....))
+  document.querySelector('.feedback-form').data.id = id;
+}
+
+function closeGiveRatingWindow(id) {
+  // видаляєш івент лістенери
+  // приховуєш свою модалку
+
+  openModalExercise(id);
+}
+
+async function submitRatingForm(event) {
+  const rating = { id: '', rate: '', email: '', review: '' };
+  try {
+    const response = await backendAPI.updateExerciseRating(rating);
+    // прочитати
+    // notification success
+    // messages.showSuccess('');
+
+    closeGiveRatingWindow(id);
+  } catch (error) {
+    // notification error
   }
 }
