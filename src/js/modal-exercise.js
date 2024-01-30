@@ -6,10 +6,12 @@ import localStorageAPI from './localStorageAPI';
 export async function openModalExercise(id = '') {
   const elementModalExercise = await backendAPI.getExerciseInfo(id);
   try {
-    if (elementModalExercise) {
+    if (elementModalExercise != {}) {
       renderModalExercise(elementModalExercise);
       btnSetFavoriteExercise(elementModalExercise);
       btnGiveRating(id);
+      // } else {
+      //   messages.showError();
     }
   } catch {
     error => {
