@@ -56,12 +56,13 @@
           </p>
           <label class="footer-form-label">
             <input
-              class="footer-form-input"
-              type="email"
-              pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/"
+              class="footer-form-input is-glowing"
               id="footer-subscription-form-input"
-              name="footer-form-input"
+              type="email"
+              name="email"
               placeholder="Email"
+              pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/"
+              required
             />
           </label>
           <button class="footer-form-submit" type="submit">Send</button>

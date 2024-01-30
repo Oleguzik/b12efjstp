@@ -1,6 +1,6 @@
 .exercise-card-item {
-  max-width: 295px;
-  height: 165px;
+  width: 295px;
+  min-height: 165px;
   padding: 16px;
   border-radius: 15px;
   background-color: #fff;
@@ -144,8 +144,9 @@
 
 @media (min-width: 768px) {
   .exercise-card-item {
-    max-width: none;
-    width: calc((100% - 14px) / 2);
+    /* max-width: none; */
+    /* width: calc((100% - 14px) / 2); */
+    width: 313px;
   }
 
   .exercise-card-start-btn-text {
@@ -172,8 +173,9 @@
 
 @media (min-width: 1440px) {
   .exercise-card-item {
-    width: calc((100% - 40px) / 3);
-    height: 141px;
+    width: 424px;
+    /* width: calc((100% - 40px) / 3); */
+    min-height: 141px;
   }
 
   .exercise-card-header-text {
