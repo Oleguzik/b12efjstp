@@ -1,9 +1,10 @@
 import backendAPI from './backendAPI';
-import {
-  exerciseCardMarkup,
-  paginationMarkup,
-  filtersMarkup,
-} from './renderMarkup';
+import renderAPI from './renderMarkup';
+// import {
+//   exerciseCardMarkup,
+//   paginationMarkup,
+//   filtersMarkup,
+// } from './renderMarkup';
 
 const filterListElem = document.querySelector('.exercises-type-list');
 const exerciseListElem = document.querySelector('.exercises-gallery-list');
@@ -30,18 +31,22 @@ clearButton.addEventListener('click', function () {
 });
 
 export default async function startExercisesScenario() {
-  //   filterListElem.addEventListener('click', event => {});
-
-  // Велізар
-  // backendAPI.filter =
-  // backendAPI.page =
-  // filtersData = await backendAPI.filter();
-
-  renderItems();
-
-  exerciseListElem.addEventListener('click', selectFilteredExersises);
+  exerciseListElem.addEventListener('click', event => {}); // selectFilteredExersises);
   paginationListElem.addEventListener('click', event => {});
-  searchFormElem.addEventListener('submit', searchFormSubmit);
+  searchFormElem.addEventListener('submit', event => {}); // searchFormSubmit);
+
+  const queryParams = {
+    // filter: document.querySelector('.exercises-type-item-active').dataset
+    //   .filter,
+    filter: document.querySelector('.exercises-type-item-active').dataset
+      .filter,
+    limit: document.documentElement.scrollWidth < 768 ? 8 : 12,
+    page: 1,
+  };
+
+  const filtersData = await backendAPI.getFilterData(queryParams);
+
+  renderItems(filtersData);
 
   // Анатолій
   // на форму івент лістенери
@@ -56,29 +61,22 @@ function searchFormSubmit(event) {
   // renderItems(, true);
 }
 
-function renderItems(itemsArr = [], isCards = false) {
-  let markup = '';
-  if (isCards) {
-    // Анатолій
-    // рендеримо картки з exersises
-    // markup =
-  } else {
-    // Велізар
-    // рендеримо filters
-    // markup =
-  }
+function renderItems(serverData = {}, isCards = false) {
+  // {
+  //   "page": "1",
+  //   "perPage": "8",
+  //   "totalPages": 2,
+  //   "results": [],
+  // }
 
-  filterListElem.innerHTML = markup;
+  const { results = [], totalPages = 1, page = 1 } = serverData;
 
-  renderPagination();
-}
+  const markup = isCards
+    ? results.map(elem => renderAPI.exerciseCardMarkup(elem)).join('')
+    : results.map(elem => renderAPI.filterGroupsMarkup(elem)).join('');
 
-// Велізар
-function renderPagination(total = 0, limit = 1) {
-  // отримуємо кількість сторінок
-  // рендеримо
-  // const markup =  ();
-  // paginationListElem.innerHTML = markup;
+  exerciseListElem.innerHTML = markup;
+  paginationListElem.innerHTML = renderAPI.paginationMarkup(totalPages, page);
 }
 
 // клік по группам вправ або карткам окремих вправ

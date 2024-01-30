@@ -6,20 +6,18 @@ const backendAPI = {
   filter: `Muscles`, // Body part, Muscles, Equipment
   choiceExercises: undefined, // Приймає значення назви картки при кліку на ній (Exercises/Waist)
 
-  getFilterData: async function (
-    page = 1,
-    limit = this.widthScreen > 375 ? 12 : 7
-  ) {
+  getFilterData: async function ({ page = 1, limit = 8, filter = `Muscles` }) {
     try {
       const response = await axios.get(`/filters`, {
         params: {
-          filter: this.filter,
+          filter: filter,
           page,
           limit,
         },
       });
       return response.data;
-    } catch {
+    } catch (error) {
+      console.log(error);
       return {
         totalPages: 0,
         results: [],
@@ -63,7 +61,7 @@ const backendAPI = {
     }
   },
 
-  getExerciseInfo: async function (id = ``) {
+  getExerciseInfo: async function (id = '') {
     try {
       const response = await axios.get(`exercises/${id}`);
       return response.data;
@@ -74,7 +72,12 @@ const backendAPI = {
     }
   },
 
-  updateExerciseRating: async function ({ id, rate, email, review }) {
+  updateExerciseRating: async function ({
+    id = '',
+    rate,
+    email = '',
+    review = '',
+  }) {
     try {
       const response = await axios.patch(`exercises/${id}/rating`, {
         rate,
@@ -87,7 +90,7 @@ const backendAPI = {
     }
   },
 
-  subscription: async function (email) {
+  subscription: async function (email = '') {
     try {
       const response = await axios.post(`/subscription`, {
         email: email,
