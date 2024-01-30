@@ -112,6 +112,27 @@ document.addEventListener('DOMContentLoaded', function () {
 /////////////////////////////////////////////////////////////////////
 
 
+///////Subscription form/////////
+const subscriptionForm = document.querySelector(".footer-subscription-form");
+
+subscriptionForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  
+  const email = subscriptionForm.elements.email.value;
+  
+  const response = await backendAPI.subscription(email);
+
+  if (response.result) {
+    messages.showSuccess(response.message);
+    subscriptionForm.elements.email.classList.remove("is-glowing")
+  } else {
+    messages.showError(response.message)
+  }
+
+  subscriptionForm.reset()
+})
+
+
 // Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
 // async function GetAllData() {
 //     const filterWithFront = 'Equipment';

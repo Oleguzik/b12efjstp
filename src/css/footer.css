@@ -18,6 +18,7 @@
     font-family: "DM Sans";
     font-weight: 700;
     letter-spacing: -0.02em;
+    transition: text-shadow 300ms ease-in-out;
 }
 
 .footer-social-media-list {
@@ -37,12 +38,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: border-color 300ms ease-in-out;
 }
 
 .footer-social-media-icon {
-    fill: #F6F6F6;
-    opacity: 0.8;
-
+    fill: rgb(246, 246, 246, 0.80);
+    transition: fill 300ms ease-in-out, transform 300ms ease-in-out;
 }
 
 .footer-title {
@@ -67,16 +68,14 @@
 
 .footer-form-input {
     display: block;
-    height: 42px;
     border-radius: 30px;
     border: 1px solid #F6F6F6;
     background: transparent;
     padding-left: 14px;
     color: #F6F6F6;
-    font-size: 14px;
     font-weight: 400;
-    line-height: 1.29;
     width: 100%;
+    transition: box-shadow 300ms ease-in-out;
 }
 
 .footer-form-input::placeholder {
@@ -93,6 +92,7 @@
     color: #F6F6F6;
     font-weight: 400;
     width: 100%;
+    transition: background 300ms ease-in-out;
 }
 
 .footer-rights-documents-wrapper {
@@ -108,7 +108,49 @@
     gap: 8px;
 }
 
+.footer-logo:hover {
+    text-shadow: 1px 0px 10px rgba(246, 246, 246, 0.60);
+}
 
+.footer-social-media-link:hover,
+.footer-social-media-link:focus {
+    border-color: #F6F6F6;
+}
+
+.footer-social-media-link:hover>.footer-social-media-icon {
+    fill: #F6F6F6;
+    transform: scale(1.15);
+}
+
+.footer-form-input:hover,
+.footer-form-input:focus {
+    box-shadow: 0px 0px 15px 1px rgba(246, 246, 246, 0.60);
+    outline: none;
+}
+
+.footer-form-submit:hover,
+.footer-form-submit:focus {
+    background: #5F6560;
+}
+
+.is-glowing {
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0px 0px 0px 0px rgba(246, 246, 246, 0.60);
+    }
+
+    to {
+        box-shadow: 0px 0px 15px 0px rgba(246, 246, 246, 0.60);
+    }
+}
+
+.is-glowing:hover,
+.is-glowing:focus {
+    animation: none;
+}
 
 @media (max-width: 767px) {
     .footer-container {
@@ -150,6 +192,12 @@
 
     .footer-form-text {
         margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.29;
+    }
+
+    .footer-form-input {
+        height: 42px;
         font-size: 14px;
         line-height: 1.29;
     }
@@ -211,11 +259,10 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        max-width: 352px;
+        width: 352px;
     }
 
     .footer-form-text {
-        max-width: 352px;
         font-size: 18px;
         line-height: 1.33;
     }
