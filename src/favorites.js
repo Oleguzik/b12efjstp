@@ -9,6 +9,9 @@ const favoritesList = document.querySelector('.favorites-exercises-list');
 const paginationList = document.querySelector('.pagination-list');
 const numberOfFavorites = localStorageAPI.getFavorites().length;
 const numberOfFavoritesInMobile = 8;
+const numberOfPagesInFavorits = Math.ceil(
+  numberOfFavorites / numberOfFavoritesInMobile
+);
 
 if (!paginationList.classList.contains('visually-hidden')) {
   paginationList.classList.add('visually-hidden');
@@ -17,11 +20,11 @@ if (!paginationList.classList.contains('visually-hidden')) {
 if (window.screen.width < 768) {
   if (numberOfFavorites > numberOfFavoritesInMobile) {
     paginationList.classList.remove('visually-hidden');
-    paginationList.innerHTML = paginationMarkup(
-      Math.ceil(numberOfFavorites / numberOfFavoritesInMobile)
-    );
+    paginationList.innerHTML = paginationMarkup(numberOfPagesInFavorits);
+    paginationList.addEventListener('click', pageChangeHandler);
   }
 }
+
 
 renderFavoritesList();
 
@@ -47,13 +50,23 @@ document
     }
   });
 
-function renderFavoritesList() {
+function renderFavoritesList(page = 1) {
   const items = localStorageAPI.getFavorites();
-  const favoritesMarkup = items
-    .map(item => exerciseCardMarkup(item, true))
-    .join('');
+  const favoritesMarkup = items.map(item => exerciseCardMarkup(item, true));
 
-  favoritesList.innerHTML = favoritesMarkup;
+  if (
+    window.screen.width < 768 &&
+    numberOfFavorites > numberOfFavoritesInMobile
+  ) {
+    favoritesList.innerHTML = favoritesMarkup
+      .slice(
+        (page - 1) * numberOfFavoritesInMobile,
+        page * numberOfFavoritesInMobile
+      )
+      .join('');
+  } else {
+    favoritesList.innerHTML = favoritesMarkup.join('');
+  }
 
   if (items.length > 0) {
     if (!emptyListBlock.classList.contains('visually-hidden')) {
@@ -61,5 +74,16 @@ function renderFavoritesList() {
     }
   } else {
     emptyListBlock.classList.remove('visually-hidden');
+  }
+}
+
+function pageChangeHandler(evt) {
+  evt.preventDefault();
+  if (evt.target.classList.contains('js-favorites-page')) {
+    renderFavoritesList(Number(evt.target.innerText));
+    paginationList.innerHTML = paginationMarkup(
+      numberOfPagesInFavorits,
+      Number(evt.target.innerText)
+    );
   }
 }
