@@ -89,7 +89,6 @@
     background: #fff;
     color: #1b1b1b;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
@@ -109,7 +108,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: border-color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out;
   }
   .header-media-icon-svg {
     fill: #7e847f;
@@ -119,7 +118,6 @@
 
   .header-link-social-svg:hover,
   .header-link-social-svg:focus {
-    /* border-color: #5f6560; */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
   .header-link-social-svg:hover > .header-media-icon-svg {
