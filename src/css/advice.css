@@ -18,6 +18,10 @@
   border-radius: 16px;
 }
 
+.advice-icon {
+  fill: #f6f6f6;
+}
+
 .advice-title {
   font-feature-settings: 'clig' off, 'liga' off;
   font-size: 20px;
@@ -43,9 +47,9 @@
   background-size: cover;
 }
 
-@media (max-resolution: 192gpi),
-  (max-resolution: 2dppx),
-  (max-devise-pixel-ratio: 2) {
+@media (min-resolution: 192gpi),
+  (min-resolution: 2dppx),
+  (min-devise-pixel-ratio: 2) {
   .advice-image {
     background-image: url(../img/advice/3-110@2x-mob.webp);
   }
@@ -84,9 +88,9 @@
     background-image: url(../img/advice/3-110-tab.webp);
   }
 
-  @media (max-resolution: 192gpi),
-    (max-resolution: 2dppx),
-    (max-devise-pixel-ratio: 2) {
+  @media (min-resolution: 192gpi),
+    (min-resolution: 2dppx),
+    (min-devise-pixel-ratio: 2) {
     .advice-image {
       background-image: url(../img/advice/3-110@2x-tab.webp);
     }
@@ -99,9 +103,9 @@
     min-width: 50%;
   }
 
-  @media (max-resolution: 192gpi),
-    (max-resolution: 2dppx),
-    (max-devise-pixel-ratio: 2) {
+  @media (min-resolution: 192gpi),
+    (min-resolution: 2dppx),
+    (min-devise-pixel-ratio: 2) {
     .advice-image {
       background-image: url(../img/advice/3-110@2x-desk.webp);
     }
