@@ -10,25 +10,6 @@ import './js/initialization';
 
 startExercisesScenario();
 
-// const exercisesType = document.querySelector('.exercises-type-item-btn');
-// const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
-// // const typeBtn = []
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // alert("Page is loaded!");
-//   exercisesType.classList.add('exercises-type-item-btn-focus');
-
-//   console.log(exercisesType.);
-// });
-
-// exercisesType.addEventListener('click', () => {
-//   exercisesType.classList.remove('exercises-type-item-btn-focus');
-//   // alert("Page is loaded!");
-// });
-
-// пришлось закоментить код выше, не работал мой код
-// код для скрытия кнопки очищения формы и показа ее, когда происходит ввод в поле импута
-
 /////////////////////////////////////////////////////////////////////
 ////// modal-rating
 // document.addEventListener('DOMContentLoaded', () => {
@@ -105,47 +86,6 @@ subscriptionForm.addEventListener('submit', async event => {
 
   subscriptionForm.reset();
 });
-
-// Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
-// async function GetAllData() {
-//     const filterWithFront = 'Equipment';
-//     backendAPI.filter = filterWithFront;
-//   const filterData = await backendAPI.getFilterData(1, 8);
-//   console.log(filterData);
-
-//     filterWithFront = 'Body part';
-//     backendAPI.filter = filterWithFront;
-//     const exercisesWithFront = `Waist`;
-//     backendAPI.choiceExercises = exercisesWithFront;
-//   const OnExercises = await backendAPI.getOnExercises(1, 5, `air`);
-//   console.log(OnExercises);
-
-// const QuoteOfTheDay = await backendAPI.getQuoteOfTheDay();
-// console.log(QuoteOfTheDay);
-
-// const ExerciseInfo = await backendAPI.getExerciseInfo(
-//   `64f389465ae26083f39b17a4`
-// );
-// console.log(ExerciseInfo);
-
-// const sub = await backendAPI.subscription(`qazwsxedcrfv2@gmail.com`);
-// console.log(sub);
-
-// const ExerciseRating = await backendAPI.updateExerciseRating({
-//   id: `64f389465ae26083f39b17a4`,
-//   rate: 5,
-//   email: `qazwsxedcrfv2@gmail.com`,
-//   review: `text`,
-// });
-// console.log(ExerciseRating);
-// }
-// GetAllData();
-
-// const quote = localStorageAPI.getQuoteOfTheDay();
-// console.log(quote);
-
-// const favorites = localStorageAPI.getFavorites();
-// console.log(favorites);
 
 // const testItem = {
 //   _id: '64f389465ae26083f39b1af3',

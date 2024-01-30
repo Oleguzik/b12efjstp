@@ -1,64 +1,96 @@
 import backendAPI from './backendAPI';
 import renderAPI from './renderMarkup';
-// import {
-//   exerciseCardMarkup,
-//   paginationMarkup,
-//   filtersMarkup,
-// } from './renderMarkup';
+
+let isMobileDevice;
+let isDesktopDevice;
 
 const filterListElem = document.querySelector('.exercises-type-list');
 const exerciseListElem = document.querySelector('.exercises-gallery-list');
 const paginationListElem = document.querySelector('.pagination-list');
 const searchFormElem = document.querySelector('.exercises-type-form');
-
 const inputElement = document.querySelector('.exercises-form-input');
 const clearButton = document.querySelector('.exercises-form-btn-clear');
 
-// Анатолій зробити функції та закинути у старт сценарію
-inputElement.addEventListener('input', function () {
-  const inputValue = inputElement.value;
-  if (inputValue.length > 0) {
-    clearButton.style.display = 'block';
-  } else {
-    clearButton.style.display = 'none';
+export default function startExercisesScenario() {
+  isMobileDevice = document.documentElement.scrollWidth < 768;
+  isDesktopDevice = document.documentElement.scrollWidth >= 1440;
+
+  filterListElem.addEventListener('click', filterListHandler);
+  exerciseListElem.addEventListener('click', exerciseListHandler);
+  paginationListElem.addEventListener('click', paginationListHandler);
+
+  searchFormElem.addEventListener('submit', searchFormSubmitHandler);
+  inputElement.addEventListener('input', inputElementHandler);
+  clearButton.addEventListener('click', clearButtonHandler);
+
+  window.addEventListener('resize', windowResizeHandler);
+
+  renderGroups();
+}
+
+function windowResizeHandler() {
+  let isDeviceChange = false;
+  if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
+    isDeviceChange = true;
+    isMobileDevice = !isMobileDevice;
   }
-});
 
-// Анатолій зробити функції та закинути у старт сценарію
-clearButton.addEventListener('click', function () {
-  inputElement.value = '';
+  if (isDesktopDevice !== document.documentElement.scrollWidth >= 1440) {
+    isDeviceChange = true;
+    isDesktopDevice = !isDesktopDevice;
+  }
+
+  if (isDeviceChange) {
+    exerciseListElem.dataset.isGroups ? renderGroups() : renderExercises();
+  }
+}
+
+function searchFormSubmitHandler(event) {
+  event.preventDefault();
+  renderExercises();
+}
+
+function inputElementHandler() {
+  const inputValue = inputElement.value.trim();
+  clearButton.style.display = inputValue.length > 0 ? 'block' : 'none';
+}
+
+function clearButtonHandler() {
+  searchFormElem.reset();
   clearButton.style.display = 'none';
-});
+  renderExercises();
+}
 
-export default async function startExercisesScenario() {
-  exerciseListElem.addEventListener('click', event => {}); // selectFilteredExersises);
-  paginationListElem.addEventListener('click', event => {});
-  searchFormElem.addEventListener('submit', event => {}); // searchFormSubmit);
+async function renderGroups(page = 1) {
+  exerciseListElem.dataset.isGroups = 'true';
+  exerciseListElem.dataset.groupName = '';
 
   const queryParams = {
-    // filter: document.querySelector('.exercises-type-item-active').dataset
-    //   .filter,
-    filter: document.querySelector('.exercises-type-item-active').dataset
-      .filter,
-    limit: document.documentElement.scrollWidth < 768 ? 8 : 12,
-    page: 1,
+    filter: getActiveFilterElem().dataset.filter,
+    limit: isMobileDevice ? 8 : 12,
+    page,
   };
 
   const filtersData = await backendAPI.getFilterData(queryParams);
 
   renderItems(filtersData);
-
-  // Анатолій
-  // на форму івент лістенери
 }
 
-// Анатолій
-function searchFormSubmit(event) {
-  event.preventDefault();
+async function renderExercises(page = 1) {
+  const queryParams = {
+    [getActiveFilterElem().dataset.exerciseFilter]:
+      exerciseListElem.dataset.groupName,
+    limit: isDesktopDevice ? 9 : 8,
+    page,
+  };
 
-  // запит на бекенд
-  // getOnExercises
-  // renderItems(, true);
+  const keyword = inputElement.value.trim();
+  if (keyword) {
+    queryParams.keyword = keyword;
+  }
+
+  const exercisesData = await backendAPI.getExercisesData(queryParams);
+  renderItems(exercisesData, true);
 }
 
 function renderItems(serverData = {}, isCards = false) {
@@ -79,24 +111,55 @@ function renderItems(serverData = {}, isCards = false) {
   paginationListElem.innerHTML = renderAPI.paginationMarkup(totalPages, page);
 }
 
-// клік по группам вправ або карткам окремих вправ
-function selectFilteredExersises(event) {
-  // аналізуємо event якщо це кнопка Start одна логіка, якщо це группа вправ - інша
-  // якщо start то робимо алерт (модалка)
+function exerciseListHandler(event) {
+  if (
+    event.target.nodeName === 'A' ||
+    event.target.nodeName === 'P' ||
+    event.target.nodeName === 'H3'
+  ) {
+    event.preventDefault();
 
-  const cardStartBtn = event.target.closest('.exercise-card-start-btn');
-  if (cardStartBtn) {
-    alert(cardStartBtn.getAttribute('data-open-id'));
-    return;
+    const currentLink =
+      event.target.nodeName === 'A' ? event.target : event.target.closest('a');
+
+    exerciseListElem.dataset.isGroups = '';
+    exerciseListElem.dataset.groupName = currentLink.dataset.name;
+    renderExercises();
+
+    searchFormElem.classList.remove('visually-hidden');
+  } else if (exerciseListElem.dataset.groupName) {
+    const cardStartBtn = event.target.closest('.exercise-card-start-btn');
+    if (cardStartBtn) {
+      alert(cardStartBtn.getAttribute('data-open-id'));
+      return;
+    }
   }
+}
 
-  // Велізар
-  const filterCard = event.target.closest('.exercises-gallery-link');
-  // зчитати дата атрибути  і виконати запит на бек
+function filterListHandler(event) {
+  if (event.target.nodeName === 'BUTTON') {
+    getActiveFilterElem().classList.toggle('exercises-type-item-active');
+    event.target.classList.toggle('exercises-type-item-active');
 
-  /// Велізар
-  // backendAPI.filter =
-  // backendAPI.page =
-  // filtersData = await backendAPI.filter();
-  // renderItems(, true );
+    renderGroups();
+
+    searchFormElem.reset();
+    searchFormElem.classList.add('visually-hidden');
+  }
+}
+
+function paginationListHandler(event) {
+  if (event.target.nodeName === 'A') {
+    event.preventDefault();
+
+    const page = Number(event.target.innerText);
+
+    exerciseListElem.dataset.isGroups
+      ? renderGroups(page)
+      : renderExercises(page);
+  }
+}
+
+function getActiveFilterElem() {
+  return document.querySelector('.exercises-type-item-active');
 }
