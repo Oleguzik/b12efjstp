@@ -68,6 +68,24 @@
 
   .favorites-exercises-list {
     column-gap: 14px;
+    width: 672px;
+    height: 720px;
+    overflow-y: scroll;
+  }
+
+  .favorites-exercises-list::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .favorites-exercises-list::-webkit-scrollbar-track {
+    background: rgba(27, 27, 27, 0.10);
+    border-radius: 12px;
+
+  }
+
+  .favorites-exercises-list::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background: #7E847F;
   }
 
   .favorites-not-found-exercises {
@@ -91,6 +109,8 @@
 
 @media (min-width: 1440px) {
   .favorites-exercises-list {
+    width: 1344px;
+    height: 479px;
     column-gap: 20px;
     row-gap: 28px;
   }
