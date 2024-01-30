@@ -2,9 +2,13 @@ import messages from './js/notificationAPI';
 import backendAPI from './js/backendAPI';
 import localStorageAPI from './js/localStorageAPI';
 import { exerciseCardMarkup } from './js/renderMarkup';
+import startExercisesScenario from './js/excercises';
+
 // import { exerciseCardMarkup } from './js/renderMarkup'; // Для пагінації
 
 import './js/initialization';
+
+startExercisesScenario();
 
 // const exercisesType = document.querySelector('.exercises-type-item-btn');
 // const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
@@ -24,22 +28,6 @@ import './js/initialization';
 
 // пришлось закоментить код выше, не работал мой код
 // код для скрытия кнопки очищения формы и показа ее, когда происходит ввод в поле импута
-const inputElement = document.querySelector('.exercises-form-input');
-const clearButton = document.querySelector('.exercises-form-btn-clear');
-
-inputElement.addEventListener('input', function () {
-  const inputValue = inputElement.value;
-  if (inputValue.length > 0) {
-    clearButton.style.display = 'block';
-  } else {
-    clearButton.style.display = 'none';
-  }
-});
-
-clearButton.addEventListener('click', function () {
-  inputElement.value = '';
-  clearButton.style.display = 'none';
-});
 
 /////////////////////////////////////////////////////////////////////
 ////// modal-rating
@@ -99,24 +87,24 @@ clearButton.addEventListener('click', function () {
 /////////////////////////////////////////////////////////////////////
 
 ///////Subscription form/////////
-const subscriptionForm = document.querySelector(".footer-subscription-form");
+const subscriptionForm = document.querySelector('.footer-subscription-form');
 
-subscriptionForm.addEventListener("submit", async (event) => {
+subscriptionForm.addEventListener('submit', async event => {
   event.preventDefault();
-  
+
   const email = subscriptionForm.elements.email.value;
-  
+
   const response = await backendAPI.subscription(email);
 
   if (response.result) {
     messages.showSuccess(response.message);
-    subscriptionForm.elements.email.classList.remove("is-glowing")
+    subscriptionForm.elements.email.classList.remove('is-glowing');
   } else {
-    messages.showError(response.message)
+    messages.showError(response.message);
   }
 
-  subscriptionForm.reset()
-})
+  subscriptionForm.reset();
+});
 
 // Останній (робочий) тест backendAPI лишаю закоментованим для прикладу запиту
 // async function GetAllData() {

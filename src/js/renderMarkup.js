@@ -80,3 +80,24 @@ export function paginationMarkup(numberOfPages = 1, activePage = 1) {
   }
   return markup;
 }
+
+export function filtersMarkup({ name, filter, imgUrl }) {
+  // Велізар
+  // {
+  //     "name": "calves",
+  //     "filter": "Muscles",
+  //     "imgUrl": "https://ftp.goit.study/img/energy-flow/Calves.webp"
+  //   },
+
+  let markup = '';
+  // for (let i = 1; i <= numberOfPages; i++) {
+  //   if (!(i === activePage)) {
+  //     markup += `<li class="pagination-item"><a href="">${i}</a></li>`;
+  //   } else {
+  //     markup += `<li class="pagination-item pagination-item-active">
+  //   <a href="">${i}</a>
+  // </li>`;
+  //   }
+  // }
+  return markup;
+}
