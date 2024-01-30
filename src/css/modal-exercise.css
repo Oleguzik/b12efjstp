@@ -59,10 +59,10 @@
   margin-bottom: 10px;
 }
 
-.modal-exercise-title::first-letter,
+/* .modal-exercise-title::first-letter,
 .modal-exercise-selected::first-letter {
   text-transform: uppercase;
-}
+} */
 
 .mod-exercise-rating {
   display: flex;

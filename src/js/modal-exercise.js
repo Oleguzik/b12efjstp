@@ -28,7 +28,7 @@ function renderModalExercise(elementModalExercise) {
     '.modal-exercise-instruction-text'
   );
   getImage(elementModalExercise.gifUrl);
-  titleName.textContent = elementModalExercise.name;
+  titleName.textContent = capitalizeString(elementModalExercise.name);
   valueRating.textContent = elementModalExercise.rating
     .toString()
     .padEnd(3, '.0');
@@ -56,21 +56,27 @@ function renderModalExercise(elementModalExercise) {
   if (Object.keys(elementModalExercise).includes('target')) {
     modalExerciseItem = `<li class="modal-exercise-item">
           <p class="modal-exercise-subcategory">Target</p>
-          <p class="modal-exercise-selected">${elementModalExercise.target}</p>
+          <p class="modal-exercise-selected">${capitalizeString(
+            elementModalExercise.target
+          )}</p>
         </li>`;
     modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
   }
   if (Object.keys(elementModalExercise).includes('bodyPart')) {
     modalExerciseItem = ` <li class="modal-exercise-item">
     <p class="modal-exercise-subcategory">Body Part</p>
-    <p class="modal-exercise-selected">${elementModalExercise.bodyPart}</p>
+    <p class="modal-exercise-selected">${capitalizeString(
+      elementModalExercise.bodyPart
+    )}</p>
   </li>`;
     modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
   }
   if (Object.keys(elementModalExercise).includes('equipment')) {
     modalExerciseItem = ` <li class="modal-exercise-item">
           <p class="modal-exercise-subcategory">Equipment</p>
-          <p class="modal-exercise-selected">${elementModalExercise.equipment}</p>
+          <p class="modal-exercise-selected">${capitalizeString(
+            elementModalExercise.equipment
+          )}</p>
         </li>`;
     modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
   }
@@ -179,6 +185,12 @@ function closeModalExercise() {
     modalExersise.classList.add('is-hidden');
     btnClose.removeEventListener('click', closeModal);
   }
+}
+
+//CAPITALIZE STRING
+
+function capitalizeString(string = '') {
+  return string[0].toUpperCase() + string.substring(1);
 }
 
 //////////////////////////////////////////////////
