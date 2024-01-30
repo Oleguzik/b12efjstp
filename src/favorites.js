@@ -4,62 +4,81 @@ import { exerciseCardMarkup, paginationMarkup } from './js/renderMarkup';
 
 import './js/initialization';
 
+const MOBILE_LIMIT = 8;
+let isMobileDevice = document.documentElement.scrollWidth < 768;
+
 const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
 const favoritesList = document.querySelector('.favorites-exercises-list');
 const paginationList = document.querySelector('.pagination-list');
-const numberOfFavorites = localStorageAPI.getFavorites().length;
-const numberOfFavoritesInMobile = 8;
 
-if (!paginationList.classList.contains('visually-hidden')) {
-  paginationList.classList.add('visually-hidden');
-}
+favoritesList.addEventListener('click', favoritesListHandler);
+paginationList.addEventListener('click', pageChangeHandler);
 
-if (window.screen.width < 768) {
-  if (numberOfFavorites > numberOfFavoritesInMobile) {
+window.addEventListener('resize', () => {
+  if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
+    isMobileDevice = !isMobileDevice;
+    renderFavoritesList();
+  }
+});
+
+renderFavoritesList();
+
+function renderFavoritesList(page = 1) {
+  const items = localStorageAPI.getFavorites();
+
+  if (isMobileDevice && items.length > MOBILE_LIMIT) {
     paginationList.classList.remove('visually-hidden');
     paginationList.innerHTML = paginationMarkup(
-      Math.ceil(numberOfFavorites / numberOfFavoritesInMobile)
+      Math.ceil(items.length / MOBILE_LIMIT)
+    );
+    favoritesList.innerHTML = items
+      .slice((page - 1) * MOBILE_LIMIT, page * MOBILE_LIMIT)
+      .map(item => exerciseCardMarkup(item, true))
+      .join('');
+  } else {
+    paginationList.classList.add('visually-hidden');
+    paginationList.innerHTML = '';
+    favoritesList.innerHTML = items
+      .map(item => exerciseCardMarkup(item, true))
+      .join('');
+  }
+
+  items.length > 0
+    ? emptyListBlock.classList.add('visually-hidden')
+    : emptyListBlock.classList.remove('visually-hidden');
+
+  // if (items.length > 0) {
+  //   if (!emptyListBlock.classList.contains('visually-hidden')) {
+  //     emptyListBlock.classList.add('visually-hidden');
+  //   }
+  // } else {
+  //   emptyListBlock.classList.remove('visually-hidden');
+  // }
+}
+
+function pageChangeHandler(event) {
+  if (event.target.nodeName === 'A') {
+    event.preventDefault();
+    renderFavoritesList(Number(event.target.innerText));
+    paginationList.innerHTML = paginationMarkup(
+      event.currentTarget.children.length,
+      Number(event.target.innerText)
     );
   }
 }
 
-renderFavoritesList();
+function favoritesListHandler(event) {
+  const isStartButton = event.target.closest('.exercise-card-start-btn');
+  if (isStartButton) {
+    // open modal-exercise
+    alert(isStartButton.getAttribute('data-open-id'));
+  }
 
-document
-  .querySelector('.favorites-exercises-list')
-  .addEventListener('click', event => {
-    if (event.target.closest('.exercise-card-start-btn')) {
-      // open modal-exercise
-      console.log(
-        event.target
-          .closest('.exercise-card-start-btn')
-          .getAttribute('data-open-id')
-      );
-    }
-
-    if (event.target.closest('.exercise-card-remove-btn')) {
-      localStorageAPI.deleteItemFromFavorites(
-        event.target
-          .closest('.exercise-card-remove-btn')
-          .getAttribute('data-delete-id')
-      );
-      renderFavoritesList();
-    }
-  });
-
-function renderFavoritesList() {
-  const items = localStorageAPI.getFavorites();
-  const favoritesMarkup = items
-    .map(item => exerciseCardMarkup(item, true))
-    .join('');
-
-  favoritesList.innerHTML = favoritesMarkup;
-
-  if (items.length > 0) {
-    if (!emptyListBlock.classList.contains('visually-hidden')) {
-      emptyListBlock.classList.add('visually-hidden');
-    }
-  } else {
-    emptyListBlock.classList.remove('visually-hidden');
+  const isRemoveButton = event.target.closest('.exercise-card-remove-btn');
+  if (isRemoveButton) {
+    localStorageAPI.deleteItemFromFavorites(
+      isRemoveButton.getAttribute('data-delete-id')
+    );
+    renderFavoritesList();
   }
 }
