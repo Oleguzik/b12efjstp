@@ -145,7 +145,8 @@
 @media (min-width: 768px) {
   .exercise-card-item {
     max-width: none;
-    width: calc((100% - 14px) / 2);
+    /* width: calc((100% - 14px) / 2); */
+    width: 313px;
   }
 
   .exercise-card-start-btn-text {
@@ -172,7 +173,8 @@
 
 @media (min-width: 1440px) {
   .exercise-card-item {
-    width: calc((100% - 40px) / 3);
+    width: 424px;
+    /* width: calc((100% - 40px) / 3); */
     height: 141px;
   }
 
