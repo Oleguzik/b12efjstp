@@ -24,3 +24,4 @@ if (window.location.pathname === '/favorites.html') {
   favoritesEl.classList.add('active');
   homeEl.classList.remove('active');
 }
+
