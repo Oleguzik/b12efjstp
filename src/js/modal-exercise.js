@@ -10,61 +10,83 @@ export async function openModalExercise(id = '') {
       renderModalExercise(elementModalExercise);
       btnSetFavoriteExercise(elementModalExercise);
       btnGiveRating(id);
-      // } else {
-      //   messages.showError();
+    } else {
+      messages.showError();
     }
-  } catch {
-    error => {
-      messages.showError(error);
-    };
+  } catch (error) {
+    messages.showError(error);
   }
 }
 
 // RENDER MODAL
-function renderModalExercise({
-  name,
-  gifUrl,
-  rating,
-  target,
-  bodyPart,
-  equipment,
-  popularity,
-  burnedCalories,
-  time,
-  description,
-}) {
+function renderModalExercise(elementModalExercise) {
   const titleName = document.querySelector('.modal-exercise-title');
   const valueRating = document.querySelector('.mod-exercise-rating-value');
   const modalExerciseList = document.querySelector('.modal-exercise-list');
   const instructionText = document.querySelector(
     '.modal-exercise-instruction-text'
   );
+  getImage(elementModalExercise.gifUrl);
+  titleName.textContent = elementModalExercise.name;
+  valueRating.textContent = elementModalExercise.rating
+    .toString()
+    .padEnd(3, '.0');
+  instructionText.textContent = elementModalExercise.description;
 
-  getImage(gifUrl);
-  titleName.textContent = name;
-  valueRating.textContent = rating.toString().padEnd(3, '.0');
-  instructionText.textContent = description;
-  const modalExerciseItem = `<li class="modal-exercise-item">
+  //   function mapObject(object, array) {
+  //     let obj = {};
+  //     array.forEach(key => {
+  //       if (object[key]) {
+  //         obj[key] = object[key];
+  //       }
+  //     });
+  //     return obj;
+  //   }
+  //   const features = [
+  //     'target',
+  //     'bodyPart',
+  //     'equipment',
+  //     'popularity',
+  //     'burnedCalories',
+  //     'time',
+  //   ];
+
+  let modalExerciseItem = ``;
+  if (Object.keys(elementModalExercise).includes('target')) {
+    modalExerciseItem = `<li class="modal-exercise-item">
           <p class="modal-exercise-subcategory">Target</p>
-          <p class="modal-exercise-selected">${target}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Body Part</p>
-          <p class="modal-exercise-selected">${bodyPart}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Equipment</p>
-          <p class="modal-exercise-selected">${equipment}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Popular</p>
-          <p class="modal-exercise-selected">${popularity}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Burned Calories</p>
-          <p class="modal-exercise-selected">${burnedCalories}/${time} min</p>
+          <p class="modal-exercise-selected">${elementModalExercise.target}</p>
         </li>`;
-  modalExerciseList.innerHTML = modalExerciseItem;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('bodyPart')) {
+    modalExerciseItem = ` <li class="modal-exercise-item">
+    <p class="modal-exercise-subcategory">Body Part</p>
+    <p class="modal-exercise-selected">${elementModalExercise.bodyPart}</p>
+  </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('equipment')) {
+    modalExerciseItem = ` <li class="modal-exercise-item">
+          <p class="modal-exercise-subcategory">Equipment</p>
+          <p class="modal-exercise-selected">${elementModalExercise.equipment}</p>
+        </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('popularity')) {
+    modalExerciseItem = `<li class="modal-exercise-item">
+          <p class="modal-exercise-subcategory">Popular</p>
+          <p class="modal-exercise-selected">${elementModalExercise.popularity}</p>
+        </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('burnedCalories' && 'time')) {
+    const modalExerciseItem = `<li class="modal-exercise-item">
+            <p class="modal-exercise-subcategory">Burned Calories</p>
+            <p class="modal-exercise-selected">${elementModalExercise.burnedCalories}/${elementModalExercise.time} min</p>
+          </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
 }
 
 // ADD / REMOVE BTN
