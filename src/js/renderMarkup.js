@@ -71,10 +71,10 @@ export function paginationMarkup(numberOfPages = 1, activePage = 1) {
   let markup = '';
   for (let i = 1; i <= numberOfPages; i++) {
     if (!(i === activePage)) {
-      markup += `<li class="pagination-item"><a class="js-favorites-page" href="">${i}</a></li>`;
+      markup += `<li class="pagination-item"><a href="">${i}</a></li>`;
     } else {
       markup += `<li class="pagination-item pagination-item-active">
-    <a class="js-favorites-page" href="">${i}</a>
+    <a href="">${i}</a>
   </li>`;
     }
   }
