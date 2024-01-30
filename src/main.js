@@ -2,25 +2,94 @@ import messages from './js/notificationAPI';
 import backendAPI from './js/backendAPI';
 import localStorageAPI from './js/localStorageAPI';
 import { exerciseCardMarkup } from './js/renderMarkup';
-// import { exerciseCardMarkup } from './js/renderMarkup'; // Для пагінації
+import { paginationMarkup } from './js/renderMarkup'; // Для пагінації
 
 import './js/initialization';
 
-const exercisesType = document.querySelector('.exercises-type-item-btn');
-const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
-// const typeBtn = []
+const exercisesType = document.querySelectorAll('.exercises-type-item-btn');
+const exercisesGalleryAria = document.querySelector('.exercises-gallery-list');
+// const cardGallery = document.querySelector('.card-gallery-item');
+const pagedGalleryList = document.querySelector('.pagination-list'); 
+const pagedGalleryItem = document.querySelectorAll('.pagination-item');
 
 document.addEventListener("DOMContentLoaded", () => {
-  // alert("Page is loaded!");
-  exercisesType.classList.add('exercises-type-item-btn-focus');
-
-  console.log(exercisesType.);
+  exercisesType[0].classList.add('exercises-type-item-btn-focus');
+  meinGallery('Muscles', 1);
 });
 
-exercisesType.addEventListener('click', () => {
-  exercisesType.classList.remove('exercises-type-item-btn-focus');
-  // alert("Page is loaded!");
+exercisesType.forEach(button => {
+  button.addEventListener('click', handleClick);
+  console.log(button.textContent.trim());
 });
+
+pagedGalleryItem.forEach(page => {
+  page.addEventListener('click', (e) => {
+    const currentPage = e.target.textContent.trim();
+    console.dir(currentPage);
+    } );
+});
+
+async function meinGallery (filter, currentPage = 1) {
+  let meinData = [];
+  const mData = await backendAPI.getFilterData().then();
+  // console.dir(mData.totalPages);
+  let rPage = mData.totalPages;
+  meinData = mData.results;
+
+  galleryMarkup(meinData, filter);
+    
+  paginationRender(paginationMarkup(rPage, currentPage));
+};
+
+
+function paginationRender (pageList){
+  pagedGalleryList.innerHTML = "" + pageList;
+}
+
+
+function handleClick(e) {
+  const currentBtn = e.currentTarget;
+  const filter = currentBtn.textContent.trim();
+  backendAPI.filter = currentBtn.textContent.trim();
+  switch (filter) {
+    case 'Muscles': 
+      meinGallery(filter); break;
+    case 'Body parts': 
+      meinGallery(filter); break;
+    case 'Equipment': 
+    console.log(filter);
+      meinGallery(filter); break;
+    default:  
+    break;
+  };
+  inactivateFilter();
+  if (filter !== backendAPI.filter) {
+     currentBtn.classList.add('exercises-type-item-btn-focus');
+  }  else return
+};
+
+
+function inactivateFilter() {
+  exercisesType.forEach(button => {
+    button.classList.remove('exercises-type-item-btn-focus');
+  })
+};
+
+
+function galleryMarkup(currentData, activeType = 'Muscles') {
+  exercisesGalleryAria.innerHTML = '';
+    console.log(currentData);
+    exercisesGalleryAria.insertAdjacentHTML('beforeend', currentData.map(res => `
+    <li class="exercises-gallery-item">
+          <a href="" class="exercises-gallery-link" style="background-image: url('${res.imgUrl}');" alt="${res.name}" loading="lazy">
+            <h3 class="exercises-gallery-item-title">${res.name}</h3>
+            <p class="exercises-gallery-item-description">${activeType}</p>
+          </a>
+        </li>
+        `).join('')
+  );
+};
+
 
 
 
