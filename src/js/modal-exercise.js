@@ -10,6 +10,7 @@ export async function openModalExercise(id = '') {
       renderModalExercise(elementModalExercise);
       btnSetFavoriteExercise(elementModalExercise);
       btnGiveRating(id);
+      closeModalExercise();
     } else {
       messages.showError();
     }
@@ -166,6 +167,17 @@ function btnGiveRating(id) {
     console.log(id);
     // openGiveRatingWindow(id);
     btnGetRating.removeEventListener('click', getModalRating);
+  }
+}
+
+// BTN CLOSE
+function closeModalExercise() {
+  const btnClose = document.querySelector('.modal-exercise-btn-close');
+  const modalExersise = document.querySelector('.modal-exercise');
+  btnClose.addEventListener('click', closeModal);
+  function closeModal() {
+    modalExersise.classList.add('is-hidden');
+    btnClose.removeEventListener('click', closeModal);
   }
 }
 
