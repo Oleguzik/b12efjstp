@@ -1,14 +1,12 @@
 import messages from './js/notificationAPI';
 import backendAPI from './js/backendAPI';
 import localStorageAPI from './js/localStorageAPI';
-import { exerciseCardMarkup } from './js/renderMarkup';
 import startExercisesScenario from './js/excercises';
-
-// import { exerciseCardMarkup } from './js/renderMarkup'; // Для пагінації
 
 import './js/initialization';
 
 startExercisesScenario();
+
 
 /////////////////////////////////////////////////////////////////////
 ////// modal-rating
