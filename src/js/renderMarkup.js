@@ -26,6 +26,9 @@ const renderAPI = {
     //     "popularity": 1
     //   }
 
+    // <svg class="exercise-card-header-icon">
+    //   <use href="${ICONS_URL.run}"></use>
+    // </svg>;
     const { name, burnedCalories, time, bodyPart, target, rating, _id } =
       params;
 
@@ -59,9 +62,9 @@ const renderAPI = {
     </button>
   </div>
   <h3 class="exercise-card-header-container">
-    <svg class="exercise-card-header-icon">
-      <use href="${ICONS_URL.run}"></use>
-    </svg>
+    <svg class="exercise-card-header-icon" width="24" height="24">
+      <use href="./sprite.svg#icon-icon-run"></use>
+    </svg>;
     <span class="exercise-card-header-text"
       >${name}</span
     >
