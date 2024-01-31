@@ -1,6 +1,7 @@
 import messages from './js/notificationAPI';
 import localStorageAPI from './js/localStorageAPI';
-import { exerciseCardMarkup, paginationMarkup } from './js/renderMarkup';
+import renderAPI from './js/renderMarkup';
+import { openModalExercise } from './js/modal-exercise';
 
 import './js/initialization';
 
@@ -28,39 +29,31 @@ function renderFavoritesList(page = 1) {
 
   if (isMobileDevice && items.length > MOBILE_LIMIT) {
     paginationList.classList.remove('visually-hidden');
-    paginationList.innerHTML = paginationMarkup(
+    paginationList.innerHTML = renderAPI.paginationMarkup(
       Math.ceil(items.length / MOBILE_LIMIT)
     );
     favoritesList.innerHTML = items
       .slice((page - 1) * MOBILE_LIMIT, page * MOBILE_LIMIT)
-      .map(item => exerciseCardMarkup(item, true))
+      .map(item => renderAPI.exerciseCardMarkup(item, true))
       .join('');
   } else {
     paginationList.classList.add('visually-hidden');
     paginationList.innerHTML = '';
     favoritesList.innerHTML = items
-      .map(item => exerciseCardMarkup(item, true))
+      .map(item => renderAPI.exerciseCardMarkup(item, true))
       .join('');
   }
 
   items.length > 0
     ? emptyListBlock.classList.add('visually-hidden')
     : emptyListBlock.classList.remove('visually-hidden');
-
-  // if (items.length > 0) {
-  //   if (!emptyListBlock.classList.contains('visually-hidden')) {
-  //     emptyListBlock.classList.add('visually-hidden');
-  //   }
-  // } else {
-  //   emptyListBlock.classList.remove('visually-hidden');
-  // }
 }
 
 function pageChangeHandler(event) {
   if (event.target.nodeName === 'A') {
     event.preventDefault();
     renderFavoritesList(Number(event.target.innerText));
-    paginationList.innerHTML = paginationMarkup(
+    paginationList.innerHTML = renderAPI.paginationMarkup(
       event.currentTarget.children.length,
       Number(event.target.innerText)
     );
@@ -70,8 +63,8 @@ function pageChangeHandler(event) {
 function favoritesListHandler(event) {
   const isStartButton = event.target.closest('.exercise-card-start-btn');
   if (isStartButton) {
-    // open modal-exercise
-    alert(isStartButton.getAttribute('data-open-id'));
+    openModalExercise(isStartButton.getAttribute('data-open-id'));
+    return;
   }
 
   const isRemoveButton = event.target.closest('.exercise-card-remove-btn');
@@ -80,5 +73,6 @@ function favoritesListHandler(event) {
       isRemoveButton.getAttribute('data-delete-id')
     );
     renderFavoritesList();
+    return;
   }
 }

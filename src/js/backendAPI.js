@@ -56,9 +56,10 @@ const backendAPI = {
     try {
       const response = await axios.get(`exercises/${id}`);
       return response.data;
-    } catch {
+    } catch (error) {
       return {
         _id: '',
+        message: error.response.data.message,
       };
     }
   },

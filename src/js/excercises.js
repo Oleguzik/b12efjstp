@@ -1,5 +1,6 @@
 import backendAPI from './backendAPI';
 import renderAPI from './renderMarkup';
+import { openModalExercise } from './modal-exercise';
 
 let isMobileDevice;
 let isDesktopDevice;
@@ -130,8 +131,7 @@ function exerciseListHandler(event) {
   } else if (exerciseListElem.dataset.groupName) {
     const cardStartBtn = event.target.closest('.exercise-card-start-btn');
     if (cardStartBtn) {
-      alert(cardStartBtn.getAttribute('data-open-id'));
-      return;
+      openModalExercise(cardStartBtn.getAttribute('data-open-id'));
     }
   }
 }
