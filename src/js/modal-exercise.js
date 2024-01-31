@@ -5,7 +5,7 @@ import { openGiveRatingWindow } from './modal-feedback';
 
 let currentExercise = {};
 const backdrop = document.querySelector('.backdrop');
-const exerciseCloseBnt = document.querySelector('.modal-exercise-btn-close');
+// const exerciseCloseBnt = document.querySelector('.modal-exercise-btn-close');
 const excerciseAddRemoveBtn = document.querySelector('.modal-exercise-btn');
 const excerciseGiveRatingBtn = document.querySelector(
   '.modal-exercise-btn-rating'
@@ -23,7 +23,6 @@ const addRemoveBtnSpan = document.querySelector('.mod-exercise-span');
 const imageContainer = document.getElementById('img');
 
 export function startModalExerciseScenario() {
-  exerciseCloseBnt.addEventListener('click', exerciseCloseHandler);
   excerciseAddRemoveBtn.addEventListener('click', exerciseAddRemoveHandler);
   excerciseGiveRatingBtn.addEventListener('click', exerciseGiveRatingHandler);
 }
@@ -49,6 +48,8 @@ export async function openModalExercise(id = '') {
       : addRemoveBtnSpan.dataset.add;
 
     // додати клавішу Esc
+    document.addEventListener('keyup', exerciseCloseHandler);
+    document.addEventListener('click', exerciseCloseHandler);
   } else {
     modalExersise.dataset.id = '';
     currentExercise = {};
@@ -135,9 +136,17 @@ function exerciseGiveRatingHandler() {
   openGiveRatingWindow(modalExersise.dataset.id);
 }
 
-function exerciseCloseHandler() {
-  backdrop.classList.remove('backdrop-is-open');
-  modalExersise.classList.remove('is-open-modal');
+function exerciseCloseHandler(e) {
+  if (e.target === backdrop || e.target.closest('.modal-exercise-btn-close')) {
+    backdrop.classList.remove('backdrop-is-open');
+    modalExersise.classList.remove('is-open-modal');
+    document.removeEventListener('click', exerciseCloseHandler);
+  }
+  if (e.code === 'Escape') {
+    backdrop.classList.remove('backdrop-is-open');
+    modalExersise.classList.remove('is-open-modal');
+    document.removeEventListener('keyup', exerciseCloseHandler);
+  }
 }
 
 function capitalizeString(string = '') {
@@ -145,10 +154,6 @@ function capitalizeString(string = '') {
 }
 
 //GET RATING
-// const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
-// if (ratingsRef.length > 0) {
-//   initRatings();
-// }
 
 function initRatings() {
   const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
