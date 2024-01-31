@@ -10,6 +10,10 @@ const paginationListElem = document.querySelector('.pagination-list');
 const searchFormElem = document.querySelector('.exercises-type-form');
 const inputElement = document.querySelector('.exercises-form-input');
 const clearButton = document.querySelector('.exercises-form-btn-clear');
+const exerciseslistItemsEmptyMessage = document.querySelector(
+  '.exercises-empty-message'
+);
+const exercisesFilter = document.querySelector('.exercises-section-title-span');
 
 export default function startExercisesScenario() {
   isMobileDevice = document.documentElement.scrollWidth < 768;
@@ -102,13 +106,32 @@ function renderItems(serverData = {}, isCards = false) {
   // }
 
   const { results = [], totalPages = 1, page = 1 } = serverData;
+  if (results.length === 0) {
+    exerciseslistItemsEmptyMessage.classList.remove('visually-hidden');
+    exerciseListElem.classList.add('visually-hidden');
+    paginationListElem.classList.add('visually-hidden');
+    // exerciseListElem.innerHTML = results
+    //   .map(elem => renderAPI.filterGroupsMarkup(elem))
+    //   .join('');
+  } else {
+    exerciseslistItemsEmptyMessage.classList.add('visually-hidden');
+    exerciseListElem.classList.remove('visually-hidden');
+    paginationListElem.classList.remove('visually-hidden');
+    const markup = isCards
+      ? results.map(elem => renderAPI.exerciseCardMarkup(elem)).join('')
+      : results.map(elem => renderAPI.filterGroupsMarkup(elem)).join('');
+    
+    
+      if (isCards) {      
+      exercisesFilter.classList.remove('visually-hidden');
+    } else {
+      exercisesFilter.classList.add('visually-hidden');
+      exercisesFilter.firstElementChild.textContent=results[0].filter;
+    }
 
-  const markup = isCards
-    ? results.map(elem => renderAPI.exerciseCardMarkup(elem)).join('')
-    : results.map(elem => renderAPI.filterGroupsMarkup(elem)).join('');
-
-  exerciseListElem.innerHTML = markup;
-  paginationListElem.innerHTML = renderAPI.paginationMarkup(totalPages, page);
+    exerciseListElem.innerHTML = markup;
+    paginationListElem.innerHTML = renderAPI.paginationMarkup(totalPages, page);
+  }
 }
 
 function exerciseListHandler(event) {
@@ -140,7 +163,6 @@ function filterListHandler(event) {
   if (event.target.nodeName === 'BUTTON') {
     getActiveFilterElem().classList.toggle('exercises-type-item-active');
     event.target.classList.toggle('exercises-type-item-active');
-
     renderGroups();
 
     searchFormElem.reset();
