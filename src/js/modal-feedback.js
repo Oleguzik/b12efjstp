@@ -1,4 +1,6 @@
 import backendAPI from './backendAPI';
+import messages from './notificationAPI';
+
 // import { openModalExercise } from './openModalExercise';
 
 let currentRating = 0;
@@ -6,12 +8,12 @@ const ratingStars = document.querySelectorAll('.feedback-rating-stars-svg');
 const ratingValue = document.querySelector('.feedback-form-rating-value');
 
 const modalExercise = document.querySelector('.modal-exercise');
-const feedbackForm = document.querySelector('.feedback-container');
+const feedbackContainer = document.querySelector('.feedback-container');
 const modalButtonGiveRating = document.querySelector(
   '.modal-exercise-btn-rating'
 );
 const feedbackCloseButton = document.querySelector('.feedback-close-button');
-const sendButton = document.querySelector('.feedback-form-button');
+const feedbackForm = document.querySelector('.feedback-form');
 
 export function startModalFeedbackScenario() {
   // лістенери на відкриття і закриття
@@ -19,7 +21,7 @@ export function startModalFeedbackScenario() {
   feedbackCloseButton.addEventListener('click', closeGiveRatingWindow);
 
   // лістенер на функцію відправки на бекенд
-  sendButton.addEventListener('click', submitRatingForm);
+  feedbackForm.addEventListener('submit', submitRatingForm);
 
   ratingStar();
 }
@@ -27,35 +29,32 @@ export function startModalFeedbackScenario() {
 export function openGiveRatingWindow(id = '') {
   if (typeof id !== 'string') return;
 
-  feedbackForm.dataset.id = id;
+  feedbackContainer.dataset.id = id;
   // закриття модалки вправи відкриття модалки рейтингу
   modalExercise.classList.toggle('visually-hidden');
   modalExercise.classList.toggle('is-open-modal');
-  feedbackForm.classList.toggle('visually-hidden');
-  feedbackForm.classList.toggle('is-open-modal');
+  feedbackContainer.classList.toggle('visually-hidden');
+  feedbackContainer.classList.toggle('is-open-modal');
 }
 
 function closeGiveRatingWindow(id) {
-  //// видалення лістенерів
-  //modalButtonGiveRating.removeEventListener('click', openGiveRatingWindow);
-  //sendButton.removeEventListener('click', submitRatingForm); //??? хочу уточнити
+  feedbackForm.reset();
+  resetRating();
+  // видалення лістенерів
 
   // закриття модалки рейтингу відкриття модалки вправи
-  feedbackForm.classList.toggle('visually-hidden');
-  feedbackForm.classList.toggle('is-open-modal');
+  feedbackContainer.classList.toggle('visually-hidden');
+  feedbackContainer.classList.toggle('is-open-modal');
   modalExercise.classList.toggle('visually-hidden');
   modalExercise.classList.toggle('is-open-modal');
-  // openModalExercise(id);
 }
 
 async function submitRatingForm(event) {
   event.preventDefault();
 
   // беру дані
-  const id = (document.querySelector('.feedback-form').dataset.id = id);
-  const rate = document.querySelector(
-    '.feedback-form-rating-value'
-  ).textContent;
+  const id = feedbackContainer.dataset.id;
+  const rate = parseFloat(ratingValue.textContent);
   const email = document.querySelector('.feedback-form-input').value;
   const review = document.querySelector('.feedback-form-textarea').value.trim();
 
