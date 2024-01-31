@@ -1,6 +1,7 @@
 const ICONS_URL = {
   star: new URL('./img/icons/star.svg', import.meta.url).href,
   arrowRight: new URL('./img/icons/arrow-right.svg', import.meta.url).href,
+  trash: new URL('./img/icons/trash-black.svg', import.meta.url).href,
 };
 const SPRITE_URL = './img/sprite.svg';
 

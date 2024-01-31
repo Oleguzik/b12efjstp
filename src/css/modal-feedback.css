@@ -1,8 +1,9 @@
 /* 0 - 768 */
 
 .feedback-container {
-  /* position: absolute;
-  top: 50%;
+  position: relative;
+  /* position: absolute; */
+  /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
   width: 335px;
@@ -10,6 +11,7 @@
   padding: 40px 20px;
   border-radius: 20px;
   background-color: #f6f6f6;
+  pointer-events: none;
   transition: transform var(--duration) var(--time-function);
 }
 

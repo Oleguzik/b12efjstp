@@ -1,4 +1,6 @@
 import localStorageAPI from './localStorageAPI';
+import { startModalExerciseScenario } from './modal-exercise';
+import { startModalFeedbackScenario } from './modal-feedback';
 
 // set Quote of the Day
 (async () => {
@@ -9,3 +11,6 @@ import localStorageAPI from './localStorageAPI';
 
 import './header';
 import './scroll';
+
+startModalExerciseScenario();
+startModalFeedbackScenario();
