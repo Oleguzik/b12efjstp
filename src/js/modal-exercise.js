@@ -137,7 +137,7 @@ function exerciseGiveRatingHandler() {
 }
 
 function exerciseCloseHandler(e) {
-  if (e.target === backdrop || e.target.closest('.modal-exercise-btn-close')) {
+  if (e.target === backdrop || e.target.dataset.close) {
     backdrop.classList.remove('backdrop-is-open');
     modalExersise.classList.remove('is-open-modal');
     document.removeEventListener('click', exerciseCloseHandler);
