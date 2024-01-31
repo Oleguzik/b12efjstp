@@ -20,13 +20,13 @@ const messages = {
 };
 
 const isValidMessage = textMessage => {
-  const maxLength = 200;
+  const maxLength = 300;
 
   return textMessage.trim().length <= maxLength;
 };
 
 const showMessage = (message, type = '') => {
-  const maxLength = 100;
+  const maxLength = 200;
 
   const lines = [];
   while (message.length > maxLength) {
