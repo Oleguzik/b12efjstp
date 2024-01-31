@@ -42,7 +42,7 @@ const showMessage = (message, type = '') => {
       position: 'bottomCenter',
       closeOnEscape: true,
       closeOnClick: true,
-      timeout: 9000,
+      timeout: 5000,
       messageLineHeight: '12px',
     });
   });
