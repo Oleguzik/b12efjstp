@@ -6,6 +6,9 @@ import { exerciseCardMarkup } from './js/renderMarkup';
 
 import './js/initialization';
 
+import { openModalExercise } from './js/modal-exercise';
+openModalExercise('64f389465ae26083f39b1af3');
+
 const exercisesType = document.querySelector('.exercises-type-item-btn');
 const exercisesGalleryType = document.querySelector('.exercises-gallery-list');
 // const typeBtn = []
