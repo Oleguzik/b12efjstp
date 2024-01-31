@@ -63,16 +63,8 @@ function renderModalExercise(elementModalExercise) {
   valueRating.textContent = elementModalExercise.rating
     .toString()
     .padEnd(3, '.0');
+  initRatings();
   instructionText.textContent = elementModalExercise.description;
-
-  //   const features = [
-  //     'target',
-  //     'bodyPart',
-  //     'equipment',
-  //     'popularity',
-  //     'burnedCalories',
-  //     'time',
-  //   ];
 
   modalExerciseList.innerHTML = '';
   let modalExerciseItem = ``;
@@ -152,30 +144,31 @@ function capitalizeString(string = '') {
   return string[0].toUpperCase() + string.substring(1);
 }
 
-// GET RATING
+//GET RATING
 // const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
 // if (ratingsRef.length > 0) {
 //   initRatings();
 // }
 
-// export function initRatings() {
-//   let ratingActive, ratingValue;
-//   for (let index = 0; index < ratingsRef.length; index++) {
-//     const rating = ratingsRef[index];
-//     getRating(rating);
-//   }
+function initRatings() {
+  const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
+  let ratingActive, ratingValue;
+  for (let index = 0; index < ratingsRef.length; index++) {
+    const rating = ratingsRef[index];
+    getRating(rating);
+  }
 
-//   function getRating(rating) {
-//     initRatingVars(rating);
-//     setRatingActiveWidth();
-//   }
+  function getRating(rating) {
+    initRatingVars(rating);
+    setRatingActiveWidth();
+  }
 
-//   function initRatingVars(rating) {
-//     ratingActive = rating.querySelector('.mod-exercise-rating-active');
-//     ratingValue = rating.querySelector('.mod-exercise-rating-value');
-//   }
-//   function setRatingActiveWidth() {
-//     const ratingActiveWidth = ratingValue.textContent / 0.05;
-//     ratingActive.style.width = `${ratingActiveWidth}%`;
-//   }
-// }
+  function initRatingVars(rating) {
+    ratingActive = rating.querySelector('.mod-exercise-rating-active');
+    ratingValue = rating.querySelector('.mod-exercise-rating-value');
+  }
+  function setRatingActiveWidth() {
+    const ratingActiveWidth = ratingValue.textContent / 0.05;
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+}
