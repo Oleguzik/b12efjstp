@@ -1,50 +1,20 @@
-import starIcon from '../img/icons/star.svg';
-import arrowRightIcon from '../img/icons/trash-black.svg';
-import trashIcon from '../img/icons/trash-black.svg';
-import runIcon from '../img/icons/icon-run.svg';
-
-const ICONS_URL = {
-  star: new URL(starIcon, import.meta.url).href,
-  arrowRight: new URL(arrowRightIcon, import.meta.url).href,
-  trash: new URL(trashIcon, import.meta.url).href,
-  run: new URL(runIcon, import.meta.url).href,
-};
-
 const renderAPI = {
   exerciseCardMarkup: function (params = {}, isFavorites = false) {
-    // {
-    //     "_id": "64f389465ae26083f39b17a4",
-    //     "bodyPart": "waist",
-    //     "equipment": "body weight",
-    //     "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif",
-    //     "name": "air bike",
-    //     "target": "abs",
-    //     "description": "This refers to your core muscles, which include the rectus abdominis, obliques, and transverse abdominis. They're essential for maintaining posture, stability, and generating force in many movements. Exercises that target the abs include crunches, leg raises, and planks.",
-    //     "rating": 3,
-    //     "burnedCalories": 312,
-    //     "time": 3,
-    //     "popularity": 1
-    //   }
-
-    // <svg class="exercise-card-header-icon">
-    //   <use href="${ICONS_URL.run}"></use>
-    // </svg>;
     const { name, burnedCalories, time, bodyPart, target, rating, _id } =
       params;
 
-    console.log(ICONS_URL);
     let markupDifference = '';
     if (isFavorites) {
       markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${_id}">
-       <svg class="exercise-card-remove-icon">
-           <use href="${ICONS_URL.trash}"></use>
+       <svg class="exercise-card-remove-icon" width="16" height="16">
+           <use href="./sprite.svg#icon-trash-black"></use>
        </svg>
     </button>`;
     } else {
       markupDifference = `<p class="exercise-card-rating">
       <span class="exercise-card-rating-value">${rating}</span>
          <svg class="exercise-card-rating-star" width="18" height="18">
-           <use href="${ICONS_URL.star}"></use>
+           <use href="./sprite.svg#icon-star"></use>
          </svg>
       </p>`;
     }
@@ -57,7 +27,7 @@ const renderAPI = {
     <button type="button" class="exercise-card-start-btn" data-open-id="${_id}">
       <span class="exercise-card-start-btn-text">Start</span>
       <svg class="exercise-card-start-btn-icon" width="16" height="16">
-        <use href="${ICONS_URL.arrowRight}"></use>
+        <use href="./sprite.svg#icon-arrow-right"></use>
       </svg>
     </button>
   </div>
@@ -84,15 +54,23 @@ const renderAPI = {
     </li>
   </ul>
   </li>`;
+
+    // {
+    //     "_id": "64f389465ae26083f39b17a4",
+    //     "bodyPart": "waist",
+    //     "equipment": "body weight",
+    //     "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif",
+    //     "name": "air bike",
+    //     "target": "abs",
+    //     "description": "This refers to your core muscles, which include the rectus abdominis, obliques, and transverse abdominis. They're essential for maintaining posture, stability, and generating force in many movements. Exercises that target the abs include crunches, leg raises, and planks.",
+    //     "rating": 3,
+    //     "burnedCalories": 312,
+    //     "time": 3,
+    //     "popularity": 1
+    //   }
   },
 
   filterGroupsMarkup: function ({ name = '', filter = '', imgUrl = '' }) {
-    // {
-    //     "name": "calves",
-    //     "filter": "Muscles",
-    //     "imgUrl": "https://ftp.goit.study/img/energy-flow/Calves.webp"
-    //   },
-
     const style = `background-image: linear-gradient(
       0deg,
       rgba(16, 16, 16, 0.7) 0%,
@@ -106,6 +84,12 @@ const renderAPI = {
       <p class="exercises-gallery-item-description">${filter}</p>
     </a>
   </li>`;
+
+    // {
+    //     "name": "calves",
+    //     "filter": "Muscles",
+    //     "imgUrl": "https://ftp.goit.study/img/energy-flow/Calves.webp"
+    //   },
   },
 
   paginationMarkup: function (numberOfPages = 1, activePage = 1) {
