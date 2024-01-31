@@ -5,7 +5,13 @@ import startExercisesScenario from './js/excercises';
 
 import './js/initialization';
 
+
+import { openModalExercise } from './js/modal-exercise';
+openModalExercise('64f389465ae26083f39b1af3');
+
+
 startExercisesScenario();
+
 
 
 /////////////////////////////////////////////////////////////////////

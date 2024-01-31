@@ -1,60 +1,129 @@
 import backendAPI from './backendAPI';
 import messages from './notificationAPI';
+import localStorageAPI from './localStorageAPI';
 
-export function openModalExercise(_id) {
-  const elementModalExercise = results.find(element => element._id === _id);
-  renderModalExercise(elementModalExercise);
+// GET ELEMENT
+export async function openModalExercise(id = '') {
+  const elementModalExercise = await backendAPI.getExerciseInfo(id);
+  try {
+    if (elementModalExercise != {}) {
+      renderModalExercise(elementModalExercise);
+      btnSetFavoriteExercise(elementModalExercise);
+      btnGiveRating(id);
+      closeModalExercise();
+    } else {
+      messages.showError();
+    }
+  } catch (error) {
+    messages.showError(error);
+  }
 }
 
-function renderModalExercise({
-  name,
-  gifUrl,
-  rating,
-  target,
-  bodyPart,
-  equipment,
-  popularity,
-  burnedCalories,
-  time,
-  description,
-}) {
+// RENDER MODAL
+function renderModalExercise(elementModalExercise) {
   const titleName = document.querySelector('.modal-exercise-title');
   const valueRating = document.querySelector('.mod-exercise-rating-value');
   const modalExerciseList = document.querySelector('.modal-exercise-list');
   const instructionText = document.querySelector(
     '.modal-exercise-instruction-text'
   );
-  const spanFavorites = document.querySelector('.mod-exercise-span-add');
-  getImage(gifUrl);
-  titleName.textContent = name;
-  valueRating.textContent = rating;
-  instructionText.textContent = description;
-  const modalExerciseItem = `<li class="modal-exercise-item">
+  getImage(elementModalExercise.gifUrl);
+  titleName.textContent = capitalizeString(elementModalExercise.name);
+  valueRating.textContent = elementModalExercise.rating
+    .toString()
+    .padEnd(3, '.0');
+  instructionText.textContent = elementModalExercise.description;
+
+  //   function mapObject(object, array) {
+  //     let obj = {};
+  //     array.forEach(key => {
+  //       if (object[key]) {
+  //         obj[key] = object[key];
+  //       }
+  //     });
+  //     return obj;
+  //   }
+  //   const features = [
+  //     'target',
+  //     'bodyPart',
+  //     'equipment',
+  //     'popularity',
+  //     'burnedCalories',
+  //     'time',
+  //   ];
+
+  let modalExerciseItem = ``;
+  if (Object.keys(elementModalExercise).includes('target')) {
+    modalExerciseItem = `<li class="modal-exercise-item">
           <p class="modal-exercise-subcategory">Target</p>
-          <p class="modal-exercise-selected">${target}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Body Part</p>
-          <p class="modal-exercise-selected">${bodyPart}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Equipment</p>
-          <p class="modal-exercise-selected">${equipment}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Popular</p>
-          <p class="modal-exercise-selected">${popularity}</p>
-        </li>
-        <li class="modal-exercise-item">
-          <p class="modal-exercise-subcategory">Burned Calories</p>
-          <p class="modal-exercise-selected">${burnedCalories}/${time} min</p>
+          <p class="modal-exercise-selected">${capitalizeString(
+            elementModalExercise.target
+          )}</p>
         </li>`;
-  modalExerciseList.innerHTML = modalExerciseItem;
-  spanFavorites.textContent = spanFavorites.dataset.add;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('bodyPart')) {
+    modalExerciseItem = ` <li class="modal-exercise-item">
+    <p class="modal-exercise-subcategory">Body Part</p>
+    <p class="modal-exercise-selected">${capitalizeString(
+      elementModalExercise.bodyPart
+    )}</p>
+  </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('equipment')) {
+    modalExerciseItem = ` <li class="modal-exercise-item">
+          <p class="modal-exercise-subcategory">Equipment</p>
+          <p class="modal-exercise-selected">${capitalizeString(
+            elementModalExercise.equipment
+          )}</p>
+        </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('popularity')) {
+    modalExerciseItem = `<li class="modal-exercise-item">
+          <p class="modal-exercise-subcategory">Popular</p>
+          <p class="modal-exercise-selected">${elementModalExercise.popularity}</p>
+        </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+  if (Object.keys(elementModalExercise).includes('burnedCalories' && 'time')) {
+    const modalExerciseItem = `<li class="modal-exercise-item">
+            <p class="modal-exercise-subcategory">Burned Calories</p>
+            <p class="modal-exercise-selected">${elementModalExercise.burnedCalories}/${elementModalExercise.time} min</p>
+          </li>`;
+    modalExerciseList.insertAdjacentHTML('beforeend', modalExerciseItem);
+  }
+}
+
+// ADD / REMOVE BTN
+function btnSetFavoriteExercise(elementModalExercise) {
+  const btn = document.querySelector('.modal-exercise-btn');
+  const span = document.querySelector('.mod-exercise-span');
+  const favExercises = localStorageAPI.getFavorites();
+  const favoriteExercise = favExercises.some(el => el === elementModalExercise);
+  favoriteExercise === false
+    ? (span.textContent = span.dataset.add)
+    : (span.textContent = span.dataset.remove);
+
+  btn.addEventListener('click', () => {
+    if (span.textContent === span.dataset.add) {
+      return addToFavorite();
+    } else {
+      return removeFromFavorite();
+    }
+  });
+  function addToFavorite() {
+    span.textContent = span.dataset.remove;
+    localStorageAPI.addItemToFavorites(elementModalExercise);
+  }
+  function removeFromFavorite() {
+    span.textContent = span.dataset.add;
+    localStorageAPI.deleteItemFromFavorites(elementModalExercise._id);
+  }
 }
 
 // GET IMAGE
-
 function getImage(gifUrl) {
   const imageContainer = document.getElementById('img');
 
@@ -67,7 +136,6 @@ function getImage(gifUrl) {
 }
 
 // GET RATING
-
 const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
 if (ratingsRef.length > 0) {
   initRatings();
@@ -93,6 +161,36 @@ export function initRatings() {
     const ratingActiveWidth = ratingValue.textContent / 0.05;
     ratingActive.style.width = `${ratingActiveWidth}%`;
   }
+}
+
+// GET MODAL FEEDBACK
+function btnGiveRating(id) {
+  const btnGetRating = document.getElementById('get-rating');
+  const modalExersise = document.querySelector('.modal-exercise');
+  btnGetRating.addEventListener('click', getModalRating);
+  function getModalRating() {
+    modalExersise.classList.add('is-hidden');
+    console.log(id);
+    // openGiveRatingWindow(id);
+    btnGetRating.removeEventListener('click', getModalRating);
+  }
+}
+
+// BTN CLOSE
+function closeModalExercise() {
+  const btnClose = document.querySelector('.modal-exercise-btn-close');
+  const modalExersise = document.querySelector('.modal-exercise');
+  btnClose.addEventListener('click', closeModal);
+  function closeModal() {
+    modalExersise.classList.add('is-hidden');
+    btnClose.removeEventListener('click', closeModal);
+  }
+}
+
+//CAPITALIZE STRING
+
+function capitalizeString(string = '') {
+  return string[0].toUpperCase() + string.substring(1);
 }
 
 //////////////////////////////////////////////////
