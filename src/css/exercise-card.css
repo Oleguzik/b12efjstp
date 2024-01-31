@@ -140,6 +140,7 @@
 .exercise-card-rating-star {
   width: 18px;
   height: 18px;
+  fill: #eea10c;
 }
 
 @media (min-width: 768px) {
@@ -157,6 +158,7 @@
   .exercise-card-start-btn-icon {
     width: 16px;
     height: 16px;
+    stroke: #1b1b1b;
   }
 
   .exercise-card-header-container {

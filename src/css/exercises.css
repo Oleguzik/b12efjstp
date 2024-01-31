@@ -23,10 +23,6 @@
   display: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 /* ---MOBILE FIRST--- */
 
 .exercises-content {
@@ -76,8 +72,13 @@
 
 .exercises-type-item-btn:hover,
 .exercises-type-item-btn:focus {
+  background: #5f6560;
+  color: #f6f6f6;
+}
+
+.exercises-type-item-active {
   background-color: #7e847f;
-  color: #fff;
+  color: #f6f6f6;
 }
 
 /* ---------------form----------------- */
@@ -147,14 +148,21 @@
 /* gallery */
 
 .exercises-gallery-list {
-  margin-left: -20px;
+  gap: 20px;
+  /* margin-left: -20px; */
 }
 
 .exercises-gallery-item {
-  margin-left: 20px;
-  margin-bottom: 20px;
+  /* margin-left: 20px;
+  margin-bottom: 20px; */
   width: 295px;
   height: 232px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(246, 246, 246, 0.3);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .exercises-gallery-link {
@@ -163,33 +171,9 @@
   gap: 2px;
   align-items: center;
   justify-content: center;
-  padding: 45px 105px;
-  width: 295px;
-  height: 232px;
-  border-radius: 12px;
-  border: 1px solid rgba(246, 246, 246, 0.3);
-  background-image: linear-gradient(
-      0deg,
-      rgba(16, 16, 16, 0.7) 0%,
-      rgba(16, 16, 16, 0.7) 100%
-    ),
-    url(../img/advice/3-110-mob.webp);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-@media (min-resolution: 192dpi),
-  (min-resolution: 2dppx),
-  (min-device-pixel-ratio: 2) {
-  .exercises-gallery-link {
-    background-image: linear-gradient(
-        0deg,
-        rgba(16, 16, 16, 0.7) 0%,
-        rgba(16, 16, 16, 0.7) 100%
-      ),
-      url(../img/advice/3-110@2x-mob.webp);
-  }
+  /* padding: 45px 105px; */
+  width: 100%;
+  height: 100%;
 }
 
 .exercises-gallery-item-title {
@@ -197,6 +181,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .exercises-gallery-item-description {
@@ -257,40 +242,17 @@
   /* ---------form end----------- */
 
   .exercises-gallery-list {
+    gap: 14px;
     display: flex;
     flex-wrap: wrap;
-    margin-left: -14px;
+    /* margin-left: -14px; */
   }
 
   .exercises-gallery-item {
-    margin-left: 14px;
-    margin-bottom: 14px;
+    /* margin-left: 14px;
+    margin-bottom: 14px; */
     width: 313px;
     height: 250px;
-  }
-
-  .exercises-gallery-link {
-    width: 313px;
-    height: 250px;
-    background-image: linear-gradient(
-        0deg,
-        rgba(16, 16, 16, 0.7) 0%,
-        rgba(16, 16, 16, 0.7) 100%
-      ),
-      url(../img/advice/3-110-tab.webp);
-  }
-
-  @media (min-resolution: 192dpi),
-    (min-resolution: 2dppx),
-    (min-device-pixel-ratio: 2) {
-    .exercises-gallery-link {
-      background-image: linear-gradient(
-          0deg,
-          rgba(16, 16, 16, 0.7) 0%,
-          rgba(16, 16, 16, 0.7) 100%
-        ),
-        url(../img/advice/3-110@2x-tab.webp);
-    }
   }
 }
 
@@ -302,33 +264,13 @@
   }
 
   .exercises-gallery-list {
-    margin-left: -20px;
+    row-gap: 40px;
+    column-gap: 20px;
+    /* margin-left: -20px; */
   }
 
   .exercises-gallery-item {
-    margin-left: 20px;
-    margin-bottom: 40px;
-  }
-
-  .exercises-gallery-link {
-    background-image: linear-gradient(
-        0deg,
-        rgba(16, 16, 16, 0.7) 0%,
-        rgba(16, 16, 16, 0.7) 100%
-      ),
-      url(../img/advice/3-110-desk.webp);
-  }
-
-  @media (min-resolution: 192dpi),
-    (min-resolution: 2dppx),
-    (min-device-pixel-ratio: 2) {
-    .exercises-gallery-link {
-      background-image: linear-gradient(
-          0deg,
-          rgba(16, 16, 16, 0.7) 0%,
-          rgba(16, 16, 16, 0.7) 100%
-        ),
-        url(../img/advice/3-110@2x-desk.webp);
-    }
+    /* margin-left: 20px;
+    margin-bottom: 40px; */
   }
 }

@@ -6,12 +6,22 @@
       <div class="exercises-type-nav">
         <ul class="exercises-type-list">
           <li class="exercises-type-item">
-            <button type="button" class="exercises-type-item-btn" data-muscles>
+            <button
+              type="button"
+              class="exercises-type-item-btn exercises-type-item-active"
+              data-exercise-filter="muscles"
+              data-filter="Muscles"
+            >
               Muscles
             </button>
           </li>
           <li class="exercises-type-item">
-            <button type="button" class="exercises-type-item-btn" data-bodypart>
+            <button
+              type="button"
+              class="exercises-type-item-btn"
+              data-exercise-filter="bodypart"
+              data-filter="Body parts"
+            >
               Body parts
             </button>
           </li>
@@ -19,7 +29,8 @@
             <button
               type="button"
               class="exercises-type-item-btn"
-              data-equipment
+              data-exercise-filter="equipment"
+              data-filter="Equipment"
             >
               Equipment
             </button>
@@ -49,20 +60,11 @@
         </form>
       </div>
       <!-- Exercises type gallery  -->
-      <ul class="exercises-gallery-list">
-        <li class="exercises-gallery-item">
-          <a href="" class="exercises-gallery-link">
-            <h3 class="exercises-gallery-item-title">Abductors</h3>
-            <p class="exercises-gallery-item-description">Muscles</p>
-          </a>
-        </li>
-        <li class="exercises-gallery-item">
-          <a href="" class="exercises-gallery-link">
-            <h3 class="exercises-gallery-item-title">Abductors</h3>
-            <p class="exercises-gallery-item-description">Muscles</p>
-          </a>
-        </li>
-      </ul>
+      <ul
+        class="exercises-gallery-list"
+        data-is-groups="true"
+        data-group-name=""
+      ></ul>
       <!-- Exercises paged gallery -->
       <ul class="pagination-list"></ul>
     </div>
