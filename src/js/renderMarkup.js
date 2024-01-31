@@ -1,3 +1,9 @@
+const ICONS_URL = {
+  star: new URL('./img/icons/star.svg', import.meta.url).href,
+  arrowRight: new URL('./img/icons/arrow-right.svg', import.meta.url).href,
+};
+const SPRITE_URL = './img/sprite.svg';
+
 const renderAPI = {
   exerciseCardMarkup: function (params = {}, isFavorites = false) {
     // {
@@ -16,18 +22,19 @@ const renderAPI = {
 
     const { name, burnedCalories, time, bodyPart, target, rating, _id } =
       params;
+
     let markupDifference = '';
     if (isFavorites) {
       markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${_id}">
        <svg class="exercise-card-remove-icon">
-           <use href="./img/sprite.svg#icon-trash-black"></use>
+           <use href="${SPRITE_URL}#icon-trash-black"></use>
        </svg>
     </button>`;
     } else {
       markupDifference = `<p class="exercise-card-rating">
       <span class="exercise-card-rating-value">${rating}</span>
-         <svg class="exercise-card-rating-star">
-           <use href="./img/sprite.svg#icon-Star-gold"></use>
+         <svg class="exercise-card-rating-star" width="18" height="18">
+           <use href="${SPRITE_URL}#icon-star-gold"></use>
          </svg>
       </p>`;
     }
@@ -39,14 +46,14 @@ const renderAPI = {
     </div>
     <button type="button" class="exercise-card-start-btn" data-open-id="${_id}">
       <span class="exercise-card-start-btn-text">Start</span>
-      <svg class="exercise-card-start-btn-icon">
-        <use href="./img/sprite.svg#icon-arrow-right"></use>
+      <svg class="exercise-card-start-btn-icon" width="16" height="16">
+        <use href="${SPRITE_URL}#icon-arrow-right"></use>
       </svg>
     </button>
   </div>
   <h3 class="exercise-card-header-container">
     <svg class="exercise-card-header-icon">
-      <use href="./img/sprite.svg#icon-icon-run"></use>
+      <use href="${SPRITE_URL}#icon-icon-run"></use>
     </svg>
     <span class="exercise-card-header-text"
       >${name}</span
@@ -67,10 +74,6 @@ const renderAPI = {
     </li>
   </ul>
   </li>`;
-  },
-
-  filterButtonsMarkup: function () {
-    return '';
   },
 
   filterGroupsMarkup: function ({ name = '', filter = '', imgUrl = '' }) {

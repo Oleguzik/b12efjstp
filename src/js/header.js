@@ -13,15 +13,14 @@ mobileMenuEl.addEventListener('click', () =>
 const homeMobEl = document.querySelector('.mob-menu-home');
 const favoritesMobEl = document.querySelector('.mob-menu-favorites');
 
-if (window.location.pathname === '/favorites.html') {
+if (window.location.pathname.endsWith('/favorites.html')) {
   favoritesMobEl.classList.add('active');
   homeMobEl.classList.remove('active');
 }
 
 const homeEl = document.querySelector('.header-home');
 const favoritesEl = document.querySelector('.header-favorites');
-if (window.location.pathname === '/favorites.html') {
+if (window.location.pathname.endsWith('/favorites.html')) {
   favoritesEl.classList.add('active');
   homeEl.classList.remove('active');
 }
-
