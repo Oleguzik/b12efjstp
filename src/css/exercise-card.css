@@ -90,8 +90,8 @@
 }
 
 .exercise-card-header-icon {
-  width: 24px;
-  height: 24px;
+  /* width: 24px;
+  height: 24px; */
   flex-shrink: 0;
   background-color: #7e847f;
   border-radius: 50%;
