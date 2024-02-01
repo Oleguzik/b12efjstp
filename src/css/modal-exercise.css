@@ -31,6 +31,13 @@
 
 .modal-exercise-icon-x-black {
   stroke: #1b1b1b;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration) var(--time-function);
+}
+
+.modal-exercise-btn-close:hover .modal-exercise-icon-x-black,
+.modal-exercise-btn-close:focus .modal-exercise-icon-x-black {
+  stroke: #5f6560;
+  transform: scale(1.15);
 }
 
 .modal-exercise-image {
@@ -134,6 +141,7 @@
   line-height: 1.5;
   margin-bottom: 4px;
 }
+
 .modal-exercise-selected {
   font-size: 14px;
   font-weight: 500;
@@ -183,6 +191,7 @@
   fill: none;
   stroke: #f6f6f6;
 }
+
 .modal-exercise-btn-rating {
   cursor: pointer;
   min-width: 295px;
@@ -269,10 +278,12 @@
     font-size: 16px;
     line-height: 1.5;
   }
+
   .modal-exercise-description {
     max-width: 342px;
     height: 100%;
   }
+
   .modal-exercise-btn-box {
     flex-wrap: nowrap;
     gap: 7px;

@@ -28,10 +28,12 @@
   stroke: #1b1b1b;
   border: none;
   background-color: #f6f6f6;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration) var(--time-function);
 }
 .feedback-close-button:hover,
 .feedback-close-button:focus {
-  transition: transform var(--duration) var(--time-function);
+  stroke: #5f6560;
+  transform: scale(1.15);  
 }
 
 .feedback-form {

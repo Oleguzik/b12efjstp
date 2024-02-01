@@ -12,6 +12,13 @@
   font-size: 20px;
   line-height: 1.6;
   letter-spacing: 0.04em;
+  transition: transform var(--duration) var(--time-function), color var(--duration) var(--time-function);
+}
+
+.pagination-item:hover,
+.pagination-item-link:focus{
+  color: #5f6560;
+  transform: scale(1.15);
 }
 
 .pagination-item-active {

@@ -16,12 +16,34 @@
   color: #1b1b1b;
   font-size: 14px;
   line-height: 1.3;
+  transition: transform var(--duration) var(--time-function), color var(--duration) var(--time-function);
 }
 
 .exercise-card-start-btn-icon {
   width: 14px;
   height: 14px;
   stroke: #1b1b1b;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration) var(--time-function);
+}
+
+.exercise-card-start-btn-text:hover {
+  color: #5f6560;
+  transform: scale(1.15);
+}
+
+.exercise-card-start-btn-icon:hover {
+  stroke: #5f6560;
+  transform: scale(1.15);
+}
+
+.exercise-card-start-btn:focus .exercise-card-start-btn-icon{
+  stroke: #5f6560;
+  transform: scale(1.15);
+}
+
+.exercise-card-start-btn:focus .exercise-card-start-btn-text{
+  color: #5f6560;
+  transform: scale(1.15);
 }
 
 .exercise-card-remove-btn {
@@ -35,6 +57,13 @@
   height: 16px;
   stroke: #1b1b1b;
   fill: #fff;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration) var(--time-function);
+}
+
+.exercise-card-remove-btn:hover .exercise-card-remove-icon,
+.exercise-card-remove-btn:focus .exercise-card-remove-icon {
+  stroke: #5f6560;
+  transform: scale(1.15);
 }
 
 .exercise-card-workout-container {

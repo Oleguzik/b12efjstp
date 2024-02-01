@@ -90,6 +90,7 @@
   background-color: #f6f6f6;
   border-radius: 30px;
   border: transparent;
+  transition: background var(--duration) var(--time-function), color var(--duration)
 }
 
 .exercises-type-item-btn:hover,
@@ -136,7 +137,14 @@
   outline: none;
   background: transparent;
   display: none;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration)
   /* скрытие кнопки по умолчанию */
+}
+
+.exercises-form-btn-clear:hover,
+.exercises-form-btn-clear:focus {
+  stroke: #5f6560;
+  transform: scale(1.15);
 }
 
 .exercises-close-icon {
@@ -156,6 +164,7 @@
   border: none;
   outline: none;
   background: transparent;
+  
 }
 
 .exercises-form-search-icon {
@@ -164,6 +173,13 @@
   top: 0px;
   stroke: #1b1b1b;
   fill: none;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration) 
+}
+
+.exercises-form-btn:hover .exercises-form-search-icon,
+.exercises-form-btn:focus .exercises-form-search-icon {
+  stroke: #5f6560;
+  transform: scale(1.15);
 }
 
 /* ---------------form end----------------- */
@@ -310,7 +326,8 @@
   .exercises-section-title-filter {
     font-size: 24px;
     letter-spacing: -0.02em;
-    line-height: 1.33; /* 133.333% */
+    line-height: 1.33;
+    /* 133.333% */
     color: rgba(27, 27, 27, 0.5);
   }
 
