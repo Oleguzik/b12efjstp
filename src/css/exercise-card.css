@@ -148,6 +148,8 @@
     /* max-width: none; */
     /* width: calc((100% - 14px) / 2); */
     width: 313px;
+    min-height: 141px;
+    max-height: 165px;
   }
 
   .exercise-card-start-btn-text {
@@ -178,6 +180,7 @@
     width: 424px;
     /* width: calc((100% - 40px) / 3); */
     min-height: 141px;
+    max-height: 165px;
   }
 
   .exercise-card-header-text {

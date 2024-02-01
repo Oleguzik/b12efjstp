@@ -2,6 +2,7 @@ import backendAPI from './backendAPI';
 import messages from './notificationAPI';
 import localStorageAPI from './localStorageAPI';
 import { openGiveRatingWindow } from './modal-feedback';
+import { modalExerciseWindowCloseEvent } from '../favorites';
 
 let currentExercise = {};
 const backdrop = document.querySelector('.backdrop');
@@ -23,9 +24,19 @@ const addRemoveBtnSpan = document.querySelector('.mod-exercise-span');
 const imageContainer = document.getElementById('img');
 
 export function startModalExerciseScenario() {
-  exerciseCloseBnt.addEventListener('click', exerciseCloseHandler);
-  excerciseAddRemoveBtn.addEventListener('click', exerciseAddRemoveHandler);
-  excerciseGiveRatingBtn.addEventListener('click', exerciseGiveRatingHandler);
+  // exerciseCloseBnt.addEventListener('click', exerciseCloseHandler);
+  // excerciseAddRemoveBtn.addEventListener('click', exerciseAddRemoveHandler);
+  // excerciseGiveRatingBtn.addEventListener('click', exerciseGiveRatingHandler);
+
+  document
+    .querySelector('.modal-exercise-btn-close')
+    .addEventListener('click', exerciseCloseHandler);
+  document
+    .querySelector('.modal-exercise-btn')
+    .addEventListener('click', exerciseAddRemoveHandler);
+  document
+    .querySelector('.modal-exercise-btn-rating')
+    .addEventListener('click', exerciseGiveRatingHandler);
 }
 
 // GET ELEMENT
@@ -33,6 +44,7 @@ export async function openModalExercise(id = '') {
   backdrop.classList.add('backdrop-is-open');
   modalExersise.classList.add('is-open-modal');
 
+  modalExersise.dataset.isChanged = '';
   const exerciseData = await backendAPI.getExerciseInfo(id);
 
   if (exerciseData?._id) {
@@ -48,11 +60,7 @@ export async function openModalExercise(id = '') {
       ? addRemoveBtnSpan.dataset.remove
       : addRemoveBtnSpan.dataset.add;
 
-    // додати клавішу Esc
     addRemoveCloseListeners();
-    // backdrop.addEventListener('click', backdropCloseHandler);
-    // document.addEventListener('keyup', keyEscapeHandler);
-    // document.addEventListener('click', exerciseCloseHandler);
   } else {
     modalExersise.dataset.id = '';
     currentExercise = {};
@@ -124,6 +132,9 @@ function exerciseAddRemoveHandler() {
     addRemoveBtnSpan.textContent = addRemoveBtnSpan.dataset.add;
     localStorageAPI.deleteItemFromFavorites(modalExersise.dataset.id);
   }
+
+  if (modalExersise.dataset.isFavorites)
+    modalExersise.dataset.isChanged = 'true';
 }
 
 function getExerciseImage(gifUrl) {
@@ -160,7 +171,7 @@ function keyEscapeHandler(e) {
 function closeWindow() {
   addRemoveCloseListeners(true);
 
-  const animationSpeed = 300;
+ const animationSpeed = 300;
   backdrop.classList.add('hiding');
   setTimeout(() => {
     backdrop.classList.remove('hiding');
@@ -168,7 +179,9 @@ function closeWindow() {
     backdrop.classList.remove('backdrop-is-open');
   }, animationSpeed);
   //   backdrop.classList.remove('backdrop-is-open');
-  //   modalExersise.classList.remove('is-open-modal');
+  //   modalExersise.classList.remove('is-open-mod
+
+  if (modalExersise.dataset.isFavorites) modalExerciseWindowCloseEvent();
 }
 
 function capitalizeString(string = '') {

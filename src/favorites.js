@@ -8,29 +8,28 @@ import './js/initialization';
 const MOBILE_LIMIT = 8;
 let isMobileDevice = document.documentElement.scrollWidth < 768;
 
-const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
-const favoritesList = document.querySelector('.favorites-exercises-list');
-const paginationList = document.querySelector('.pagination-list');
+if (window.location.pathname.endsWith('/favorites.html')) {
+  const emptyListBlock = document.querySelector(
+    '.favorites-not-found-exercises'
+  );
+  const favoritesList = document.querySelector('.favorites-exercises-list');
+  const paginationList = document.querySelector('.pagination-list');
+  const modalExerciseWindow = document.querySelector('.modal-exercise');
 
-favoritesList.addEventListener('click', favoritesListHandler);
-paginationList.addEventListener('click', pageChangeHandler);
+  favoritesList.addEventListener('click', favoritesListHandler);
+  paginationList.addEventListener('click', pageChangeHandler);
 
-// прослуховуємо клік на button закриття модального вікна
-window.addEventListener("click", function (e) {
-  const wrap = document.querySelector('.modal-exercise-btn-close'); 
-  if(!wrap) return;
-    renderFavoritesList(); // видаляємо картку через render Favorites
-  this.close();
-}.bind(this));
+  modalExerciseWindow.dataset.isFavorites = 'true';
 
-window.addEventListener('resize', () => {
-  if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
-    isMobileDevice = !isMobileDevice;
-    renderFavoritesList();
-  }
-});
+  window.addEventListener('resize', () => {
+    if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
+      isMobileDevice = !isMobileDevice;
+      renderFavoritesList();
+    }
+  });
 
-renderFavoritesList();
+  renderFavoritesList();
+}
 
 function renderFavoritesList(page = 1) {
   const items = localStorageAPI.getFavorites();
@@ -52,9 +51,13 @@ function renderFavoritesList(page = 1) {
       .join('');
   }
 
-  items.length > 0
-    ? emptyListBlock.classList.add('visually-hidden')
-    : emptyListBlock.classList.remove('visually-hidden');
+  if (items.length > 0) {
+    emptyListBlock.classList.add('visually-hidden');
+    favoritesList.classList.remove('visually-hidden');
+  } else {
+    emptyListBlock.classList.remove('visually-hidden');
+    favoritesList.classList.add('visually-hidden');
+  }
 }
 
 function pageChangeHandler(event) {
@@ -83,4 +86,8 @@ function favoritesListHandler(event) {
     renderFavoritesList();
     return;
   }
+}
+
+export function modalExerciseWindowCloseEvent() {
+  if (modalExerciseWindow.dataset.isChanged) renderFavoritesList();
 }

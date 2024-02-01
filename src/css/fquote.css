@@ -1,7 +1,7 @@
 @import url('./quote-container.css');
 
-* {
-  box-sizing: border-box;
+.fquote-section {
+  padding-top: 38px;
 }
 
 .fquote-container {
@@ -64,6 +64,10 @@
 }
 
 @media (min-width: 768px) {
+  .fquote-section {
+    padding-top: 80px;
+  }
+
   .fadvice-container {
     flex-direction: row;
   }
@@ -97,6 +101,10 @@
 }
 
 @media (min-width: 1440px) {
+  .fquote-section {
+    padding-top: 64px;
+  }
+
   .fquote-container {
     flex-direction: row;
   }
