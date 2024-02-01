@@ -8,24 +8,28 @@ import './js/initialization';
 const MOBILE_LIMIT = 8;
 let isMobileDevice = document.documentElement.scrollWidth < 768;
 
-const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
-const favoritesList = document.querySelector('.favorites-exercises-list');
-const paginationList = document.querySelector('.pagination-list');
-const modalExerciseWindow = document.querySelector('.modal-exercise');
+if (window.location.pathname.endsWith('/favorites.html')) {
+  const emptyListBlock = document.querySelector(
+    '.favorites-not-found-exercises'
+  );
+  const favoritesList = document.querySelector('.favorites-exercises-list');
+  const paginationList = document.querySelector('.pagination-list');
+  const modalExerciseWindow = document.querySelector('.modal-exercise');
 
-favoritesList.addEventListener('click', favoritesListHandler);
-paginationList.addEventListener('click', pageChangeHandler);
+  favoritesList.addEventListener('click', favoritesListHandler);
+  paginationList.addEventListener('click', pageChangeHandler);
 
-modalExerciseWindow.dataset.isFavorites = 'true';
+  modalExerciseWindow.dataset.isFavorites = 'true';
 
-window.addEventListener('resize', () => {
-  if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
-    isMobileDevice = !isMobileDevice;
-    renderFavoritesList();
-  }
-});
+  window.addEventListener('resize', () => {
+    if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
+      isMobileDevice = !isMobileDevice;
+      renderFavoritesList();
+    }
+  });
 
-renderFavoritesList();
+  renderFavoritesList();
+}
 
 function renderFavoritesList(page = 1) {
   const items = localStorageAPI.getFavorites();
