@@ -18,14 +18,6 @@ paginationList.addEventListener('click', pageChangeHandler);
 
 modalExerciseWindow.dataset.isFavorites = 'true';
 
-// // прослуховуємо клік на button закриття модального вікна
-// window.addEventListener("click", function (e) {
-//   const wrap = document.querySelector('.modal-exercise-btn-close');
-//   if(!wrap) return;
-//     renderFavoritesList(); // видаляємо картку через render Favorites
-//   this.close();
-// }.bind(this));
-
 window.addEventListener('resize', () => {
   if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
     isMobileDevice = !isMobileDevice;
@@ -55,9 +47,13 @@ function renderFavoritesList(page = 1) {
       .join('');
   }
 
-  items.length > 0
-    ? emptyListBlock.classList.add('visually-hidden')
-    : emptyListBlock.classList.remove('visually-hidden');
+  if (items.length > 0) {
+    emptyListBlock.classList.add('visually-hidden');
+    favoritesList.classList.remove('visually-hidden');
+  } else {
+    emptyListBlock.classList.remove('visually-hidden');
+    favoritesList.classList.add('visually-hidden');
+  }
 }
 
 function pageChangeHandler(event) {
