@@ -1,3 +1,5 @@
+import sprite from '../img/sprite.svg';
+
 const renderAPI = {
   exerciseCardMarkup: function (params = {}, isFavorites = false) {
     const { name, burnedCalories, time, bodyPart, target, rating, _id } =
@@ -7,14 +9,14 @@ const renderAPI = {
     if (isFavorites) {
       markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${_id}">
        <svg class="exercise-card-remove-icon" width="16" height="16">
-           <use href="./sprite.svg#icon-trash-black"></use>
+           <use href="${sprite}#icon-trash-black"></use>
        </svg>
     </button>`;
     } else {
       markupDifference = `<p class="exercise-card-rating">
       <span class="exercise-card-rating-value">${rating}</span>
          <svg class="exercise-card-rating-star" width="18" height="18">
-           <use href="./sprite.svg#icon-star"></use>
+           <use href="${sprite}#icon-star"></use>
          </svg>
       </p>`;
     }
@@ -27,16 +29,16 @@ const renderAPI = {
     <button type="button" class="exercise-card-start-btn" data-open-id="${_id}">
       <span class="exercise-card-start-btn-text">Start</span>
       <svg class="exercise-card-start-btn-icon" width="16" height="16">
-        <use href="./sprite.svg#icon-arrow-right"></use>
+        <use href="${sprite}#icon-arrow-right"></use>
       </svg>
     </button>
   </div>
   <h3 class="exercise-card-header-container">
     <svg class="exercise-card-header-icon" width="24" height="24">
-      <use href="./sprite.svg#icon-icon-run"></use>
-    </svg>;
+      <use href="${sprite}#icon-icon-run"></use>
+    </svg>
     <span class="exercise-card-header-text"
-      >${name}</span
+      >${capitalizeString(name)}</span
     >
   </h3>
   <ul class="exercises-card-info-list">
@@ -108,3 +110,7 @@ const renderAPI = {
 };
 
 export default renderAPI;
+
+function capitalizeString(string = '') {
+  return string[0].toUpperCase() + string.substring(1);
+}
