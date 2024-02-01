@@ -160,8 +160,15 @@ function keyEscapeHandler(e) {
 function closeWindow() {
   addRemoveCloseListeners(true);
 
-  backdrop.classList.remove('backdrop-is-open');
-  modalExersise.classList.remove('is-open-modal');
+  const animationSpeed = 300;
+  backdrop.classList.add('hiding');
+  setTimeout(() => {
+    backdrop.classList.remove('hiding');
+    modalExersise.classList.remove('is-open-modal');
+    backdrop.classList.remove('backdrop-is-open');
+  }, animationSpeed);
+  //   backdrop.classList.remove('backdrop-is-open');
+  //   modalExersise.classList.remove('is-open-modal');
 }
 
 function capitalizeString(string = '') {

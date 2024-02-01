@@ -1,16 +1,16 @@
 .modal-exercise {
   position: relative;
-  /* position: absolute; */
   width: 335px;
   height: auto;
   padding: 40px 20px;
   border-radius: 20px;
   background: #f6f6f6;
   pointer-events: none;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1); */
   transition: transform var(--duration) var(--time-function);
+}
+
+.backdrop.hiding .modal-exercise {
+  transform: translate(100%, 100%);
 }
 
 .modal-exercise-btn-close {
