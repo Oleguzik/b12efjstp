@@ -149,6 +149,6 @@
   .header-container {
     padding-left: 64px;
     padding-right: 80px;
-    padding-bottom: 56px;
+    /* padding-bottom: 56px; */
   }
 }
