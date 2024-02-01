@@ -1,7 +1,11 @@
 <section class="section">
   <div class="container">
     <div class="exercises-content">
-      <h2 class="exercises-section-title">Exercises</h2>
+      <h2 class="exercises-section-title">
+        Exercises<span class="exercises-section-title-span visually-hidden"
+          >&nbsp;/<span class="exercises-section-title-filter"></span
+        ></span>
+      </h2>
       <!-- Button of Exercises section -->
       <div class="exercises-type-nav">
         <ul class="exercises-type-list">
@@ -37,12 +41,11 @@
           </li>
         </ul>
         <!-- Searching form in gallery -->
-        <form class="exercises-type-form">
+        <form class="exercises-type-form visually-hidden">
           <label class="exercises-form-label">
             <input
               class="exercises-form-input"
               type="search"
-              pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/"
               name="exercises-search-form-input"
               placeholder="Searching..."
             />
@@ -67,6 +70,12 @@
       ></ul>
       <!-- Exercises paged gallery -->
       <ul class="pagination-list"></ul>
+      <p class="exercises-empty-message visually-hidden">
+        Unfortunately, <span class="exercises-empty-span">no results</span> were
+        found. You may want to consider other search options to find the
+        exercise you are looking for. Our range is wide and you have the
+        opportunity to find more options that suit your needs.
+      </p>
     </div>
   </div>
 </section>
