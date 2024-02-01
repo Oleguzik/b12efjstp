@@ -51,7 +51,8 @@
 
   .header-nav-menu-svg {
     stroke: #7e847f;
-    transition: transform var(--duration) var(--time-function), stroke var(--duration) var(--time-function);
+    transition: transform var(--duration) var(--time-function),
+      stroke var(--duration) var(--time-function);
   }
 
   .header-button-nav:hover .header-nav-menu-svg,
@@ -124,11 +125,6 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
   }
 
-  .header-home:hover,
-  .header-favorites:hover {
-    font-weight: 500;
-  }
-
   .active {
     display: flex;
     padding: 6px 16px;
@@ -137,6 +133,14 @@
     color: #1b1b1b;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-home:hover,
+  .header-home:focus,
+  .header-favorites:hover,
+  .header-favorites:focus {
+    /* font-weight: 500; */
+    transform: scale(1.1);
   }
 
   .header-media-list {
@@ -171,7 +175,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .header-link-social-svg:hover>.header-media-icon-svg {
+  .header-link-social-svg:hover > .header-media-icon-svg {
     fill: #5f6560;
     transform: scale(1.15);
   }

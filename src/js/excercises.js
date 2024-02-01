@@ -16,8 +16,8 @@ const exerciseslistItemsEmptyMessage = document.querySelector(
 );
 const exercisesFilter = document.querySelector('.exercises-section-title-span');
 
-const loader=document.querySelector('.loader');
-console.log(loader);
+// const loader = document.querySelector('.loader');
+// console.log(loader);
 
 export default function startExercisesScenario() {
   isMobileDevice = document.documentElement.scrollWidth < 768;
@@ -72,7 +72,7 @@ function clearButtonHandler() {
 async function renderGroups(page = 1) {
   exerciseListElem.classList.add('visually-hidden');
   paginationListElem.classList.add('visually-hidden');
-  loader.classList.remove('visually-hidden');
+  // loader.classList.remove('visually-hidden');
   exerciseListElem.dataset.isGroups = 'true';
   exerciseListElem.dataset.groupName = '';
 
@@ -83,7 +83,7 @@ async function renderGroups(page = 1) {
   };
 
   const filtersData = await backendAPI.getFilterData(queryParams);
-  loader.classList.add('visually-hidden');
+  // loader.classList.add('visually-hidden');
   exerciseListElem.classList.remove('visually-hidden');
   paginationListElem.classList.remove('visually-hidden');
   renderItems(filtersData);
@@ -92,7 +92,7 @@ async function renderGroups(page = 1) {
 async function renderExercises(page = 1) {
   exerciseListElem.classList.add('visually-hidden');
   paginationListElem.classList.add('visually-hidden');
-  loader.classList.remove('visually-hidden');  
+  // loader.classList.remove('visually-hidden');
   const queryParams = {
     [getActiveFilterElem().dataset.exerciseFilter]:
       exerciseListElem.dataset.groupName,
@@ -111,7 +111,7 @@ async function renderExercises(page = 1) {
 
   const exercisesData = await backendAPI.getExercisesData(queryParams);
   renderItems(exercisesData, true);
-  loader.classList.add('visually-hidden');
+  // loader.classList.add('visually-hidden');
   exerciseListElem.classList.remove('visually-hidden');
   paginationListElem.classList.remove('visually-hidden');
 }
