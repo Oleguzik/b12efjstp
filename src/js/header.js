@@ -10,17 +10,24 @@ mobileMenuEl.addEventListener('click', () =>
   mobileMenuEl.classList.remove('is-open')
 );
 
+const homeEl = document.querySelector('.header-home');
+const favoritesEl = document.querySelector('.header-favorites');
+if (window.location.pathname.endsWith('/favorites.html')) {
+  favoritesEl.classList.add('active');
+  homeEl.classList.remove('active');
+
+} else {
+   homeEl.classList.add('active');
+  favoritesEl.classList.remove('active');
+}
+
 const homeMobEl = document.querySelector('.mob-menu-home');
 const favoritesMobEl = document.querySelector('.mob-menu-favorites');
 
 if (window.location.pathname.endsWith('/favorites.html')) {
   favoritesMobEl.classList.add('active');
   homeMobEl.classList.remove('active');
-}
-
-const homeEl = document.querySelector('.header-home');
-const favoritesEl = document.querySelector('.header-favorites');
-if (window.location.pathname.endsWith('/favorites.html')) {
-  favoritesEl.classList.add('active');
-  homeEl.classList.remove('active');
+} else {
+   homeMobEl.classList.add('active');
+  favoritesMobEl.classList.remove('active');
 }
