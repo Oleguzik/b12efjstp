@@ -8,14 +8,12 @@ import './js/initialization';
 const MOBILE_LIMIT = 8;
 let isMobileDevice = document.documentElement.scrollWidth < 768;
 
-if (window.location.pathname.endsWith('/favorites.html')) {
-  const emptyListBlock = document.querySelector(
-    '.favorites-not-found-exercises'
-  );
-  const favoritesList = document.querySelector('.favorites-exercises-list');
-  const paginationList = document.querySelector('.pagination-list');
-  const modalExerciseWindow = document.querySelector('.modal-exercise');
+const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
+const favoritesList = document.querySelector('.favorites-exercises-list');
+const paginationList = document.querySelector('.pagination-list');
+const modalExerciseWindow = document.querySelector('.modal-exercise');
 
+if (window.location.pathname.endsWith('/favorites.html')) {
   favoritesList.addEventListener('click', favoritesListHandler);
   paginationList.addEventListener('click', pageChangeHandler);
 
