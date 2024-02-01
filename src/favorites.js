@@ -52,9 +52,13 @@ function renderFavoritesList(page = 1) {
       .join('');
   }
 
-  items.length > 0
-    ? emptyListBlock.classList.add('visually-hidden')
-    : emptyListBlock.classList.remove('visually-hidden');
+  if (items.length > 0) {
+    emptyListBlock.classList.add('visually-hidden');
+    favoritesList.classList.remove('visually-hidden');
+  } else {
+    emptyListBlock.classList.remove('visually-hidden');
+    favoritesList.classList.add('visually-hidden');
+  }
 }
 
 function pageChangeHandler(event) {
@@ -84,3 +88,4 @@ function favoritesListHandler(event) {
     return;
   }
 }
+
