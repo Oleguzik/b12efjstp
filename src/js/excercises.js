@@ -16,6 +16,9 @@ const exerciseslistItemsEmptyMessage = document.querySelector(
 );
 const exercisesFilter = document.querySelector('.exercises-section-title-span');
 
+const loader=document.querySelector('.loader');
+console.log(loader);
+
 export default function startExercisesScenario() {
   isMobileDevice = document.documentElement.scrollWidth < 768;
   isDesktopDevice = document.documentElement.scrollWidth >= 1440;
@@ -67,6 +70,9 @@ function clearButtonHandler() {
 }
 
 async function renderGroups(page = 1) {
+  exerciseListElem.classList.add('visually-hidden');
+  paginationListElem.classList.add('visually-hidden');
+  loader.classList.remove('visually-hidden');
   exerciseListElem.dataset.isGroups = 'true';
   exerciseListElem.dataset.groupName = '';
 
@@ -77,11 +83,16 @@ async function renderGroups(page = 1) {
   };
 
   const filtersData = await backendAPI.getFilterData(queryParams);
-
+  loader.classList.add('visually-hidden');
+  exerciseListElem.classList.remove('visually-hidden');
+  paginationListElem.classList.remove('visually-hidden');
   renderItems(filtersData);
 }
 
 async function renderExercises(page = 1) {
+  exerciseListElem.classList.add('visually-hidden');
+  paginationListElem.classList.add('visually-hidden');
+  loader.classList.remove('visually-hidden');  
   const queryParams = {
     [getActiveFilterElem().dataset.exerciseFilter]:
       exerciseListElem.dataset.groupName,
@@ -94,11 +105,15 @@ async function renderExercises(page = 1) {
     queryParams.keyword = keyword;
   }
 
-  exercisesFilter.firstElementChild.textContent =
-    exerciseListElem.dataset.groupName;
+  exercisesFilter.firstElementChild.textContent = capitalizeString(
+    exerciseListElem.dataset.groupName
+  );
 
   const exercisesData = await backendAPI.getExercisesData(queryParams);
   renderItems(exercisesData, true);
+  loader.classList.add('visually-hidden');
+  exerciseListElem.classList.remove('visually-hidden');
+  paginationListElem.classList.remove('visually-hidden');
 }
 
 function renderItems(serverData = {}, isCards = false) {
@@ -113,14 +128,15 @@ function renderItems(serverData = {}, isCards = false) {
   if (results.length === 0) {
     exerciseslistItemsEmptyMessage.classList.remove('visually-hidden');
     exerciseListElem.classList.add('visually-hidden');
-    paginationListElem.classList.add('visually-hidden');
-    // exerciseListElem.innerHTML = results
-    //   .map(elem => renderAPI.filterGroupsMarkup(elem))
-    //   .join('');
+    // paginationListElem.classList.add('visually-hidden');
+    exerciseListElem.innerHTML = results
+      .map(elem => renderAPI.filterGroupsMarkup(elem))
+      .join('');
+    paginationListElem.innerHTML = renderAPI.paginationMarkup();
   } else {
     exerciseslistItemsEmptyMessage.classList.add('visually-hidden');
     exerciseListElem.classList.remove('visually-hidden');
-    paginationListElem.classList.remove('visually-hidden');
+    // paginationListElem.classList.remove('visually-hidden');
     const markup = isCards
       ? results.map(elem => renderAPI.exerciseCardMarkup(elem)).join('')
       : results.map(elem => renderAPI.filterGroupsMarkup(elem)).join('');
@@ -185,4 +201,8 @@ function paginationListHandler(event) {
 
 function getActiveFilterElem() {
   return document.querySelector('.exercises-type-item-active');
+}
+
+function capitalizeString(string = '') {
+  return string[0].toUpperCase() + string.substring(1);
 }

@@ -2,6 +2,7 @@ import messages from './js/notificationAPI';
 import localStorageAPI from './js/localStorageAPI';
 import renderAPI from './js/renderMarkup';
 import { openModalExercise } from './js/modal-exercise';
+import makeAsyncRequest from './js/loader';
 
 import './js/initialization';
 
@@ -11,18 +12,23 @@ let isMobileDevice = document.documentElement.scrollWidth < 768;
 const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
 const favoritesList = document.querySelector('.favorites-exercises-list');
 const paginationList = document.querySelector('.pagination-list');
+const modalExerciseWindow = document.querySelector('.modal-exercise');
 
-favoritesList.addEventListener('click', favoritesListHandler);
-paginationList.addEventListener('click', pageChangeHandler);
+if (window.location.pathname.endsWith('/favorites.html')) {
+  favoritesList.addEventListener('click', favoritesListHandler);
+  paginationList.addEventListener('click', pageChangeHandler);
 
-window.addEventListener('resize', () => {
-  if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
-    isMobileDevice = !isMobileDevice;
-    renderFavoritesList();
-  }
-});
+  modalExerciseWindow.dataset.isFavorites = 'true';
 
-renderFavoritesList();
+  window.addEventListener('resize', () => {
+    if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
+      isMobileDevice = !isMobileDevice;
+      renderFavoritesList();
+    }
+  });
+
+  renderFavoritesList();
+}
 
 function renderFavoritesList(page = 1) {
   const items = localStorageAPI.getFavorites();
@@ -44,9 +50,13 @@ function renderFavoritesList(page = 1) {
       .join('');
   }
 
-  items.length > 0
-    ? emptyListBlock.classList.add('visually-hidden')
-    : emptyListBlock.classList.remove('visually-hidden');
+  if (items.length > 0) {
+    emptyListBlock.classList.add('visually-hidden');
+    favoritesList.classList.remove('visually-hidden');
+  } else {
+    emptyListBlock.classList.remove('visually-hidden');
+    favoritesList.classList.add('visually-hidden');
+  }
 }
 
 function pageChangeHandler(event) {
@@ -75,4 +85,8 @@ function favoritesListHandler(event) {
     renderFavoritesList();
     return;
   }
+}
+
+export function modalExerciseWindowCloseEvent() {
+  if (modalExerciseWindow.dataset.isChanged) renderFavoritesList();
 }

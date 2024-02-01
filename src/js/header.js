@@ -12,13 +12,18 @@ mobileMenuEl.addEventListener('click', () =>
 
 const homeEl = document.querySelector('.header-home');
 const favoritesEl = document.querySelector('.header-favorites');
+const headerEl = document.querySelector(".header");
+
 if (window.location.pathname.endsWith('/favorites.html')) {
   favoritesEl.classList.add('active');
   homeEl.classList.remove('active');
+  headerEl.classList.remove('header-hero');
+
 
 } else {
    homeEl.classList.add('active');
   favoritesEl.classList.remove('active');
+  headerEl.classList.add('header-hero');
 }
 
 const homeMobEl = document.querySelector('.mob-menu-home');
