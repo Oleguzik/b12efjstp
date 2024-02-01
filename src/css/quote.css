@@ -33,7 +33,19 @@
 /* TABLET */
 
 @media (min-width: 768px) {
-  .quote-img {
+.quote-container {
+    /*анимация контейнера цитаты и изображения */
+    transform: translateY(15%);
+    animation: slideIn 2s forwards;
+  }
+
+@keyframes slideIn {
+    to {
+      transform: translateX(0);
+    }
+  }
+
+.quote-img {
     width: 736px;
     height: 302px;
     flex-shrink: 0;
@@ -41,7 +53,7 @@
     background-image: url(../img/quote/2-quest-tab.webp);
   }
 
-  @media (min-resolution: 192dpi),
+@media (min-resolution: 192dpi),
     (min-resolution: 2dppx),
     (min-device-pixel-ratio: 2) {
     .quote-img {
