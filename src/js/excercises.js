@@ -93,6 +93,9 @@ async function renderExercises(page = 1) {
     queryParams.keyword = keyword;
   }
 
+  exercisesFilter.firstElementChild.textContent =
+    exerciseListElem.dataset.groupName;
+
   const exercisesData = await backendAPI.getExercisesData(queryParams);
   renderItems(exercisesData, true);
 }
@@ -120,13 +123,11 @@ function renderItems(serverData = {}, isCards = false) {
     const markup = isCards
       ? results.map(elem => renderAPI.exerciseCardMarkup(elem)).join('')
       : results.map(elem => renderAPI.filterGroupsMarkup(elem)).join('');
-    
-    
-      if (isCards) {      
+
+    if (isCards) {
       exercisesFilter.classList.remove('visually-hidden');
     } else {
       exercisesFilter.classList.add('visually-hidden');
-      exercisesFilter.firstElementChild.textContent=results[0].filter;
     }
 
     exerciseListElem.innerHTML = markup;
