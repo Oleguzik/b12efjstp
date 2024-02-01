@@ -1,9 +1,9 @@
 import backendAPI from './backendAPI';
 import messages from './notificationAPI';
-
-// import { openModalExercise } from './openModalExercise';
+import { addRemoveCloseListeners } from './modal-exercise';
 
 let currentRating = 0;
+const backdropRating = document.querySelector('.backdrop');
 const ratingStars = document.querySelectorAll('.feedback-rating-stars-svg');
 const ratingValue = document.querySelector('.feedback-form-rating-value');
 
@@ -35,18 +35,25 @@ export function openGiveRatingWindow(id = '') {
   modalExercise.classList.toggle('is-open-modal');
   feedbackContainer.classList.toggle('visually-hidden');
   feedbackContainer.classList.toggle('is-open-modal');
+
+  addRemoveRatingListeners();
 }
 
-function closeGiveRatingWindow(id) {
+function closeGiveRatingWindow() {
   feedbackForm.reset();
   resetRating();
+
   // видалення лістенерів
+  addRemoveRatingListeners(true);
 
   // закриття модалки рейтингу відкриття модалки вправи
   feedbackContainer.classList.toggle('visually-hidden');
   feedbackContainer.classList.toggle('is-open-modal');
+
   modalExercise.classList.toggle('visually-hidden');
   modalExercise.classList.toggle('is-open-modal');
+
+  addRemoveCloseListeners();
 }
 
 async function submitRatingForm(event) {
@@ -124,4 +131,26 @@ function resetRating() {
 
 function showStarValue(value) {
   ratingValue.textContent = `${value}.0`;
+}
+
+function addRemoveRatingListeners(remove = false) {
+  if (remove) {
+    document.removeEventListener('keyup', keyEscapeRatingHandler);
+    backdropRating.removeEventListener('click', backdropRatingHandler);
+  } else {
+    backdropRating.addEventListener('click', backdropRatingHandler);
+    document.addEventListener('keyup', keyEscapeRatingHandler);
+  }
+}
+
+function backdropRatingHandler(e) {
+  if (e.target === backdropRating) {
+    closeGiveRatingWindow();
+  }
+}
+
+function keyEscapeRatingHandler(e) {
+  if (e.code === 'Escape') {
+    closeGiveRatingWindow();
+  }
 }

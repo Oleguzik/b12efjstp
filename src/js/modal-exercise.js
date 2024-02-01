@@ -49,6 +49,10 @@ export async function openModalExercise(id = '') {
       : addRemoveBtnSpan.dataset.add;
 
     // додати клавішу Esc
+    addRemoveCloseListeners();
+    // backdrop.addEventListener('click', backdropCloseHandler);
+    // document.addEventListener('keyup', keyEscapeHandler);
+    // document.addEventListener('click', exerciseCloseHandler);
   } else {
     modalExersise.dataset.id = '';
     currentExercise = {};
@@ -132,10 +136,30 @@ function getExerciseImage(gifUrl) {
 }
 
 function exerciseGiveRatingHandler() {
+  addRemoveCloseListeners(true);
+
   openGiveRatingWindow(modalExersise.dataset.id);
 }
 
 function exerciseCloseHandler() {
+  closeWindow();
+}
+
+function backdropCloseHandler(e) {
+  if (e.target === backdrop) {
+    closeWindow();
+  }
+}
+
+function keyEscapeHandler(e) {
+  if (e.code === 'Escape') {
+    closeWindow();
+  }
+}
+
+function closeWindow() {
+  addRemoveCloseListeners(true);
+
   backdrop.classList.remove('backdrop-is-open');
   modalExersise.classList.remove('is-open-modal');
 }
@@ -145,10 +169,6 @@ function capitalizeString(string = '') {
 }
 
 //GET RATING
-// const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
-// if (ratingsRef.length > 0) {
-//   initRatings();
-// }
 
 function initRatings() {
   const ratingsRef = document.querySelectorAll('.mod-exercise-rating');
@@ -170,5 +190,15 @@ function initRatings() {
   function setRatingActiveWidth() {
     const ratingActiveWidth = ratingValue.textContent / 0.05;
     ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+}
+
+export function addRemoveCloseListeners(remove = false) {
+  if (remove) {
+    document.removeEventListener('keyup', keyEscapeHandler);
+    backdrop.removeEventListener('click', backdropCloseHandler);
+  } else {
+    backdrop.addEventListener('click', backdropCloseHandler);
+    document.addEventListener('keyup', keyEscapeHandler);
   }
 }
