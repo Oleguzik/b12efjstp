@@ -39,7 +39,15 @@
   background-color: transparent;
   padding: 0;
   line-height: 0;
+  transition: transform var(--duration) var(--time-function), stroke var(--duration) var(--time-function);
 }
+
+.mob-menu-close-nav-button:hover, 
+.mob-menu-close-nav-button:focus {
+  stroke:#fff;
+  transform: scale(1.15);
+}
+
 .mob-menu-logo {
   color: #f6f6f6;
 
@@ -67,6 +75,27 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+  transition: all var(--duration) var(--time-function);
+}
+
+.mob-menu-favorites:hover,
+.mob-menu-favorites:focus,
+.mob-menu-home:hover,
+.mob-menu-home:focus{
+  display: flex;
+  padding: 6px 26px;
+  border-radius: 30px;  
+  border: 1px solid  #fff;  
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;    
+}
+
+.mob-menu-favorites.active:hover,
+.mob-menu-favorites.active:focus,
+.mob-menu-home.active:hover,
+.mob-menu-home.active:focus{  
+  transform: scale(1.15);
 }
 
 .active {
