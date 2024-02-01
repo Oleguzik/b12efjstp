@@ -56,14 +56,25 @@
     z-index: 999;
   }
   .header-container {
-    padding-left: 60px;
+    padding: 28px 48px 0px 48px;
+    /* padding-left: 60px;
     padding-right: 60px;
-    padding-top: 28px;
+    padding-top: 28px; */
+
+    /* анимация хедера */
+    transform: translateY(-5%);
+    animation: slideIn 2s forwards;
   }
 
-  .header-container {
-    padding: 28px 48px 0px 48px;
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+    }
   }
+
+  /* .header-container {
+    padding: 28px 48px 0px 48px;
+  } */
   .mobile-menu {
     display: none;
   }
@@ -150,5 +161,9 @@
     padding-left: 64px;
     padding-right: 80px;
     /* padding-bottom: 56px; */
+
+    /* анимация хедера */
+    transform: translateY(-15%);
+    animation: slideIn 2s forwards;
   }
 }
