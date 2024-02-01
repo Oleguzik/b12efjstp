@@ -11,17 +11,12 @@ let isMobileDevice = document.documentElement.scrollWidth < 768;
 const emptyListBlock = document.querySelector('.favorites-not-found-exercises');
 const favoritesList = document.querySelector('.favorites-exercises-list');
 const paginationList = document.querySelector('.pagination-list');
+const modalExerciseWindow = document.querySelector('.modal-exercise');
 
 favoritesList.addEventListener('click', favoritesListHandler);
 paginationList.addEventListener('click', pageChangeHandler);
 
-// прослуховуємо клік на button закриття модального вікна
-window.addEventListener("click", function (e) {
-  const wrap = document.querySelector('.modal-exercise-btn-close'); 
-  if(!wrap) return;
-    renderFavoritesList(); // видаляємо картку через render Favorites
-  this.close();
-}.bind(this));
+modalExerciseWindow.dataset.isFavorites = 'true';
 
 window.addEventListener('resize', () => {
   if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
@@ -89,3 +84,6 @@ function favoritesListHandler(event) {
   }
 }
 
+export function modalExerciseWindowCloseEvent() {
+  if (modalExerciseWindow.dataset.isChanged) renderFavoritesList();
+}
