@@ -2,6 +2,7 @@ import messages from './js/notificationAPI';
 import backendAPI from './js/backendAPI';
 import localStorageAPI from './js/localStorageAPI';
 import startExercisesScenario from './js/excercises';
+import makeAsyncRequest from './js/loader';
 
 import './js/initialization';
 

@@ -2,6 +2,7 @@ import messages from './js/notificationAPI';
 import localStorageAPI from './js/localStorageAPI';
 import renderAPI from './js/renderMarkup';
 import { openModalExercise } from './js/modal-exercise';
+import makeAsyncRequest from './js/loader';
 
 import './js/initialization';
 
