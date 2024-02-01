@@ -7,7 +7,7 @@ const renderAPI = {
 
     let markupDifference = '';
     if (isFavorites) {
-      markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${_id}">
+      markupDifference = `<button type="button" class="exercise-card-remove-btn" data-delete-id="${_id}" aria-label="Remove exercise from favorites button">
        <svg class="exercise-card-remove-icon" width="16" height="16">
            <use href="${sprite}#icon-trash-black"></use>
        </svg>
@@ -26,7 +26,7 @@ const renderAPI = {
       <p class="exercise-card-workout-text">Workout</p>
       ${markupDifference}
     </div>
-    <button type="button" class="exercise-card-start-btn" data-open-id="${_id}">
+    <button type="button" class="exercise-card-start-btn" data-open-id="${_id}" aria-label="Open exercises details window button">
       <span class="exercise-card-start-btn-text">Start</span>
       <svg class="exercise-card-start-btn-icon" width="16" height="16">
         <use href="${sprite}#icon-arrow-right"></use>
@@ -81,7 +81,7 @@ const renderAPI = {
     url('${imgUrl}');`;
 
     return `<li class="exercises-gallery-item" style="${style}">
-    <a href="" class="exercises-gallery-link" data-name="${name}">
+    <a href="" class="exercises-gallery-link" data-name="${name}" aria-label="Select exercises by ${name}">
       <h3 class="exercises-gallery-item-title">${name}</h3>
       <p class="exercises-gallery-item-description">${filter}</p>
     </a>
@@ -98,10 +98,10 @@ const renderAPI = {
     let markup = '';
     for (let i = 1; i <= numberOfPages; i++) {
       if (i !== activePage - 0) {
-        markup += `<li class="pagination-item"><a href="">${i}</a></li>`;
+        markup += `<li class="pagination-item"><a href="" aria-label="Adress to page number ${i}">${i}</a></li>`;
       } else {
         markup += `<li class="pagination-item pagination-item-active">
-    <a href="">${i}</a>
+    <a href="" "Adress to currently active page number ${i}">${i}</a>
   </li>`;
       }
     }
