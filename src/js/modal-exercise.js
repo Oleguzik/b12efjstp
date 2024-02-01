@@ -5,7 +5,7 @@ import { openGiveRatingWindow } from './modal-feedback';
 
 let currentExercise = {};
 const backdrop = document.querySelector('.backdrop');
-// const exerciseCloseBnt = document.querySelector('.modal-exercise-btn-close');
+const exerciseCloseBnt = document.querySelector('.modal-exercise-btn-close');
 const excerciseAddRemoveBtn = document.querySelector('.modal-exercise-btn');
 const excerciseGiveRatingBtn = document.querySelector(
   '.modal-exercise-btn-rating'
@@ -23,6 +23,7 @@ const addRemoveBtnSpan = document.querySelector('.mod-exercise-span');
 const imageContainer = document.getElementById('img');
 
 export function startModalExerciseScenario() {
+  exerciseCloseBnt.addEventListener('click', exerciseCloseHandler);
   excerciseAddRemoveBtn.addEventListener('click', exerciseAddRemoveHandler);
   excerciseGiveRatingBtn.addEventListener('click', exerciseGiveRatingHandler);
 }
@@ -48,8 +49,10 @@ export async function openModalExercise(id = '') {
       : addRemoveBtnSpan.dataset.add;
 
     // додати клавішу Esc
-    document.addEventListener('keyup', exerciseCloseHandler);
-    document.addEventListener('click', exerciseCloseHandler);
+    addRemoveCloseListeners();
+    // backdrop.addEventListener('click', backdropCloseHandler);
+    // document.addEventListener('keyup', keyEscapeHandler);
+    // document.addEventListener('click', exerciseCloseHandler);
   } else {
     modalExersise.dataset.id = '';
     currentExercise = {};
@@ -133,20 +136,32 @@ function getExerciseImage(gifUrl) {
 }
 
 function exerciseGiveRatingHandler() {
+  addRemoveCloseListeners(true);
+
   openGiveRatingWindow(modalExersise.dataset.id);
 }
 
-function exerciseCloseHandler(e) {
-  if (e.target === backdrop || e.target.dataset.close) {
-    backdrop.classList.remove('backdrop-is-open');
-    modalExersise.classList.remove('is-open-modal');
-    document.removeEventListener('click', exerciseCloseHandler);
+function exerciseCloseHandler() {
+  closeWindow();
+}
+
+function backdropCloseHandler(e) {
+  if (e.target === backdrop) {
+    closeWindow();
   }
+}
+
+function keyEscapeHandler(e) {
   if (e.code === 'Escape') {
-    backdrop.classList.remove('backdrop-is-open');
-    modalExersise.classList.remove('is-open-modal');
-    document.removeEventListener('keyup', exerciseCloseHandler);
+    closeWindow();
   }
+}
+
+function closeWindow() {
+  addRemoveCloseListeners(true);
+
+  backdrop.classList.remove('backdrop-is-open');
+  modalExersise.classList.remove('is-open-modal');
 }
 
 function capitalizeString(string = '') {
@@ -175,5 +190,15 @@ function initRatings() {
   function setRatingActiveWidth() {
     const ratingActiveWidth = ratingValue.textContent / 0.05;
     ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+}
+
+export function addRemoveCloseListeners(remove = false) {
+  if (remove) {
+    document.removeEventListener('keyup', keyEscapeHandler);
+    backdrop.removeEventListener('click', backdropCloseHandler);
+  } else {
+    backdrop.addEventListener('click', backdropCloseHandler);
+    document.addEventListener('keyup', keyEscapeHandler);
   }
 }
