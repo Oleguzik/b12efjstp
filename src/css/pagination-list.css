@@ -24,3 +24,9 @@
   justify-content: center;
   color: #1b1b1b;
 }
+
+.pagination-item-hidden {
+  color: transparent;
+  border: none;
+  pointer-events: none;
+}

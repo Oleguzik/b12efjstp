@@ -99,6 +99,10 @@ const renderAPI = {
     for (let i = 1; i <= numberOfPages; i++) {
       if (i !== activePage - 0) {
         markup += `<li class="pagination-item"><a href="" aria-label="Adress to page number ${i}">${i}</a></li>`;
+      } else if (numberOfPages === 1) {
+        markup += `<li class="pagination-item pagination-item-hidden">
+    <a href="" "Adress to currently active page number ${i}">${i}</a>
+  </li>`;
       } else {
         markup += `<li class="pagination-item pagination-item-active">
     <a href="" "Adress to currently active page number ${i}">${i}</a>

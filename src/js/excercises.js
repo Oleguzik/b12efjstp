@@ -94,8 +94,9 @@ async function renderExercises(page = 1) {
     queryParams.keyword = keyword;
   }
 
-  exercisesFilter.firstElementChild.textContent =
-    exerciseListElem.dataset.groupName;
+  exercisesFilter.firstElementChild.textContent = capitalizeString(
+    exerciseListElem.dataset.groupName
+  );
 
   const exercisesData = await backendAPI.getExercisesData(queryParams);
   renderItems(exercisesData, true);
@@ -113,14 +114,15 @@ function renderItems(serverData = {}, isCards = false) {
   if (results.length === 0) {
     exerciseslistItemsEmptyMessage.classList.remove('visually-hidden');
     exerciseListElem.classList.add('visually-hidden');
-    paginationListElem.classList.add('visually-hidden');
-    // exerciseListElem.innerHTML = results
-    //   .map(elem => renderAPI.filterGroupsMarkup(elem))
-    //   .join('');
+    // paginationListElem.classList.add('visually-hidden');
+    exerciseListElem.innerHTML = results
+      .map(elem => renderAPI.filterGroupsMarkup(elem))
+      .join('');
+    paginationListElem.innerHTML = renderAPI.paginationMarkup();
   } else {
     exerciseslistItemsEmptyMessage.classList.add('visually-hidden');
     exerciseListElem.classList.remove('visually-hidden');
-    paginationListElem.classList.remove('visually-hidden');
+    // paginationListElem.classList.remove('visually-hidden');
     const markup = isCards
       ? results.map(elem => renderAPI.exerciseCardMarkup(elem)).join('')
       : results.map(elem => renderAPI.filterGroupsMarkup(elem)).join('');
@@ -185,4 +187,8 @@ function paginationListHandler(event) {
 
 function getActiveFilterElem() {
   return document.querySelector('.exercises-type-item-active');
+}
+
+function capitalizeString(string = '') {
+  return string[0].toUpperCase() + string.substring(1);
 }

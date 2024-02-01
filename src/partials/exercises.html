@@ -62,7 +62,11 @@
               <use href="./img/sprite.svg#icon-x-black"></use>
             </svg>
           </button>
-          <button class="exercises-form-btn" type="submit" aria-label="Search exersise by description">
+          <button
+            class="exercises-form-btn"
+            type="submit"
+            aria-label="Search exersise by description"
+          >
             <svg class="exercises-form-search-icon" width="18" height="18">
               <use href="./img/sprite.svg#icon-search"></use>
             </svg>
@@ -76,15 +80,16 @@
           data-is-groups="true"
           data-group-name=""
         ></ul>
+        <p class="exercises-empty-message visually-hidden">
+          Unfortunately,
+          <span class="exercises-empty-span">no results</span> were found. You
+          may want to consider other search options to find the exercise you are
+          looking for. Our range is wide and you have the opportunity to find
+          more options that suit your needs.
+        </p>
       </div>
       <!-- Exercises paged gallery -->
       <ul class="pagination-list"></ul>
-      <p class="exercises-empty-message visually-hidden">
-        Unfortunately, <span class="exercises-empty-span">no results</span> were
-        found. You may want to consider other search options to find the
-        exercise you are looking for. Our range is wide and you have the
-        opportunity to find more options that suit your needs.
-      </p>
     </div>
   </div>
 </section>
