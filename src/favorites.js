@@ -15,6 +15,14 @@ const paginationList = document.querySelector('.pagination-list');
 favoritesList.addEventListener('click', favoritesListHandler);
 paginationList.addEventListener('click', pageChangeHandler);
 
+// прослуховуємо клік на button закриття модального вікна
+window.addEventListener("click", function (e) {
+  const wrap = document.querySelector('.modal-exercise-btn-close'); 
+  if(!wrap) return;
+    renderFavoritesList(); // видаляємо картку через render Favorites
+  this.close();
+}.bind(this));
+
 window.addEventListener('resize', () => {
   if (isMobileDevice !== document.documentElement.scrollWidth < 768) {
     isMobileDevice = !isMobileDevice;
