@@ -6,6 +6,10 @@
   background-color: #fff;
 }
 
+.exercise-card-item:hover {
+  animation: scale-up-center 2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
 .exercise-card-actions {
   display: flex;
   justify-content: space-between;
@@ -182,5 +186,14 @@
 
   .exercise-card-header-text {
     max-width: 352px;
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
   }
 }
