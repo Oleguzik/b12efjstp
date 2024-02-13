@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Favorites exercises. Second application page"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energy Flow</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    <script type="module" crossorigin src="/b12efjstp/assets/vendor-cb82152a.js"></script>
+    <script type="module" crossorigin src="/b12efjstp/assets/favorites-aa62cfb8.js"></script>
+    <link rel="stylesheet" href="/b12efjstp/assets/favorites-e1d32d34.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="container header-container">
+    <a
+      class="header-logo"
+      href="./index.html"
+      aria-label="Logotype, adress to the main page"
+      >energy.flow</a
+    >
+    <nav class="header-navigation">
+      <ul class="header-nav-list">
+        <li>
+          <a
+            class="header-home"
+            href="./index.html"
+            aria-label="Adress to the main page"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="header-favorites"
+            href="./favorites.html"
+            aria-label="Adress to the favorites page"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      class="header-button-nav"
+      type="button"
+      aria-label="Open mobile menu button"
+    >
+      <svg class="header-nav-menu-svg" width="32" height="16">
+        <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-burger"></use>
+      </svg>
+    </button>
+
+    <ul class="header-media-list">
+      <li class="header-svg-item">
+        <a
+          class="header-link-social-svg"
+          href="https://www.facebook.com/goITclub/"
+          rel="nofollow"
+          target="_blank"
+          aria-label="Adress to the Facebook page"
+        >
+          <svg class="header-media-icon-svg" width="28" height="28">
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="header-svg-item">
+        <a
+          class="header-link-social-svg"
+          href="https://www.instagram.com/goitclub/"
+          rel="nofollow"
+          target="_blank"
+          aria-label="Adress to the Instagram page"
+        >
+          <svg class="header-media-icon-svg" width="28" height="28">
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="header-svg-item">
+        <a
+          class="header-link-social-svg"
+          href="https://www.youtube.com/c/GoIT"
+          rel="nofollow"
+          target="_blank"
+          aria-label="Adress to the Youtube page"
+        >
+          <svg class="header-media-icon-svg" width="28" height="28">
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+    <div class="mobile-menu">
+  <div class="mobile-menu-container">
+    <div class="mob-menu-header">
+      <a
+        class="mob-menu-logo"
+        href="./index.html"
+        aria-label="Logotype, adress to the main page"
+        >energy.flow</a
+      >
+      <button
+        class="mob-menu-close-nav-button"
+        aria-label="Close mobile menu button"
+      >
+        <svg class="mob-menu-close-nav-svg" width="20" height="20">
+          <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-x-white"></use>
+        </svg>
+      </button>
+    </div>
+
+    <nav>
+      <ul class="mob-menu-navigation">
+        <li>
+          <a
+            class="mob-menu-home"
+            href="./index.html"
+            aria-label="Link to the main page"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="mob-menu-favorites"
+            href="./favorites.html"
+            aria-label="Link to the favorites page"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <ul class="mob-menu-media-list">
+      <li class="mob-menu-svg-item">
+        <a
+          class="mob-menu-link-social-svg"
+          href="https://www.facebook.com/goITclub/"
+          rel="nofollow"
+          target="_blank"
+          aria-label="Adress to the Facebook page"
+        >
+          <svg class="mob-menu-media-icon-svg" width="28" height="28">
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mob-menu-svg-item">
+        <a
+          class="mob-menu-link-social-svg"
+          href="https://www.instagram.com/goitclub/"
+          rel="nofollow"
+          target="_blank"
+          aria-label="Adress to the Instagram page"
+        >
+          <svg class="mob-menu-media-icon-svg" width="28" height="28">
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mob-menu-svg-item">
+        <a
+          class="mob-menu-link-social-svg"
+          href="https://www.youtube.com/c/GoIT"
+          rel="nofollow"
+          target="_blank"
+          aria-label="Adress to the Youtube page"
+        >
+          <svg class="mob-menu-media-icon-svg" width="28" height="28">
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <section class="section fquote-section">
+  <div class="container fquote-container">
+    <!-- контейнер с цитатой дня -->
+    <div class="quote-day">
+      <svg class="quote-icon-run" width="34" height="32">
+        <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-icon-run"></use>
+      </svg>
+      <div class="quote-text-wrapper">
+        <h2 class="quote-title">Quote of the day</h2>
+        <p class="quote-text quote-animation"></p>
+        <p class="quote-author quote-animation"></p>
+        <svg class="quote-icon-commas">
+          <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-inverted-commas"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="fadvice-container">
+      <div class="fadvice-image"></div>
+      <div class="fadvice-content">
+        <svg class="fadvice-icon-fluent" width="20" height="20">
+          <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-fluent-black"></use>
+        </svg>
+        <div class="fadvice-text-wrapper">
+          <h2 class="fadvice-title">110 min</h2>
+          <p class="fadvice-subtitle">Daily norm of sports</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="section">
+  <div class="container">
+    <div class="favorites-container">
+      <h2 class="favorites-section-name">Favorites</h2>
+      <div class="favorites-content">
+        <ul class="favorites-exercises-list"></ul>
+        <ul class="pagination-list visually-hidden">
+          <!-- <li class="pagination-item pagination-item-active">
+            <a href="">1</a>
+          </li>
+          <li class="pagination-item"><a href="">2</a></li>
+          <li class="pagination-item"><a href="">3</a></li> -->
+        </ul>
+        <p class="favorites-not-found-exercises">
+          It appears that you haven't added any exercises to your favorites yet.
+          To get started, you can add exercises that you like to your favorites
+          for easier access in the future.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <button class="scroll-button is-hidden" type="button">
+  <svg class="scroll-arrow scroll-mini" width="13" height="13">
+    <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-arrow-top-right-mini"></use>
+  </svg>
+  <svg class="scroll-arrow scroll-big is-undisplayed" width="33" height="33">
+    <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-arrow-top-right-big"></use>
+  </svg>
+</button>
+
+    <div class="backdrop">
+      <div class="modal-exercise" data-id="" data-is-favorites="" data-is-changed="">
+  <button
+    class="modal-exercise-btn-close"
+    type="button"
+    aria-label="Close exercises details window"
+  >
+    <svg
+      class="modal-exercise-icon-x-black"
+      width="24"
+      height="24"
+      aria-label="Close icon"
+    >
+      <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-x-black"></use>
+    </svg>
+  </button>
+  <!-- Image -->
+  <div class="modal-exercise-image" id="img"></div>
+  <!-- Description -->
+  <div class="modal-exercise-description">
+    <h3 class="modal-exercise-title"></h3>
+    <!-- Rating -->
+    <div class="mod-exercise-rating">
+      <p class="mod-exercise-rating-value"></p>
+      <div class="mod-exercise-rating-body">
+        <ul class="mod-exercise-rating-list">
+          <li class="modal-exercise-rating-item">
+            <svg
+              class="modal-exercise-icon-star"
+              width="16"
+              height="16"
+              aria-label="star"
+            >
+              <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li class="modal-exercise-rating-item">
+            <svg
+              class="modal-exercise-icon-star"
+              width="16"
+              height="16"
+              aria-label="star"
+            >
+              <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li class="modal-exercise-rating-item">
+            <svg
+              class="modal-exercise-icon-star"
+              width="16"
+              height="16"
+              aria-label="star"
+            >
+              <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li class="modal-exercise-rating-item">
+            <svg
+              class="modal-exercise-icon-star"
+              width="16"
+              height="16"
+              aria-label="star"
+            >
+              <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li class="modal-exercise-rating-item">
+            <svg
+              class="modal-exercise-icon-star"
+              width="16"
+              height="16"
+              aria-label="star"
+            >
+              <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+            </svg>
+          </li>
+        </ul>
+
+        <div class="mod-exercise-rating-active">
+          <ul class="mod-exercise-rating-list-active">
+            <li class="modal-exercise-rating-item-active">
+              <svg
+                class="modal-exercise-icon-star-active"
+                width="16"
+                height="16"
+                aria-label="star"
+              >
+                <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+              </svg>
+            </li>
+            <li class="modal-exercise-rating-item-active">
+              <svg
+                class="modal-exercise-icon-star-active"
+                width="16"
+                height="16"
+                aria-label="star"
+              >
+                <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+              </svg>
+            </li>
+            <li class="modal-exercise-rating-item-active">
+              <svg
+                class="modal-exercise-icon-star-active"
+                width="16"
+                height="16"
+                aria-label="star"
+              >
+                <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+              </svg>
+            </li>
+            <li class="modal-exercise-rating-item-active">
+              <svg
+                class="modal-exercise-icon-sta-active"
+                width="16"
+                height="16"
+                aria-label="star"
+              >
+                <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+              </svg>
+            </li>
+            <li class="modal-exercise-rating-item-active">
+              <svg
+                class="modal-exercise-icon-star-active"
+                width="16"
+                height="16"
+                aria-label="star"
+              >
+                <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+              </svg>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Categories && instruction -->
+    <ul class="modal-exercise-list"></ul>
+    <p class="modal-exercise-instruction-text"></p>
+    <!-- Button container -->
+    <div class="modal-exercise-btn-box">
+      <button
+        class="modal-exercise-btn"
+        type="button"
+        aria-label="Add to favorites and remove from favorites button"
+      >
+        <span
+          class="mod-exercise-span"
+          data-add="Add to favorites"
+          data-remove="Remove from"
+        ></span>
+        <svg
+          class="modal-exercise-icon-heart"
+          width="20"
+          height="20"
+          aria-label="Heart icon"
+        >
+          <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-heart"></use>
+        </svg>
+      </button>
+      <button
+        class="modal-exercise-btn-rating"
+        type="button"
+        id="get-rating"
+        aria-label="Give a rating button"
+      >
+        Give a rating
+      </button>
+    </div>
+  </div>
+</div>
+
+      <div class="feedback-container visually-hidden">
+  <button class="feedback-close-button">
+    <svg
+      class="feedback-close-svg"
+      width="28"
+      height="28"
+      aria-label="сlose button"
+    >
+      <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-x-black"></use>
+    </svg>
+  </button>
+
+  <form class="feedback-form">
+    <p class="feedback-rating-p">Rating</p>
+
+    <div class="feedback-form-rating-container">
+      <div class="feedback-form-rating-value">0.0</div>
+
+      <div class="feedback-rating-stars-container">
+        <div class="feedback-rating-active"></div>
+
+        <label class="feedback-rating-stars-label">
+          <input class="visually-hidden" type="radio" name="rating" value="1" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use>
+          </svg>
+        </label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="2" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use></svg
+        ></label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="3" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use></svg
+        ></label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="4" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use></svg
+        ></label>
+        <label class="feedback-rating-stars-label"
+          ><input
+            class="visually-hidden"
+            type="radio"
+            name="rating"
+            value="5" />
+          <svg
+            class="feedback-rating-stars-svg"
+            width="24"
+            height="24"
+            aria-label="rating stars"
+          >
+            <use href="/b12efjstp/assets/sprite-7989babe.svg#icon-star"></use></svg
+        ></label>
+      </div>
+    </div>
+
+    <label class="feedback-form-label-email">
+      <input
+        class="feedback-form-input"
+        type="email"
+        name="email"
+        pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$"
+        placeholder="Email"
+        required
+      />
+    </label>
+
+    <label class="feedback-form-label-textarea">
+      <textarea
+        class="feedback-form-textarea"
+        name="comment"
+        placeholder="Your comment"
+        rows="4"
+        cols="50"
+        required
+      ></textarea>
+    </label>
+
+    <button
+      class="feedback-form-button"
+      type="submit"
+      aria-label="Feedback send button"
+    >
+      Send
+    </button>
+  </form>
+</div>
+
+    </div>
+    
+  </body>
+</html>
